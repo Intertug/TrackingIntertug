@@ -1,0 +1,4 @@
+function scripts(){
+	initialize();
+	request();
+}
