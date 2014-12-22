@@ -8,13 +8,13 @@
 	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
 	    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
 	    </script>
-	    <script type="text/javascript" id="mapsjs" src="../js/maps.js"></script>
-	    <script type="text/javascript" id="requestjs" src="../js/request.js"></script>
+	    <script type="text/javascript" id="mapsjs" src="../js/Maps.js"></script>
+	    <script type="text/javascript" id="requestjs" src="../js/Request.js"></script>
 	</head>
 	<body id="body" onload="scripts()">
 		<div id="container" class="container-fluid">
 			<div id="rowmap" class="row">
-				<div id="titlecon" class="col-sm-2">
+				<div id="sidebar" class="col-sm-2">
 					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
 					<ul class="nav nav-pills nav-stacked">
 						<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Inicio</a>
@@ -22,13 +22,11 @@
 						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Perú</a></li>
 						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Mexico</a></li>
 					</ul>
-					<div id="showrequest">
-						<!-- Aqui se inserta lo que regresa del ../js/request -->
+					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
 					</div>
 				</div>
 				<div id="map-container" class="col-sm-10">
-					<div id="map_canvas">
-						<!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
+					<div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
 					</div>
 				</div>
 			</div>
