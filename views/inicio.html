@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"> 
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
 	    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="../css/style.css"></style>
-	    <script type="text/javascript" id="scriptsjs" src="../js/scripts.js"></script>
+	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
 	    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
 	    </script>
 	    <script type="text/javascript" id="mapsjs" src="../js/maps.js"></script>
@@ -13,18 +14,22 @@
 	<body id="body" onload="scripts()">
 		<div id="container" class="container-fluid">
 			<div id="rowmap" class="row">
-				<div id="titlecon" class="col-sm-3">
-					<h1><img src="../imgs/logointertug.jpg"></h1>
+				<div id="titlecon" class="col-sm-2">
+					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Inicio</a>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Colombia</a></li>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Perú</a></li>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Mexico</a></li>
+					</ul>
+					<div id="showrequest">
+						<!-- Aqui se inserta lo que regresa del ../js/request -->
+					</div>
 				</div>
-				<div id="map-container" class="col-sm-9">
+				<div id="map-container" class="col-sm-10">
 					<div id="map_canvas">
 						<!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
 					</div>
-				</div>
-			</div>
-			<div id="request">
-				<div id="showrequest">
-					<!-- Aqui se inserta lo que regresa del request -->
 				</div>
 			</div>
 		</div>
