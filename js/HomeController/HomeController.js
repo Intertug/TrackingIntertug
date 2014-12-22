@@ -1,4 +1,9 @@
 function scripts(){
-	initialize();
-	request();
+	$.getScript('../js/Maps.js', function(){
+		initialize();
+	});
+	$.getScript('../js/Request.js', function(){
+		request();
+	});
+	
 }
