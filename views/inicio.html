@@ -14,18 +14,30 @@
 	<body id="body" onload="scripts()">
 		<div id="container" class="container-fluid">
 			<div id="rowmap" class="row">
-				<div id="sidebar" class="col-sm-2">
+				<div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
 					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
 					<ul class="nav nav-pills nav-stacked">
-						<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Inicio</a>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Colombia</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Perú</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Mexico</a></li>
+						<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+						</li>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
 					</ul>
 					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
 					</div>
 				</div>
-				<div id="map-container" class="col-sm-10">
+				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12">
+						<h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
+						<ul class="nav nav-tabs">
+							<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+							</li>
+							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+						</ul>
+					
+				</div>
+				<div id="map-container" class="col-xs-12 col-sm-10">
 					<div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
 					</div>
 				</div>

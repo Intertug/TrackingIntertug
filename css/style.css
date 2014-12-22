@@ -21,7 +21,7 @@ body {
 	padding: 0; 
 }
 
-#sidebar { 
+#sidebar, #sidebarmini { 
 	background-color: #ffca08;
 }
 
@@ -29,10 +29,15 @@ body {
 	width: 100%;
 }
 
+#titulosidebarmini{
+	margin: 0;
+}
+
 /*Estilos pagina ShipInfo */
 
 #sidebar{
 	height: 100%;
+	z-index: 1;
 }
 
 #shipimage{
