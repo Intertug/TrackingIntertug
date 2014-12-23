@@ -8,8 +8,6 @@
 	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
 	    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
 	    </script>
-	    <script type="text/javascript" id="mapsjs" src="../js/Maps.js"></script>
-	    <script type="text/javascript" id="requestjs" src="../js/Request.js"></script>
 	</head>
 	<body id="body" onload="scripts()">
 		<div id="container" class="container-fluid">
@@ -26,7 +24,7 @@
 					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
 					</div>
 				</div>
-				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12">
+				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
 						<h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
 						<ul class="nav nav-tabs">
 							<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
@@ -36,7 +34,7 @@
 							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
 						</ul>
 					
-				</div>
+				</div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
 				<div id="map-container" class="col-xs-12 col-sm-10">
 					<div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
 					</div>
