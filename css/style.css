@@ -25,8 +25,18 @@ body {
 	background-color: #ffca08;
 }
 
-#logointertug, #logointertug2{
+#logointertug{
 	width: 100%;
+}
+
+#logointertug2{
+	width: 50%;
+}
+
+@media screen and (max-width: 500px){
+	#logointertug2{
+		width: 80%;
+	}
 }
 
 #titulosidebarmini{

@@ -7,8 +7,9 @@ function shipInfoRequest() {
 		document.getElementById("showrequest").innerHTML = err;
 	}
 	xmlDoc = xmlhttp.responseXML;
+	show = xmlDoc.getElementsByTagName('ITEM')[1].childNodes[0].nodeValue;
 	if(xmlDoc != null){
-		document.getElementById("showrequest").innerHTML = xmlDoc;
+		document.getElementById("showrequest").innerHTML = '<span class="glyphicon glyphicon-tag"></span> '+show;
 	}else{
 		document.getElementById("showrequest").innerHTML = "Nulo";
 	}

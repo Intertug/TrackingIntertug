@@ -1,3 +1,5 @@
 function scripts(){
-	shipInfoRequest();
+	$.getScript('../js/ShipController/RequestShip.js', function(){
+		shipInfoRequest();
+	});
 }
