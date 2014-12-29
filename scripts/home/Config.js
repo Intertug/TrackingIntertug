@@ -1,1 +1,2 @@
-var home = angular.module('home', ['home.controllers']);
+var home = angular.module('home', ['home.controllers', 'home.services']);
+

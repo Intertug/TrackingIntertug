@@ -43,6 +43,8 @@ body {
 	margin: 0;
 }
 
+.angular-google-map-container { height: 100%; }
+
 /*Estilos pagina ShipInfo */
 
 #sidebar{
@@ -53,5 +55,3 @@ body {
 #shipimage{
 	width: 100%;
 }
-
-.angular-google-map-container { height: 100%; }
