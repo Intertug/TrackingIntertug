@@ -1,0 +1,1 @@
+var ccomcontrollers = angular.module('ccom.controllers', []);

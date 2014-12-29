@@ -1,0 +1,1 @@
+var vesselinfo = angular.module('vesselinfo', ['vesselinfo.controllers']);

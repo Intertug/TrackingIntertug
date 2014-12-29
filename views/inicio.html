@@ -14,16 +14,13 @@
 	    -->
 	    <script type="text/javascript" src="../scripts/vendor/lodash.min.js"></script>
 	    <script type="text/javascript" src="../scripts/vendor/angular-google-maps.js"></script>
+	   	<script type="text/javascript" src="../scripts/home/Controllers.js"></script>
+	   	<script type="text/javascript" src="../scripts/home/Config.js"></script>
 	    <script type="text/javascript" src="../scripts/app.js"></script>
-	    <!-- Adding the controllers -->
-	    <script type="text/javascirpt" src="../scripts/controllers/HomeController.js"></script>
-	    <!--
-	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
-		-->
 	</head>
 	<body id="body">
 		<div id="container" class="container-fluid">
-			<div id="rowmap" class="row">
+			<div id="rowmap" class="row sidebar-info">
 				<div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
 					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
 					<ul class="nav nav-pills nav-stacked">
@@ -37,7 +34,7 @@
 					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
 					</div>
 				</div>
-				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12 sidebar-info"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
 						<h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
 						<ul class="nav nav-tabs">
 							<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
@@ -47,8 +44,12 @@
 							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
 						</ul>
 				</div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+				
 				<div id="map-container" ng-controller="HomeController" class="col-xs-12 col-sm-10">
-					<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+					<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+						<ui-gmap-marker icon="marker.icon" coords="marker.coords" idKey="marker.id" options="marker.options">
+        				</ui-gmap-marker>
+					</ui-gmap-google-map>
 				</div>
 			</div>
 		</div>

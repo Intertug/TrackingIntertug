@@ -1,0 +1,1 @@
+var vesselroute = angular.module('vesselroute', ['vesselroute.controllers']);

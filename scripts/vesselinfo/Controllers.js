@@ -1,0 +1,1 @@
+var vesselinfoctr = angular.module('vesselinfo.controllers', []);
