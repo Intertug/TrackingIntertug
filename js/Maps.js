@@ -32,16 +32,9 @@ function initialize() {
 	  position: positionMarker,
 	  icon: image,
 	});
-
+  	content = gethtml('../views/infowindow.html');
 	var infowindow = new google.maps.InfoWindow({
-	    content:
-	    '<div class="container">'
-	    	+'<div class="row">'
-	    		+'<h3>Ship name</h3>'
-	    			+'<p>Este es el remolcador, aqui va una pequeña información. Para mas info, de clic en el boton.'
-	    			+'<br><br><button class="btn btn-primary" type="submit">Mas informacion</button>'
-	    	+'</div>'
-	    +'</div>',
+	    content: content,
   	});
 
 	marker.setMap(map);

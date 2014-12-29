@@ -1,15 +1,27 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="app">
 	<head>
 		<meta charset="utf-8"> 
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
 	    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	    <link rel="stylesheet" href="../css/style.css"></style>
+	    <script type="text/javascript" src="../scripts/vendor/angular/angular.js"></script>
+	    <!--
+	    <script type="text/javascript" src="../scripts/vendor/angular/angular.min.js.map"></script>
+	    -->
+	    <script type="text/javascript" src="../scripts/vendor/angular/angular-route.js"></script>
+	    <!--
+	    <script type="text/javascript" src="../scripts/vendor/angular/angular-route.min.js.map"></script>
+	    -->
+	    <script type="text/javascript" src="../scripts/vendor/lodash.min.js"></script>
+	    <script type="text/javascript" src="../scripts/vendor/angular-google-maps.js"></script>
+	    <script type="text/javascript" src="../scripts/app.js"></script>
+	    <!-- Adding the controllers -->
+	    <script type="text/javascirpt" src="../scripts/controllers/HomeController.js"></script>
+	    <!--
 	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
-	    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
-	    </script>
+		-->
 	</head>
-	<body id="body" onload="scripts()">
+	<body id="body">
 		<div id="container" class="container-fluid">
 			<div id="rowmap" class="row">
 				<div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
@@ -34,11 +46,9 @@
 							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
 							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
 						</ul>
-					
 				</div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-				<div id="map-container" class="col-xs-12 col-sm-10">
-					<div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
-					</div>
+				<div id="map-container" ng-controller="HomeController" class="col-xs-12 col-sm-10">
+					<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 				</div>
 			</div>
 		</div>
