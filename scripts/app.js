@@ -24,7 +24,7 @@ app.config(function($routeProvider, $locationProvider){
     .when('/info', {
         templateUrl: "/TrackingIntertug/views/shipinfo.html"
     })
-    .otherwise({ reditrectTo : "/" });
+    .otherwise({ reditrectTo : "/map" });
 
 //    $locationProvider.html5Mode(true);//.hashPrefix('!');
 });
