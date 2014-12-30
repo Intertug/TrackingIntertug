@@ -1,7 +1,7 @@
-var homecontrollers = angular.module('home.controllers', []);
+var homecontrollers = angular.module('home.controllers', ['ngResource']);
 
 homecontrollers.controller('HomeController',
-	['$scope', 'uiGmapGoogleMapApi', '$log' , function($scope, uiGmapGoogleMapApi, $log){
+	['$scope', 'uiGmapGoogleMapApi', '$log', function($scope, uiGmapGoogleMapApi, $log){
 	$scope.markers = [];
     // uiGmapGoogleMapApi is a promise.
     // The "then" callback function provides the google.maps object.
@@ -16,10 +16,6 @@ homecontrollers.controller('HomeController',
     });
 }]);
 
-homecontrollers.controller('PeticionController', ['$scope', '$http', function($scope, $http){
-    url= 'http://ing-sis.jairoesc.com/vehicle?auth-token=eyJpdiI6IjVaemhPamdMcnZ3SXU5RHlmbTFTcUE9PSIsInZhbHVlIjoiZmpDdTVaRHA4UisyNjFTUmd3RVF4a2txakZiQjlEQlZ2SkpQNFpzZjY5cz0iLCJtYWMiOiJjNGVjZjE5ZWM4MTE2ZDJkOGMwMzkwMmQ5MTlkMjBiYjYyMTgyOTk1MTc2NDIzZWZlNjRlMDgwN2VmNmRkZjQwIn0=';
-    $http.get(url)
-    .success(function (data, status, headers, config) {
-		$scope.data=data;
-	});
+homecontrollers.controller('PeticionController', ['$scope', 'RequestService', '$http', function($scope, RequestService, $http){
+    $scope.data = RequestService.get();
 }]);
