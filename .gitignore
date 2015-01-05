@@ -44,3 +44,4 @@ Temporary Items
 
 scripts/vendor/angular/docs/examples/*.*
 scripts/vendor/angular/docs/ptore2e/*.*
+/nbproject/private/
