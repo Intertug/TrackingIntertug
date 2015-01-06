@@ -53,7 +53,18 @@ homecontrollers.controller('HomeController',
             }]);
 
 homecontrollers.controller('PeticionController', ['$scope', 'RequestService', '$http', function ($scope, RequestService, $http) {
-        $scope.data = RequestService.get();
+        url = 'http://ing-sis.jairoesc.com/vehicle?auth-token=eyJpdiI6IlVFajh0a1ArNnhMVWJSZWdFTmxmNUE9PSIsInZhbHVlIjoibEJ0WmMrZlRIMDUzMWpxQjFGOUtxNFlHUEFaWGNtY0Q1RnhObGhIaUh1WT0iLCJtYWMiOiJmNWMxNzcxZWZlZGNhOTU4YWE0NTU5ZjI1NmE0ODM2OTk2ZDhhODRjNDcyNzRmODAxMTc3ZDcxNTlmOWQ0ZDMxIn0=';
+        RequestService.get(url).then(
+                function (data) {
+                    console.log(data['vehicle'][0].brand);
+                    $scope.data = data;
+                },
+                function (error) {
+                    console.log(error);
+                    $scope.error = error;
+                }
+        );
+        //this.data = RequestService.get();
     }]);
 /*var tugs = [
  ];
