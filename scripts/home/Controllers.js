@@ -7,8 +7,8 @@ homecontrollers.controller('HomeController',
                 uiGmapGoogleMapApi.then(function (maps) {
                     $scope.map = {
                         center: {
-                            latitude: 40.1451,
-                            longitude: -99.6680
+                            latitude: 9.024365,
+                            longitude: -72.913396
                         },
                         zoom: 4
                     };
