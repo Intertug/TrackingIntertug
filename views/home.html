@@ -10,7 +10,7 @@
                 <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
                 <li role="presentation"><a href="#" id="show"><span class="glyphicon glyphicon-tag"></span> </a></li>
             </ul>
-            <div ng-controller="PeticionController">
+            <div>
                 {{ 'Prueba de peticion a servidor con $http.get ' + data['vehicle'][0].brand }}
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
             </ul>
         </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-        <div id="map-container" class="col-xs-12 col-sm-10">
+        <div id="map-container" class="col-xs-12 col-sm-10" onload="initializeMap()">
             <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
                 <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" doCluster="true" clusterOptions="ClusterMarkersOptions">
                 </ui-gmap-markers>
