@@ -1,7 +1,7 @@
 <div id="container" class="container-fluid">
     <div id="rowmap" class="row">
         <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
-            <h1><img alt="intertug" title="intertug" id="logointertug" src="/TrackingIntertug/imgs/logointertug.jpg"></h1>
+            <h1><img alt="intertug" title="intertug" id="logointertug" src="imgs/logointertug.jpg"></h1>
             <ul class="nav nav-pills nav-stacked">
                 <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
                 </li>
@@ -11,11 +11,11 @@
                 <li role="presentation"><a href="#" id="show"><span class="glyphicon glyphicon-tag"></span> </a></li>
             </ul>
             <div>
-                {{ 'Prueba de peticion a servidor con $http.get ' + data['vehicle'][0].brand }}
+                {{ 'Prueba de peticion a servidor con $http.get ' + data['vehicle'][0].brand}}
             </div>
         </div>
         <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-            <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="/TrackingIntertug/imgs/logointertug.jpg"></h1>
+            <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="imgs/logointertug.jpg"></h1>
             <ul class="nav nav-tabs">
                 <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
                 </li>
@@ -24,9 +24,18 @@
                 <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
             </ul>
         </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-        <div id="map-container" class="col-xs-12 col-sm-10" onload="initializeMap()">
-            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-                <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" doCluster="true" clusterOptions="ClusterMarkersOptions">
+        <div id="map-container" class="col-xs-12 col-sm-10">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" control="control">
+                <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" doCluster="true"
+                                 clusterOptions="ClusterMarkersOptions">
+                    <ui-gmap-windows show="show" coords="'self'">
+                        <div ng-non-bindable>
+                            <h6>{{ title }}</h6>
+                            <p>Velocidad: {{ speed }} </p>
+                            <p>Fecha: {{ gpsdate }}</p>
+                            <br>
+                        </div>
+                    </ui-gmap-windows>
                 </ui-gmap-markers>
             </ui-gmap-google-map>
         </div>

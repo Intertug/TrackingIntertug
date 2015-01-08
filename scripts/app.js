@@ -18,11 +18,11 @@ app.config(function($routeProvider, $locationProvider){
         redirectTo: '/map'
     })
     .when('/map', {
-    	templateUrl: "/TrackingIntertug/views/home.html",
+    	templateUrl: "views/home.html",
         controller: "HomeController"
     })
     .when('/info', {
-        templateUrl: "/TrackingIntertug/views/shipinfo.html"
+        templateUrl: "views/shipinfo.html"
     })
     .otherwise({ reditrectTo : "/map" });
 

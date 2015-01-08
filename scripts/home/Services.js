@@ -7,10 +7,6 @@ homeservices.factory("getVesselsPosition", ['$resource', '$http', function ($res
                     url: url,
                     data: {GetData: '', SessionID: ''},
                     method: 'POST',
-                    headers: {
-                        //'Content-Type': 'application/json'
-                        //'SOAPAction': 'http://com.intertug.sio/GetVesselsPosition'
-                    }
                 }).then(function (response) {
                     return response.data;
                 });
