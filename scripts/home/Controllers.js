@@ -2,9 +2,6 @@ var homecontrollers = angular.module('home.controllers', ['ngResource']);
 
 homecontrollers.controller('HomeController',
         ['$scope', 'uiGmapGoogleMapApi', '$log', 'getVesselsPosition', 'uiGmapIsReady', function ($scope, uiGmapGoogleMapApi, $log, getVesselsPosition, uiGmapIsReady) {
-                // uiGmapGoogleMapApi is a promise.
-                // The "then" callback function provides the google.maps object.
-                $scope.control = {};
                 $scope.initializeMap = function () {
                     uiGmapGoogleMapApi.then(function (maps) {
                         $scope.map = {
@@ -17,7 +14,14 @@ homecontrollers.controller('HomeController',
                         $scope.options = {
                             scrollwheel: true
                         };
-
+                        $scope.map.markerEvents = {
+                            mouseover: function (gMarker, eventName, model, latLngArgs) {
+                                model.show = true;
+                            },
+                            mouseout: function (gMarker, eventName, model, latLngArgs) {
+                                model.show = false;
+                            }
+                        };
                         var markers = [];
                         for (i = 0; i < $scope.vessels.length; i++) {
                             var ret = {
@@ -31,7 +35,6 @@ homecontrollers.controller('HomeController',
                                 show: false
                             };
                             markers.push(ret);
-                            console.log($scope.vessels[i]);
                         }
                         $scope.randomMarkers = markers;
                         $scope.ClusterMarkersOptions = {};

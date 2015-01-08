@@ -27,12 +27,13 @@
         <div id="map-container" class="col-xs-12 col-sm-10">
             <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" control="control">
                 <ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'" doCluster="true"
-                                 clusterOptions="ClusterMarkersOptions">
-                    <ui-gmap-windows show="show" coords="'self'">
+                                 clusterOptions="ClusterMarkersOptions" events="map.markerEvents">
+                    <ui-gmap-windows show="show" coords="'self'" doRebuildAll="true">
                         <div ng-non-bindable>
                             <h6>{{ title }}</h6>
-                            <p>Velocidad: {{ speed }} </p>
-                            <p>Fecha: {{ gpsdate }}</p>
+                            <b>Velocidad</b>: {{ speed }}<br>
+                            <b>Fecha</b>: {{ gpsdate }}
+                            <br>
                             <br>
                         </div>
                     </ui-gmap-windows>

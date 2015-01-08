@@ -6,7 +6,7 @@ homeservices.factory("getVesselsPosition", ['$resource', '$http', function ($res
                 var promise = $http({
                     url: url,
                     data: {GetData: '', SessionID: ''},
-                    method: 'POST',
+                    method: 'POST'
                 }).then(function (response) {
                     return response.data;
                 });
