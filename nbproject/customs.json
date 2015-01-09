@@ -1,6 +1,14 @@
 {
     "elements": {
-        "ui-gmap-google-map": {},
+        "ui-gmap-google-map": {
+            "attributes": {
+                "draggable": {},
+                "center": {},
+                "options": {},
+                "zoom": {},
+                "control": {}
+            }
+        },
         "ui-gmap-markers": {},
         "ui-gmap-windows": {}
     },
