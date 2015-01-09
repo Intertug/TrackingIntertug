@@ -15,7 +15,19 @@ homecontrollers.controller('HomeController',
                             zoom: 4
                         };
                         $scope.options = {
-                            scrollwheel: true
+                            scrollwheel: true,
+                            streetViewControl: false,
+                            scaleControl: true,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN,
+                                    mapTypeControlOptions:{
+                                      position: google.maps.ControlPosition.RIGHT_TOP
+                                    },
+                            zoomControlOptions: {
+                              position: google.maps.ControlPosition.RIGHT_CENTER
+                            },
+                            panControlOptions: {
+                              position: google.maps.ControlPosition.RIGHT_CENTER
+                            },
                         };
                         /*markerEvents: Agregamos los eventos de mouseover para mostrar
                          * el info window y de mouseout para hacer que desaparezca. */
