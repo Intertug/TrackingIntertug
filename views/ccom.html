@@ -46,10 +46,16 @@
         </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
         <div id="map-container" class="col-xs-12 col-sm-10">
             <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" control="control">
+                <ui-gmap-marker
+                    idKey='marker.id'
+                    coords='marker.coords'
+                    icon='marker.icon'
+                    options="optionsm">
+                </ui-gmap-marker>
                 <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible'
                                   geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'>
-                                      
                 </ui-gmap-polyline>
+
             </ui-gmap-google-map>
         </div>
     </div>

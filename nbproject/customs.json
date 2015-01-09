@@ -10,7 +10,18 @@
             }
         },
         "ui-gmap-markers": {},
-        "ui-gmap-windows": {}
+        "ui-gmap-windows": {},
+        "ui-gmap-marker": {
+            "attributes": {
+                "idKey": {},
+                "icon": {},
+                "options": {},
+                "control": {},
+                "click": {},
+                "coords": {},
+                "events": {}
+            }
+        }
     },
     "attributes": {
         "aria-expanded": {
