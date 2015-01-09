@@ -1,7 +1,8 @@
 var homecontrollers = angular.module('home.controllers', ['ngResource']);
 
 homecontrollers.controller('HomeController',
-        ['$scope', 'uiGmapGoogleMapApi', '$log', 'getVesselsPosition', 'uiGmapIsReady', function ($scope, uiGmapGoogleMapApi, $log, getVesselsPosition, uiGmapIsReady) {
+        ['$scope', 'uiGmapGoogleMapApi', '$log', 'getVesselsPosition', 'uiGmapIsReady',
+            function ($scope, uiGmapGoogleMapApi, $log, getVesselsPosition, uiGmapIsReady) {
                 $scope.initializeMap = function () {
                     uiGmapGoogleMapApi.then(function (maps) {
                         $scope.map = {
@@ -42,7 +43,7 @@ homecontrollers.controller('HomeController',
                     });
                 };
                 $scope.getVessels = function () {
-                    url = 'http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition';
+                    var url = 'http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition';
                     getVesselsPosition.get(url).then(
                             function (data) {
                                 var json = $.parseJSON(data.d);
