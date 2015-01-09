@@ -4,5 +4,9 @@
         "ui-gmap-markers": {},
         "ui-gmap-windows": {}
     },
-    "attributes": {}
+    "attributes": {
+        "aria-expanded": {
+            "context": "a"
+        }
+    }
 }

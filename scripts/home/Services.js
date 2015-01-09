@@ -1,6 +1,7 @@
 var homeservices = angular.module('home.services', []);
-homeservices.factory("getVesselsPosition", ['$resource', '$http', function ($resource, $http) {
-        //url = 'http://ing-sis.jairoesc.com/vehicle?auth-token=eyJpdiI6IlVFajh0a1ArNnhMVWJSZWdFTmxmNUE9PSIsInZhbHVlIjoibEJ0WmMrZlRIMDUzMWpxQjFGOUtxNFlHUEFaWGNtY0Q1RnhObGhIaUh1WT0iLCJtYWMiOiJmNWMxNzcxZWZlZGNhOTU4YWE0NTU5ZjI1NmE0ODM2OTk2ZDhhODRjNDcyNzRmODAxMTc3ZDcxNTlmOWQ0ZDMxIn0=';
+homeservices.factory("getVesselsPosition", ['$http', function ($http) {
+        /* Este servicio realiza una peticion al servidor, que obtiene los vessels
+         * con su posicion, velocidad, fecha de posicion.*/
         return {
             get: function (url) {
                 var promise = $http({
@@ -13,5 +14,4 @@ homeservices.factory("getVesselsPosition", ['$resource', '$http', function ($res
                 return promise;
             }
         };
-        //return $resource(url, {}, {get: {method: "GET", isArray: false}});
     }]);
