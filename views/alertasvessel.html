@@ -43,7 +43,7 @@
                         <a class="list-group-item" ng-class="{'list-group-item-danger': alertafecha(vessel.gpsdate)}">
                             <b>Fecha GPS</b>: {{vessel.gpsdate}} 
                         </a>
-                        <a class="list-group-item">
+                        <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
                             <b>Velocidad</b>: {{vessel.speed}}
                         </a>
                         <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
@@ -53,28 +53,6 @@
                             <b>Fecha RPM</b>: {{vessel.rpmdate}}
                         </a>
                     </div>
-                    <!--<table class="table table-bordered">
-                        <thead class="">
-                            <tr>
-                                <th>ID</th>
-                                <th>Posición</th>
-                                <th>Fecha GPS</th>
-                                <th>Velocidad</th>
-                                <th>RPM</th>
-                                <th>Fecha RPM</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="active">
-                                <td>{{vessel.id}}</td>
-                                <td>({{vessel.lat}},<br>{{vessel.long}})</td>
-                                <td>{{vessel.gpsdate}}</td>
-                                <td>{{vessel.speed}}</td>
-                                <td>{{vessel.rpm|| "Sin RPM"}}</td>
-                                <td>{{vessel.rpmdate|| "Sin RPM"}}</td>
-                            </tr>
-                        </tbody>
-                    </table>-->
                 </div>
             </div>
         </div>

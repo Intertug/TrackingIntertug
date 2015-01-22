@@ -41,7 +41,20 @@ alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', fun
             } else {
                 return false;
             }
-
         };
+
+        $scope.alertavelocidad = function (vessel) {
+            if (vessel.vesselname == 'CAREX') {
+                if (parseInt(vessel.speed) > 8) {
+                    return true;
+                }
+            } else {
+                if (parseInt(vessel.speed) > 9) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
         $scope.getVessels();
     }]);
