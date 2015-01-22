@@ -1,0 +1,59 @@
+<div id="container" class="container-fluid">
+    <div id="rowmap" class="row">
+        <div id="sidebar" data-spy="affix" class="col-sm-2 affix hidden-xs">
+            <h1><img alt="intertug" title="intertug" id="logointertug" src="imgs/logointertug.jpg"></h1>
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation"><a href="#/map"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                </li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+            </ul>
+        </div>
+        <div id="sidebarmini" class="visible-xs-inline-block col-xs-12">
+            <h1 id="titulosidebarmini">
+                <img alt="intertug" title="intertug" id="logointertug2" src="imgs/logointertug.jpg">
+            </h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                </li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-10 col-sm-offset-2">
+            <div id="content" class="col-xs-12 col-sm-6" ng-repeat="vessel in vessels">
+                <div class="page-header">
+                    <h2 id="shipnametitle">{{ vessel.vesselname}}</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-condensed table-bordered">
+                            <thead class="">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Posición</th>
+                                    <th>Fecha GPS</th>
+                                    <th>Velocidad</th>
+                                    <th>RPM</th>
+                                    <th>Fecha RPM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="active">
+                                    <td>{{vessel.id}}</td>
+                                    <td>({{vessel.lat}},<br>{{vessel.long}})</td>
+                                    <td>{{vessel.gpsdate}}</td>
+                                    <td>{{vessel.speed}}</td>
+                                    <td>{{vessel.rpm || "Sin RPM"}}</td>
+                                    <td>{{vessel.rpmdate || "Sin RPM"}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

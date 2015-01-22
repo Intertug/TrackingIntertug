@@ -1,0 +1,1 @@
+var alertsvessels = angular.module('alertsvessel', ['alertsvessel.controllers', 'alertsvessel.services']);
