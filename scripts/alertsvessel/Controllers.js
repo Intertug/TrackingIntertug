@@ -7,19 +7,41 @@ alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', fun
                     function (data) {
                         var json = $.parseJSON(data.d);
                         $scope.vessels = json.vessels.vessel;
+                        console.log($scope.vessels);
                     },
                     function (error) {
                         $scope.error = error;
                     }
             );
         };
-        
-        $scope.norpm = function(rpm){
-            if(typeof(rpm) != 'undefined'){
+
+        $scope.norpm = function (rpm) {
+            if (typeof (rpm) != 'undefined') {
                 return false;
-            }else{
+            } else {
                 return true;
             }
-        }
+        };
+
+        $scope.alertafecha = function (date) {
+            var fecha = new Date(date);
+            var actual = new Date();
+            if (fecha.getFullYear() < actual.getFullYear()) {
+                return true;
+            } else if (fecha.getMonth() < actual.getMonth()) {
+                return true;
+            } else if (fecha.getDay() < actual.getDay()) {
+                return true;
+            } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
+                return true;
+            } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) <= 1) {
+                if (parseInt(fecha.getMinutes()) > 58) {
+                    return true;
+                }
+            } else {
+                return false;
+            }
+
+        };
         $scope.getVessels();
     }]);
