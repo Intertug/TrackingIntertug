@@ -1,6 +1,7 @@
 var alertcontrollers = angular.module('alertsvessel.controllers', []);
 
-alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', function ($scope, getVesselsInfo) {
+alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', '$interval',
+    function ($scope, getVesselsInfo, $interval) {
         $scope.getVessels = function () {
             var url = 'http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition';
             getVesselsInfo.get(url).then(
@@ -55,6 +56,7 @@ alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', fun
             }
             return false;
         };
-
         $scope.getVessels();
+        var minuto = 120000;
+        $interval($scope.getVessels, minuto);
     }]);
