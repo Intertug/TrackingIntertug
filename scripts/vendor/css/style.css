@@ -1,4 +1,4 @@
-/* Estilos de la página de inicio */
+/* Estilos de la pÃ¡gina de inicio */
 html {
     height: 100%;
 }
@@ -8,7 +8,7 @@ body {
     padding: 0
 }
 
-#container, #rowmap, #map-container, #sidebar, #map_canvas {
+#rowmap, #map-container, #sidebar, #map_canvas {
     height: 100%;
     margin-top: 0;
     margin-bottom: 0;
@@ -16,9 +16,21 @@ body {
     padding-bottom: 0;
 }
 
-#container, #rowmap, #map-container{
+#rowmap, #map-container{
     margin:0;
     padding: 0; 
+    width: 100%;
+}
+
+.no-margin-padding{
+    margin: 0;
+    padding:0;
+}
+
+@media screen and (max-width: 767px){
+    #containersidebar{
+        height: 20%;
+    }
 }
 
 #sidebar, #sidebarmini { 
@@ -55,3 +67,4 @@ body {
 #shipimage{
     width: 100%;
 }
+

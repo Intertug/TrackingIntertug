@@ -7,12 +7,19 @@ alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', fun
                     function (data) {
                         var json = $.parseJSON(data.d);
                         $scope.vessels = json.vessels.vessel;
-                        console.log($scope.vessels);
                     },
                     function (error) {
                         $scope.error = error;
                     }
             );
         };
+        
+        $scope.norpm = function(rpm){
+            if(typeof(rpm) != 'undefined'){
+                return false;
+            }else{
+                return true;
+            }
+        }
         $scope.getVessels();
     }]);
