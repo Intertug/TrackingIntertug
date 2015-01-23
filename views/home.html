@@ -47,13 +47,13 @@
     </div>
 </div>
 <div class="col-sm-10 no-margin-padding">
-    <div id="map-container" class="col-xs-12 col-sm-12">
+    <div id="map-container" class="col-xs-12 col-sm-12" ng-controller="MapController">
         <ui-gmap-google-map center="map.center" 
                             zoom="map.zoom" 
                             draggable="true" 
                             options="options" 
                             control="control">
-            <ui-gmap-markers models="randomMarkers" 
+            <ui-gmap-markers models="Markers" 
                              coords="'self'" 
                              icon="'icon'" 
                              doCluster="true"

@@ -1,23 +1,15 @@
 var alertcontrollers = angular.module('alertsvessel.controllers', []);
 
-alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', '$interval',
-    function ($scope, getVesselsInfo, $interval) {
+alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$interval',
+    function ($scope, VesselsRequest, $interval) {
         $scope.getVessels = function () {
-            var url = 'http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition';
-            getVesselsInfo.get(url).then(
-                    function (data) {
-                        var json = $.parseJSON(data.d);
-                        $scope.vessels = json.vessels.vessel;
-                        console.log($scope.vessels);
-                    },
-                    function (error) {
-                        $scope.error = error;
-                    }
-            );
+            VesselsRequest.post().then(function (vessels) {
+                $scope.vessels = vessels;
+            });
         };
 
         $scope.norpm = function (rpm) {
-            if (typeof (rpm) != 'undefined') {
+            if (typeof (rpm) !== 'undefined') {
                 return false;
             } else {
                 return true;
@@ -57,6 +49,6 @@ alertcontrollers.controller('AlertsController', ['$scope', 'getVesselsInfo', '$i
             return false;
         };
         $scope.getVessels();
-        var minuto = 120000;
-        $interval($scope.getVessels, minuto);
+        var dosminuto = 120000;
+        $interval($scope.getVessels, dosminuto);
     }]);

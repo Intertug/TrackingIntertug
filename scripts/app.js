@@ -11,14 +11,14 @@ angular.module('uiGmapgoogle-maps').config(function (uiGmapGoogleMapApiProvider)
  configuramos las rutas. Además, agregamos aquí los controladores
  que pueden ser comunes para toda la aplicación. Por ejemplo, la
  creación del mapa.   */
-var app = angular.module('app', ['uiGmapgoogle-maps', 'home', 'ccom', 'alertsvessel', 'ngRoute']);
+var app = angular.module('app', ['uiGmapgoogle-maps', 'ccom', 'alertsvessel', 'ngRoute', 'InitializeMap', 'request']);
 
 app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         redirectTo: '/map'
     }).when('/map', {
-        templateUrl: "views/home.html",
-        controller: "HomeController"
+        templateUrl: "views/home.html"
+        //controller: "HomeController"
     }).when('/info', {
         templateUrl: "views/shipinfo.html"
     }).when('/ccom', {

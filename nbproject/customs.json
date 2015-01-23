@@ -9,8 +9,23 @@
                 "control": {}
             }
         },
-        "ui-gmap-markers": {},
-        "ui-gmap-windows": {},
+        "ui-gmap-markers": {
+            "attributes": {
+                "clusterOptions": {},
+                "models": {},
+                "icon": {},
+                "coords": {},
+                "doCluster": {},
+                "events": {}
+            }
+        },
+        "ui-gmap-windows": {
+            "attributes": {
+                "show": {},
+                "doRebuildAll": {},
+                "coords": {}
+            }
+        },
         "ui-gmap-marker": {
             "attributes": {
                 "idKey": {},
