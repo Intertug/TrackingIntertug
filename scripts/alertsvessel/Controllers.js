@@ -2,6 +2,10 @@ var alertcontrollers = angular.module('alertsvessel.controllers', []);
 
 alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$interval',
     function ($scope, VesselsRequest, $interval) {
+
+        var dosminuto = 120000;
+        $scope.vessels = {};
+
         $scope.getVessels = function () {
             VesselsRequest.post().then(function (vessels) {
                 $scope.vessels = vessels;
@@ -9,11 +13,10 @@ alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$i
         };
 
         $scope.norpm = function (rpm) {
-            if (typeof (rpm) !== 'undefined') {
+            if (typeof (rpm) !== 'undefined')
                 return false;
-            } else {
+            else
                 return true;
-            }
         };
 
         $scope.alertafecha = function (date) {
@@ -28,7 +31,7 @@ alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$i
             } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
                 return true;
             } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) <= 1) {
-                if (parseInt(fecha.getMinutes()) > 58) {
+                if (((59 - parseInt(actual.getMinutes())) + parseInt(fecha.getMinutes())) > 58) {
                     return true;
                 }
             } else {
@@ -37,18 +40,15 @@ alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$i
         };
 
         $scope.alertavelocidad = function (vessel) {
-            if (vessel.vesselname == 'CAREX') {
-                if (parseInt(vessel.speed) > 8) {
+            if (vessel.id == 5) {
+                if (parseFloat(vessel.speed) > 8)
                     return true;
-                }
             } else {
-                if (parseInt(vessel.speed) > 9) {
+                if (parseFloat(vessel.speed) > 9)
                     return true;
-                }
             }
             return false;
         };
         $scope.getVessels();
-        var dosminuto = 120000;
         $interval($scope.getVessels, dosminuto);
     }]);
