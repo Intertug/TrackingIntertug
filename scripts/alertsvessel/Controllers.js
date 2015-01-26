@@ -31,10 +31,10 @@ alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$i
             } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
                 return true;
             } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) == 1) {
-                if (((59 - parseInt(actual.getMinutes())) + (59-parseInt(fecha.getMinutes()))) > 58) {
+                if ((parseInt(actual.getMinutes()) + (60 - parseInt(fecha.getMinutes()))) > 59) {
                     return true;
                 }
-            } else{
+            } else {
                 return false;
             }
         };
