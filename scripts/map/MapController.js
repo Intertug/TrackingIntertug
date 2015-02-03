@@ -28,7 +28,19 @@ initializemap.controller('MapController',
                             zoom: 4 //Zoom por default al cargar
                         };
                         $scope.options = {
-                            scrollwheel: true //Mostrar la barra de zoom y boton de movimiento
+                            scrollwheel: true,
+                            streetViewControl: false,
+                            scaleControl: true,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN,
+                            mapTypeControlOptions: {
+                                position: google.maps.ControlPosition.RIGHT_TOP
+                            },
+                            zoomControlOptions: {
+                                position: google.maps.ControlPosition.RIGHT_CENTER
+                            },
+                            panControlOptions: {
+                                position: google.maps.ControlPosition.RIGHT_CENTER
+                            },
                         };
                     });
                 };
