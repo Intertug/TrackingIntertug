@@ -1,16 +1,15 @@
 function request() {
-	xmlhttp = new XMLHttpRequest();
-	try{
-		xmlhttp.open("GET", "../views/parts.xml", false);
-		xmlhttp.send();
-	}catch(err){
-		document.getElementById("showrequest").innerHTML = err;
-	}
-	xmlDoc = xmlhttp.responseXML;
-	show = xmlDoc.getElementsByTagName('ITEM')[1].childNodes[0].nodeValue;
-	if(xmlDoc != null){
-		document.getElementById("show").innerHTML = '<span class="glyphicon glyphicon-tag"></span> '+show;
-	}else{
-		document.getElementById("showrequest").innerHTML = "Nulo";
-	}
+    try {
+        $.post(
+                "http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition",
+                "SessionID=&GetData=",
+                function (data) {
+                    var datos = JSON.parse(data.childNodes[0].innerHTML);
+                    console.log(datos);
+                    return datos.vessels.vessel;
+                }
+        );
+    } catch (err) {
+        console.log(err);
+    }
 }

@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
-	    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="../css/style.css"></style>
-	    <script type="text/javascript" id="homecontroller" src="../js/HomeController/HomeController.js"></script>
-	    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
-	    </script>
-	</head>
-	<body id="body" onload="scripts()">
-		<div id="container" class="container-fluid">
-			<div id="rowmap" class="row">
-				<div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
-					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
-					<ul class="nav nav-pills nav-stacked">
-						<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-						</li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-						<li role="presentation"><a href="#" id="show"><span class="glyphicon glyphicon-tag"></span> </a></li>
-					</ul>
-					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
-					</div>
-				</div>
-				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-						<h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
-						<ul class="nav nav-tabs">
-							<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-							</li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-						</ul>
-					
-				</div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-				<div id="map-container" class="col-xs-12 col-sm-10">
-					<div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--	JavaScripts		-->
-		<script src="../js/jquery.min.js"></script>
-   		<script src="../bootstrap/js/bootstrap.min.js"></script>
-	</body>
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
+        <title>Tracking Intertug</title>
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
+        </script>
+    </head>
+    <body id="body" onload="initialize()">
+        <div id="container" class="container-fluid">
+            <div id="rowmap" class="row">
+                <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
+                    <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                        </li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                        <li role="presentation"><a href="#" id="show"><span class="glyphicon glyphicon-tag"></span> </a></li>
+                    </ul>
+                    <div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
+                    </div>
+                </div>
+                <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+                    <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                        </li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                    </ul>
+
+                </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+                <div id="map-container" class="col-xs-12 col-sm-10">
+                    <div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--	JavaScripts		-->
+        <script src="../js/jquery.min.js"></script>
+
+        <script src="../js/HomeController/Request.js"></script>
+        <script src="../js/Maps.js"></script>
+        <script src="../js/HomeController/HomeController.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>
