@@ -11,15 +11,20 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
     google.maps.InfoWindow.prototype.opened = false;
     var vessels = request();
-    for (i = 0; i < vessels - length; i++) {
-        var position = new google.maps.LatLng(vessels[i].lat, vessels[i].long);
-        markers[i] = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: vessels[i].id
+    console.log(vessels);
+    function setMarkers() {
+        for (i = 0; i < vessels - length; i++) {
+            var position = new google.maps.LatLng(vessels[i].lat, vessels[i].long);
+            markers[i] = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: vessels[i].id
 
-        });
-        markers[i].setMap(map);
+            });
+            console.log(markers[i]);
+            markers[i].setMap(map);
+        }
+
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
