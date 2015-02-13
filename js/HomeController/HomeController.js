@@ -1,7 +1,7 @@
 function initmap() {
-    var centro = new google.maps.LatLng(-3.920865, -80.507695);
+    var centro = new google.maps.LatLng( 9.024365, -72.913396);
     var opciones = {
-        zoom: 9,
+        zoom: 4,
         center: centro,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         mapTypeControl: true,
@@ -22,13 +22,14 @@ function initmap() {
     };
     var mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     try {
-        request(setMarkers, mapa);
+        getVesselsRequest(setMarkers, mapa);
     } catch (err) {
         console.log(err);
     }
 }
 
 function setMarkers(vessels, mapa) {
+    vessels = vessels.vessel;
     for (i = 0; i < vessels.length; i++) {
         var position = new google.maps.LatLng(vessels[i].lat, vessels[i].long);
         var marcador = new google.maps.Marker({
