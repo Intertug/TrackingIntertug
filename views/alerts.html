@@ -36,41 +36,37 @@
 
                 </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
                 <div id="map-container" class="col-xs-12 col-sm-10">
-
-
-
                     <script id="vessels-info" type="text/x-handlebars-template">
-                        
                         {{#vessel}}
-                        <div id="content-vessels" class="col-xs-12 col-sm-6">
-                            <div class="page-header">
-                        <h2 id="shipnametitle">{{vesselname}}</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="list-group">
-                                <a class="list-group-item">
-                                    <b>ID</b>: {{id}} 
-                                </a>
-                                <a class="list-group-item">
-                                    <b>Posición GPS</b>: ({{lat}} , {{long}})
-                                </a>
-                                <a class="list-group-item" ng-class="{'list-group-item-danger': alertafecha(vessel.gpsdate)}">
-                                    <b>Fecha GPS</b>: {{gpsdate}} 
-                                </a>
-                                <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
-                                    <b>Velocidad</b>: {{speed}}
-                                </a>
-                                <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
-                                    <b>RPM</b>: {{rpm}}
-                                </a>
-                                <a class="list-group-item" ng-hide="norpm(vessel.rpm)" ng-class="{'list-group-item-danger' : alertafecha(vessel.rpmdate)}">
-                                    <b>Fecha RPM</b>: {{rpmdate}}
-                                </a>
+                            <div id="content-vessels" class="col-xs-12 col-sm-6">
+                                <div class="page-header">
+                                    <h2 id="shipnametitle">{{vesselname}}</h2>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="list-group">
+                                            <a class="list-group-item">
+                                                <b>ID</b>: {{id}} 
+                                            </a>
+                                            <a class="list-group-item">
+                                                <b>Posición GPS</b>: ({{lat}} , {{long}})
+                                            </a>
+                                            <a class="list-group-item" ng-class="{'list-group-item-danger': alertafecha(vessel.gpsdate)}">
+                                                <b>Fecha GPS</b>: {{gpsdate}} 
+                                            </a>
+                                            <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
+                                                <b>Velocidad</b>: {{speed}}
+                                            </a>
+                                            <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
+                                                <b>RPM</b>: {{rpm}}
+                                            </a>
+                                            <a class="list-group-item" ng-hide="norpm(vessel.rpm)" ng-class="{'list-group-item-danger' : alertafecha(vessel.rpmdate)}">
+                                                <b>Fecha RPM</b>: {{rpmdate}}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-            </div>
                         {{/vessel}}
                     </script>
                 </div>
