@@ -9,7 +9,7 @@
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
         </script>
     </head>
-    <body id="body" onload="initialize()">
+    <body id="body" onload="initmap()">
         <div id="container" class="container-fluid">
             <div id="rowmap" class="row">
                 <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
@@ -37,14 +37,13 @@
 
                 </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
                 <div id="map-container" class="col-xs-12 col-sm-10">
-                    <div id="map_canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
+                    <div id="map-canvas"><!-- Aqui se inserta el Mapa de Google, proveniente de ../js/maps.js -->
                     </div>
                 </div>
             </div>
         </div>
         <!--	JavaScripts		-->
         <script src="../js/jquery.min.js"></script>
-
         <script src="../js/HomeController/Request.js"></script>
         <script src="../js/Maps.js"></script>
         <script src="../js/HomeController/HomeController.js"></script>
