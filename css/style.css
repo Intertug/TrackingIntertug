@@ -1,4 +1,4 @@
-/* Estilos de la página de inicio */
+/* Estilos de la pÃ¡gina de inicio */
 html {
 	height: 100%;
 }
@@ -8,15 +8,17 @@ body {
 	padding: 0
 }
 
-#container, #rowmap, #map-container, #sidebar, #map-canvas {
+#container-map, #container, #rowmap, #map-container, #sidebar, #map-canvas {
 	height: 100%;
 	margin-top: 0;
 	margin-bottom: 0;
 	padding-top: 0;
 	padding-bottom: 0;
 }
-
-#container, #rowmap, #map-container{
+#sidebar, #map-container{
+    width:100%;
+}
+#container-map, #container, #rowmap, #map-container{
 	margin:0;
 	padding: 0; 
 }

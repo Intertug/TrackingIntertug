@@ -9,67 +9,70 @@
         <script src="../js/handlebars.js"></script>
     </head>
     <body id="body" onload="initAlerts()">
-        <div id="container" class="container-fluid">
-            <div id="rowmap" class="row">
-                <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
-                    <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
-                    <ul class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-                        </li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-                        <li role="presentation"><a href="#" id="show"><span class="glyphicon glyphicon-tag"></span> </a></li>
-                    </ul>
-                    <div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
-                    </div>
+        <div id="container" data-spy="affix" class="col-sm-2 affix">
+            <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
+                <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
+                </ul>
+                <div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
                 </div>
-                <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-                    <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-                        </li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-                        <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-                    </ul>
-
-                </div><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-                <div id="map-container" class="col-xs-12 col-sm-10">
-                    <script id="vessels-info" type="text/x-handlebars-template">
-                        {{#vessel}}
-                            <div id="content-vessels" class="col-xs-12 col-sm-6">
-                                <div class="page-header">
-                                    <h2 id="shipnametitle">{{vesselname}}</h2>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="list-group">
-                                            <a class="list-group-item">
-                                                <b>ID</b>: {{id}} 
-                                            </a>
-                                            <a class="list-group-item">
-                                                <b>Posición GPS</b>: ({{lat}} , {{long}})
-                                            </a>
-                                            <a class="list-group-item" ng-class="{'list-group-item-danger': alertafecha(vessel.gpsdate)}">
-                                                <b>Fecha GPS</b>: {{gpsdate}} 
-                                            </a>
-                                            <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
-                                                <b>Velocidad</b>: {{speed}}
-                                            </a>
-                                            <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
-                                                <b>RPM</b>: {{rpm}}
-                                            </a>
-                                            <a class="list-group-item" ng-hide="norpm(vessel.rpm)" ng-class="{'list-group-item-danger' : alertafecha(vessel.rpmdate)}">
-                                                <b>Fecha RPM</b>: {{rpmdate}}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {{/vessel}}
-                    </script>
-                </div>
+            </div>
+            <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+                <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div id="container-map" class="col-sm-10 col-sm-offset-2">
+            <div id="map-container" class="col-xs-12 col-sm-10">
+                <script id="vessels-info" type="text/x-handlebars-template">
+            {{#vessel}}
+            <div id="content-vessels" class="col-xs-12 col-sm-6">
+            <div class="page-header">
+            <h2 id="shipnametitle">{{vesselname}}</h2>
+            </div>
+            <div class="row">
+            <div class="col-sm-12">
+            <div class="list-group">
+            <a class="list-group-item">
+            <b>ID</b>: {{id}} 
+            </a>
+            <a class="list-group-item">
+            <b>Posición GPS</b>: ({{lat}} , {{long}})
+            </a>
+            <a class="list-group-item" class="{{alerta}}">
+            <b>Fecha GPS</b>: {{gpsdate}} 
+            </a>
+            <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
+            <b>Velocidad</b>: {{speed}}
+            </a>
+            {{#if rpm}}
+            <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
+            <b>RPM</b>: {{rpm}}
+            </a>
+            <a class="list-group-item" class="{{alerta}}">
+            <b>Fecha RPM</b>: {{rpmdate}}
+            </a>
+            {{/if}}
+            </div>
+            </div>
+            </div>
+            </div>
+            {{/vessel}}
+                </script>
             </div>
         </div>
         <!--	JavaScripts		-->
