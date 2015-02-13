@@ -14,35 +14,45 @@ function alertas(vessels, mapa) {
 }
 
 
-Handlebars.registerHelper("alertafecha", function (gpsdate) {
-    var fecha = new Date(gpsdate);
+Handlebars.registerHelper("alertafecha", function (date) {
+    var fecha = new Date(date);
     var actual = new Date();
-    var alerta = "<a class='list-group-item-danger'>" + gpsdate.fn(this) + "</a>";
-    var alerta2 = "<a class=''>" + gpsdate.fn(this) + "</a>";
+    var bool = false;
     if (fecha.getFullYear() < actual.getFullYear()) {
-        return new Handlebars.SafeString(alerta);
+        bool = true;
     } else if (fecha.getMonth() < actual.getMonth()) {
-        return new Handlebars.SafeString(alerta);;
+        bool = true;
     } else if (fecha.getDay() < actual.getDay()) {
-        return new Handlebars.SafeString(alerta);;
+        bool = true;
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
-        return new Handlebars.SafeString(alerta);;
+        bool = true;
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) == 1) {
         if ((parseInt(actual.getMinutes()) + (60 - parseInt(fecha.getMinutes()))) > 59) {
-            return new Handlebars.SafeString(alerta);;
+            bool = true;
         }
     } else {
-        return new Handlebars.SafeString(alerta2);
+        bool = false;
+    }
+    if (bool) {
+        return "list-group-item-danger";
+    } else {
+        return "";
     }
 });
 
-Handlebars.registerHelper("alertafecha", function (vessel) {
+Handlebars.registerHelper("alertavelocidad", function (vessel) {
+    var bool = false;
     if (vessel.id == 5) {
         if (parseFloat(vessel.speed) > 8)
-            return true;
+            bool = true;
+    } else if (parseFloat(vessel.speed) > 9){
+        bool = true;
     } else {
-        if (parseFloat(vessel.speed) > 9)
-            return true;
+        bool = false;
     }
-    return false;
+    if(bool){
+        return "list-group-item-danger";
+    }else{
+        return "";
+    }
 });

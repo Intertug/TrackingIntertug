@@ -53,17 +53,17 @@
             <a class="list-group-item">
             <b>Posición GPS</b>: ({{lat}} , {{long}})
             </a>
-            <a class="list-group-item" class="{{alerta}}">
+            <a class="list-group-item {{alertafecha gpsdate}}" >
             <b>Fecha GPS</b>: {{gpsdate}} 
             </a>
-            <a class="list-group-item" ng-class="{'list-group-item-danger': alertavelocidad(vessel)}">
+            <a class="list-group-item {{alertavelocidad speed}}">
             <b>Velocidad</b>: {{speed}}
             </a>
             {{#if rpm}}
             <a class="list-group-item" ng-hide="norpm(vessel.rpm)">
             <b>RPM</b>: {{rpm}}
             </a>
-            <a class="list-group-item" class="{{alerta}}">
+            <a class="list-group-item {{alertafecha gpsdate}}" class="{{alerta}}">
             <b>Fecha RPM</b>: {{rpmdate}}
             </a>
             {{/if}}
