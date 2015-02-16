@@ -1,3 +1,7 @@
+function callFunctions() {
+    initmap();
+}
+
 function initmap() {
     var centro = new google.maps.LatLng(9.024365, -72.913396);
     var opciones = {
@@ -61,4 +65,5 @@ function setMarkers(vessels, mapa) {
     }
     var clusterOptions = {gridSize: 60};
     var mc = new MarkerClusterer(mapa, markers, clusterOptions);
+    setInterval(getVesselsRequest, 60000, setMarkers, mapa);
 }
