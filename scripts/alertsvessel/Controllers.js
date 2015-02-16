@@ -26,7 +26,7 @@ alertcontrollers.controller('AlertsController', ['$scope', 'VesselsRequest', '$i
                 return true;
             } else if (fecha.getMonth() < actual.getMonth()) {
                 return true;
-            } else if (fecha.getDay() < actual.getDay()) {
+            } else if (fecha.getDate() < actual.getDate()) {
                 return true;
             } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
                 return true;
