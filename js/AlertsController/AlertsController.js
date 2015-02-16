@@ -1,6 +1,7 @@
 function initAlerts() {
     try {
         getVesselsRequest(alertas, "mapa");
+        setInterval(window.location.reload.bind(window.location), 60000);
     } catch (err) {
         console.log(err);
     }

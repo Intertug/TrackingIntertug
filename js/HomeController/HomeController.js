@@ -1,7 +1,6 @@
-function callFunctions() {
-    initmap();
-}
-
+var markers = [];
+var mapa;
+var mc = null;
 function initmap() {
     var centro = new google.maps.LatLng(9.024365, -72.913396);
     var opciones = {
@@ -24,7 +23,7 @@ function initmap() {
             position: google.maps.ControlPosition.BOTTOM_CENTER
         }
     };
-    var mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
+    mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     try {
         getVesselsRequest(setMarkers, mapa);
     } catch (err) {
@@ -33,8 +32,15 @@ function initmap() {
 }
 
 function setMarkers(vessels, mapa) {
+    for (var i = 0; i < markers.length; i++) {
+        console.log(i);
+        markers[i].setMap(null);
+    }
+    if (mc != null) {
+        mc.clearMarkers();
+    }
+    markers = [];
     vessels = vessels.vessel;
-    var markers = [];
     var infowindow = null;
     infowindow = new google.maps.InfoWindow({
         content: ""
@@ -63,7 +69,8 @@ function setMarkers(vessels, mapa) {
             infowindow.close();
         });
     }
-    var clusterOptions = {gridSize: 60};
-    var mc = new MarkerClusterer(mapa, markers, clusterOptions);
+    var clusterOptions = {gridSize: 60, maxZoom: 12};
+
+    mc = new MarkerClusterer(mapa, markers, clusterOptions);
     setInterval(getVesselsRequest, 60000, setMarkers, mapa);
 }
