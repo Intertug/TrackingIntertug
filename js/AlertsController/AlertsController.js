@@ -22,7 +22,7 @@ Handlebars.registerHelper("alertafecha", function (date) {
         bool = true;
     } else if (fecha.getMonth() < actual.getMonth()) {
         bool = true;
-    } else if (fecha.getDay() < actual.getDay()) {
+    } else if (fecha.getDate() < actual.getDate()) {
         bool = true;
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
         bool = true;
