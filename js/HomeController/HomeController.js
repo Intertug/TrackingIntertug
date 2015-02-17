@@ -32,14 +32,16 @@ function initmap() {
 }
 
 function setMarkers(vessels, mapa) {
+    console.log(markers);
     for (var i = 0; i < markers.length; i++) {
-        console.log(i);
+        console.log( markers.length);
         markers[i].setMap(null);
     }
-    if (mc != null) {
+    if (mc !== null) {
         mc.clearMarkers();
     }
     markers = [];
+    mc = null;
     vessels = vessels.vessel;
     var infowindow = null;
     infowindow = new google.maps.InfoWindow({
@@ -70,7 +72,6 @@ function setMarkers(vessels, mapa) {
         });
     }
     var clusterOptions = {gridSize: 60, maxZoom: 12};
-
     mc = new MarkerClusterer(mapa, markers, clusterOptions);
     setInterval(getVesselsRequest, 60000, setMarkers, mapa);
 }

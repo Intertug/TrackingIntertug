@@ -1,14 +1,15 @@
 function initAlerts() {
     try {
         getVesselsRequest(alertas, "mapa");
-        setInterval(window.location.reload.bind(window.location), 60000);
+        setInterval(initAlerts, 60000);
     } catch (err) {
         console.log(err);
     }
 }
+var fuente = $('#vessels-info').html();
 
 function alertas(vessels, mapa) {
-    var fuente = $('#vessels-info').html();
+    console.log(fuente);
     var plantilla = Handlebars.compile(fuente);
     var html = plantilla(vessels);
     $('#map-container').html(html);
@@ -46,14 +47,14 @@ Handlebars.registerHelper("alertavelocidad", function (vessel) {
     if (vessel.id == 5) {
         if (parseFloat(vessel.speed) > 8)
             bool = true;
-    } else if (parseFloat(vessel.speed) > 9){
+    } else if (parseFloat(vessel.speed) > 9) {
         bool = true;
     } else {
         bool = false;
     }
-    if(bool){
+    if (bool) {
         return "list-group-item-danger";
-    }else{
+    } else {
         return "";
     }
 });
