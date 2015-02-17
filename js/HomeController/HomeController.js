@@ -25,14 +25,13 @@ function initmap() {
     };
     mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     try {
-        getVesselsRequest(setMarkers, mapa);
+        getVesselsRequest(setMarkers);
     } catch (err) {
         console.log(err);
     }
 }
 
-function setMarkers(vessels, mapa) {
-    console.log(markers);
+function setMarkers(vessels) {
     for (var i = 0; i < markers.length; i++) {
         console.log( markers.length);
         markers[i].setMap(null);
@@ -73,5 +72,5 @@ function setMarkers(vessels, mapa) {
     }
     var clusterOptions = {gridSize: 60, maxZoom: 12};
     mc = new MarkerClusterer(mapa, markers, clusterOptions);
-    setInterval(getVesselsRequest, 60000, setMarkers, mapa);
+    setInterval(getVesselsRequest, 60000, setMarkers);
 }

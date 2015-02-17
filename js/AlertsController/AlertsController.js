@@ -1,7 +1,7 @@
 function initAlerts() {
     try {
-        getVesselsRequest(alertas, "mapa");
-        setInterval(getVesselsRequest, 60000, alertas, "mapa");
+        getVesselsRequest(alertas);
+        setInterval(getVesselsRequest, 60000, alertas);
     } catch (err) {
         console.log(err);
     }
@@ -16,9 +16,7 @@ function alertas(vessels, mapa) {
 
 
 Handlebars.registerHelper("alertafecha", function (date) {
-    var fecha = new Date(date);
-    var actual = new Date();
-    var bool = false;
+    var fecha = new Date(date), actual = new Date(), bool = false;
     if (fecha.getFullYear() < actual.getFullYear()) {
         bool = true;
     } else if (fecha.getMonth() < actual.getMonth()) {
