@@ -1,7 +1,7 @@
 function initAlerts() {
     try {
         getVesselsRequest(alertas, "mapa");
-        setInterval(initAlerts, 60000);
+        setInterval(getVesselsRequest, 60000, alertas, "mapa");
     } catch (err) {
         console.log(err);
     }
@@ -9,7 +9,6 @@ function initAlerts() {
 var fuente = $('#vessels-info').html();
 
 function alertas(vessels, mapa) {
-    console.log(fuente);
     var plantilla = Handlebars.compile(fuente);
     var html = plantilla(vessels);
     $('#map-container').html(html);
