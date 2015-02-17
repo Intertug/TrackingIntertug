@@ -1,6 +1,4 @@
-var markers = [];
-var mapa;
-var mc = null;
+var markers = [], mapa, mc = null;
 function initmap() {
     var centro = new google.maps.LatLng(9.024365, -72.913396);
     var opciones = {
@@ -8,17 +6,17 @@ function initmap() {
         center: centro,
         mapTypeId: google.maps.MapTypeId.TERRAIN,
         mapTypeControl: true,
+        streetViewControl: false,
+        scaleControl: true,
         mapTypeControlOptions: {
             position: google.maps.ControlPosition.LEFT_TOP
         },
-        streetViewControl: false,
         zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_CENTER
         },
         panControlOptions: {
             position: google.maps.ControlPosition.LEFT_CENTER
         },
-        scaleControl: true,
         scaleControlOptions: {
             position: google.maps.ControlPosition.BOTTOM_CENTER
         }
@@ -26,6 +24,7 @@ function initmap() {
     mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     try {
         getVesselsRequest(setMarkers);
+        setInterval(getVesselsRequest, 60000, setMarkers);
     } catch (err) {
         console.log(err);
     }
@@ -33,15 +32,12 @@ function initmap() {
 
 function setMarkers(vessels) {
     for (var i = 0; i < markers.length; i++) {
-        console.log( markers.length);
         markers[i].setMap(null);
     }
     if (mc !== null) {
         mc.clearMarkers();
     }
-    markers = [];
-    mc = null;
-    vessels = vessels.vessel;
+    markers = [], mc = null, vessels = vessels.vessel;
     var infowindow = null;
     infowindow = new google.maps.InfoWindow({
         content: ""
@@ -61,7 +57,6 @@ function setMarkers(vessels) {
             html: content
         });
         markers[i] = marcador;
-
         google.maps.event.addListener(marcador, 'mouseover', function () {
             infowindow.setContent(this.html);
             infowindow.open(mapa, this);
@@ -72,5 +67,4 @@ function setMarkers(vessels) {
     }
     var clusterOptions = {gridSize: 60, maxZoom: 12};
     mc = new MarkerClusterer(mapa, markers, clusterOptions);
-    setInterval(getVesselsRequest, 60000, setMarkers);
 }
