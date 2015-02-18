@@ -17,12 +17,19 @@ function alertas(vessels, mapa) {
 
 Handlebars.registerHelper("alertafecha", function (date) {
     var fecha = new Date(date), actual = new Date(), bool = false;
+    console.log(fecha.getDate() - actual.getDate());
     if (fecha.getFullYear() < actual.getFullYear()) {
         bool = true;
     } else if (fecha.getMonth() < actual.getMonth()) {
         bool = true;
-    } else if (fecha.getDate() < actual.getDate()) {
+    } else if (actual.getDate() - fecha.getDate() > 1) {
         bool = true;
+    } else if (actual.getDate() - fecha.getDate() == 1) {
+        if (parseInt(actual.getHours()) == 0 && parseInt(fecha.getHours()) == 23) {
+            bool = false;
+        }else{
+            bool = true;
+        }
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
         bool = true;
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) == 1) {
@@ -30,6 +37,7 @@ Handlebars.registerHelper("alertafecha", function (date) {
             bool = true;
         }
     } else {
+
         bool = false;
     }
     if (bool) {
