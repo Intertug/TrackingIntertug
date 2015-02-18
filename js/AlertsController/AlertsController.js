@@ -17,7 +17,6 @@ function alertas(vessels, mapa) {
 
 Handlebars.registerHelper("alertafecha", function (date) {
     var fecha = new Date(date), actual = new Date(), bool = false;
-    console.log(fecha.getDate() - actual.getDate());
     if (fecha.getFullYear() < actual.getFullYear()) {
         bool = true;
     } else if (fecha.getMonth() < actual.getMonth()) {
