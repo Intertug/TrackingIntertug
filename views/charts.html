@@ -6,9 +6,15 @@
         <title>Tracking Intertug</title>
         <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/style.css">
-        <script src="../js/handlebars.js"></script>
+        <script type="text/javascript" src="../js/ChartsController/ChartsController.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("visualization", "1.0", {packages: ["corechart"]});
+            google.setOnLoadCallback(initCharts);
+        </script>
+
     </head>
-    <body id="body" onload="initAlerts()">
+    <body id="body" onload="initCharts()">
         <div id="container" data-spy="affix" class="col-sm-2 affix">
             <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
                 <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
@@ -36,47 +42,12 @@
         <div class="col-sm-2"></div>
         <div id="container-map" class="col-sm-10 col-sm-offset-2">
             <div id="map-container" class="col-xs-12 col-sm-10">
-                <script id="vessels-info" type="text/x-handlebars-template">
-            {{#vessel}}
-            <div id="content-vessels" class="col-xs-12 col-sm-6">
-            <div class="page-header">
-            <h2 id="shipnametitle">{{vesselname}}</h2>
-            </div>
-            <div class="row">
-            <div class="col-sm-12">
-            <div class="list-group">
-            <a class="list-group-item">
-            <b>ID</b>: {{id}} 
-            </a>
-            <a class="list-group-item">
-            <b>Posición GPS</b>: ({{lat}} , {{long}})
-            </a>
-            <a class="list-group-item {{alertafecha gpsdate}}" >
-            <b>Fecha GPS</b>: {{gpsdate}} 
-            </a>
-            <a class="list-group-item {{alertavelocidad speed}}">
-            <b>Velocidad</b>: {{speed}}
-            </a>
-            {{#if rpm}}
-            <a class="list-group-item">
-            <b>RPM</b>: {{rpm}}
-            </a>
-            <a class="list-group-item {{alertafecha rpmdate}}" class="{{alerta}}">
-            <b>Fecha RPM</b>: {{rpmdate}}
-            </a>
-            {{/if}}
-            </div>
-            </div>
-            </div>
-            </div>
-            {{/vessel}}
-                </script>
+                <div id="chart_div"></div>
             </div>
         </div>
-        <!--	JavaScripts		-->
+        <!--	JavaScripts     -->
         <script src="../js/jquery.min.js"></script>
         <script src="../js/shared/GetVesselsRequest.js"></script>
-        <script src="../js/AlertsController/AlertsController.js"></script>
         <script src="../bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>

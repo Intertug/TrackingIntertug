@@ -24,10 +24,9 @@ Handlebars.registerHelper("alertafecha", function (date) {
     } else if (actual.getDate() - fecha.getDate() > 1) {
         bool = true;
     } else if (actual.getDate() - fecha.getDate() == 1) {
+        bool = true;
         if (parseInt(actual.getHours()) == 0 && parseInt(fecha.getHours()) == 23) {
             bool = false;
-        }else{
-            bool = true;
         }
     } else if ((parseInt(actual.getHours()) - parseInt(fecha.getHours())) > 1) {
         bool = true;
@@ -36,13 +35,10 @@ Handlebars.registerHelper("alertafecha", function (date) {
             bool = true;
         }
     } else {
-
         bool = false;
     }
     if (bool) {
         return "list-group-item-danger";
-    } else {
-        return "";
     }
 });
 
