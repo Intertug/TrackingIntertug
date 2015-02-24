@@ -1,101 +1,103 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8"> 
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
-	    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="../css/style.css"></style>
-	    <script type="text/javascript" src="../js/ShipController/ShipController.js"></script>
-	</head>
-	<body id="body" onload="scripts()">
-		<div id="container" class="container-fluid">
-			<div id="rowmap" class="row">
-				<div id="sidebar" data-spy="affix" class="col-sm-2 affix hidden-xs">
-					<h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
-					<ul class="nav nav-pills nav-stacked">
-						<li role="presentation"><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-						</li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-						<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-					</ul>
-				</div>
-				<div id="sidebarmini" class="visible-xs-inline-block col-xs-12">
-						<h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
-						<ul class="nav nav-tabs">
-							<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-							</li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-							<li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-						</ul>
-					
-				</div>
-				<div id="content" class="col-xs-12 col-sm-10 col-sm-offset-2">
-					<div class="page-header">
-						<h1 id="shipnametitle">Ship Name</h1>
-					</div>
-					<div class="row">
-						<div class="media col-sm-6 col-sm-offset-3">
-							<img id="shipimage" src="http://www.modelismonaval.com/galeria2/jasedeno/mardebarens2.jpg">
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<div class="col-sm-12">
-							<p>Ship information in paragraph. All text information that can be put in this.
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum at metus nec suscipit. Phasellus interdum lectus et quam imperdiet auctor mollis luctus leo. Aenean sed dapibus tellus, a varius turpis. Ut eget velit consequat, semper lorem et, sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc orci mi, pulvinar et quam eu, facilisis pharetra quam. Maecenas et vulputate justo. Aenean nec est volutpat, finibus dolor ac, dignissim enim. Cras efficitur magna ut augue condimentum, et laoreet mauris mollis. Ut maximus tortor sed purus lacinia finibus. Donec posuere metus id est sagittis, ut laoreet leo tempor. Duis vestibulum leo augue, eget fringilla diam faucibus id. Suspendisse facilisis metus sit amet purus interdum interdum.
-							</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<h2>Información</h2>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Name</th>
-										<th>Gas</th>
-										<th>4</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>#</td>
-										<td>Name</td>
-										<td>Gas</td>
-										<td>4</td>
-									</tr>
-									<tr>
-										<td>#</td>
-										<td>Name</td>
-										<td>Gas</td>
-										<td>4</td>
-									</tr>
-									<tr>
-										<td>#</td>
-										<td>Name</td>
-										<td>Gas</td>
-										<td>4</td>
-									</tr>
-									<tr>
-										<td>#</td>
-										<td>Name</td>
-										<td>Gas</td>
-										<td>4</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--	JavaScripts		-->
-		<script src="../js/jquery.min.js"></script>
-   		<script src="../bootstrap/js/bootstrap.min.js"></script>
-	</body>
+    <head>
+        <meta charset="utf-8"> 
+        <title>Ship info</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    <body id="body">
+        <div id="container" data-spy="affix" class="col-sm-2 affix">
+            <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
+                <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
+                </ul>
+                <div id="showrequest"><!-- Aqui se inserta lo que regresa del ../js/request -->
+                </div>
+            </div>
+            <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
+                <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
+                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
+                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div id="container-map" class="col-sm-10">
+            <div id="content" class="col-xs-12 col-sm-12">
+                <div class="page-header">
+                    <h1 id="shipnametitle">Ship Name</h1>
+                </div>
+                <div class="row">
+                    <div class="media col-sm-6 col-sm-offset-3">
+                        <img id="shipimage" src="http://www.modelismonaval.com/galeria2/jasedeno/mardebarens2.jpg">
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Ship information in paragraph. All text information that can be put in this.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque interdum at metus nec suscipit. Phasellus interdum lectus et quam imperdiet auctor mollis luctus leo. Aenean sed dapibus tellus, a varius turpis. Ut eget velit consequat, semper lorem et, sodales massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc orci mi, pulvinar et quam eu, facilisis pharetra quam. Maecenas et vulputate justo. Aenean nec est volutpat, finibus dolor ac, dignissim enim. Cras efficitur magna ut augue condimentum, et laoreet mauris mollis. Ut maximus tortor sed purus lacinia finibus. Donec posuere metus id est sagittis, ut laoreet leo tempor. Duis vestibulum leo augue, eget fringilla diam faucibus id. Suspendisse facilisis metus sit amet purus interdum interdum.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Información</h2>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Gas</th>
+                                    <th>4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Name</td>
+                                    <td>Gas</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Name</td>
+                                    <td>Gas</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Name</td>
+                                    <td>Gas</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>#</td>
+                                    <td>Name</td>
+                                    <td>Gas</td>
+                                    <td>4</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--	JavaScripts		-->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+    </body>
 </html>

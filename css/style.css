@@ -1,58 +1,49 @@
 /* Estilos de la pÃ¡gina de inicio */
 html {
-	height: 100%;
+    height: 100%;
 }
 body {
-	height: 100%;
-	margin: 0;
-	padding: 0
+    height: 100%;
+    margin: 0;
+    padding: 0
 }
-
 #container-map, #container, #rowmap, #map-container, #sidebar, #map-canvas {
-	height: 100%;
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
+    height: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 #sidebar, #map-container{
     width:100%;
 }
 #container-map, #container, #rowmap, #map-container{
-	margin:0;
-	padding: 0; 
+    margin:0;
+    padding: 0; 
 }
-
 #sidebar, #sidebarmini { 
-	background-color: #ffca08;
+    background-color: #ffca08;
 }
-
 #logointertug{
-	width: 100%;
+    width: 100%;
 }
-
 #logointertug2{
-	width: 50%;
+    width: 50%;
 }
-
 @media screen and (max-width: 500px){
-	#logointertug2{
-		width: 80%;
-	}
+    #logointertug2{
+        width: 80%;
+    }
 }
-
 #titulosidebarmini{
-	margin: 0;
+    margin: 0;
 }
-
 /*Estilos pagina ShipInfo */
-
 #sidebar{
-	height: 100%;
-	z-index: 1;
+    height: 100%;
+    z-index: 1;
 }
-
 #shipimage{
-	width: 100%;
+    width: 100%;
 }
 
