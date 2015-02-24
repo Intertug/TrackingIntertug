@@ -1,15 +1,17 @@
+var templateForHandlebar = $('#vessels-info').html();
+
 function initAlerts() {
     try {
-        getVesselsRequest(alertas);
-        setInterval(getVesselsRequest, 60000, alertas);
+        getVesselsRequest(compileHandlebar);
+        setInterval(getVesselsRequest, 60000, compileHandlebar);
     } catch (err) {
         console.log(err);
+        throw err;
     }
 }
-var fuente = $('#vessels-info').html();
 
-function alertas(vessels, mapa) {
-    var plantilla = Handlebars.compile(fuente);
+function compileHandlebar(vessels, mapa) {
+    var plantilla = Handlebars.compile(templateForHandlebar);
     var html = plantilla(vessels);
     $('#map-container').html(html);
 }
