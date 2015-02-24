@@ -51,17 +51,17 @@
             <a class="list-group-item">
             <b>Posición GPS</b>: ({{lat}} , {{long}})
             </a>
-            <a class="list-group-item {{alertafecha gpsdate}}" >
+            <a class="list-group-item {{isOutdatedDate gpsdate}}" >
             <b>Fecha GPS</b>: {{gpsdate}} 
             </a>
-            <a class="list-group-item {{alertavelocidad speed}}">
+            <a class="list-group-item {{isOverSpeedTop speed}}">
             <b>Velocidad</b>: {{speed}}
             </a>
             {{#if rpm}}
             <a class="list-group-item">
             <b>RPM</b>: {{rpm}}
             </a>
-            <a class="list-group-item {{alertafecha rpmdate}}" class="{{alerta}}">
+            <a class="list-group-item {{isOutdatedDate rpmdate}}" class="{{alerta}}">
             <b>Fecha RPM</b>: {{rpmdate}}
             </a>
             {{/if}}
