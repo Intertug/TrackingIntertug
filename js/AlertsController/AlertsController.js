@@ -17,7 +17,16 @@ function compileHandlebar(vessels, mapa) {
 
 
 Handlebars.registerHelper("isOutdatedDate", function (date) {
-    var fecha = new Date(date), actual = new Date();
+    var fechita = date.split(' ');
+    var fecha1 = fechita[0].split('-');
+    var fecha2 = fechita[1].split(':');
+    var año = fecha1[0];
+    var mes = fecha1[1];
+    var dia = fecha1[2];
+    var hora = fecha2[0];
+    var minutos = fecha2[1];
+    var segundos = fecha2[2];
+    var fecha = new Date(año, mes, dia, hora, minutos, segundos), actual = new Date();
     if (fecha.getFullYear() < actual.getFullYear()) {
         return "list-group-item-danger";
     } else if (fecha.getMonth() < actual.getMonth()) {
