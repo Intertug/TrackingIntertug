@@ -34,7 +34,7 @@ body {
 
 @media screen and (max-width: 500px){
     #logointertug2{
-        width: 80%;
+        //width: 80%;
     }
 }
 #titulosidebarmini{
@@ -51,7 +51,7 @@ body {
 
 @media screen and (max-width: 767px){
     #container{
-        height: 165px;
+        height: 180px;
     }
     
     #container-map{
@@ -59,7 +59,7 @@ body {
     }
     
     #sidebarmini{
-        height: 165px;
+        height: 100%;
         margin-top:0;
     }
 }
