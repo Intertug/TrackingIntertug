@@ -9,8 +9,8 @@
         <script src="../js/handlebars.js"></script>
     </head>
     <body id="body" onload="initAlerts()">
-        <div id="container" data-spy="affix" class="col-sm-2 affix">
-            <div id="sidebar" class="col-xs-2 col-sm-2 hidden-xs">
+        <div id="container"  class="col-xs-12 col-sm-2">
+            <div id="sidebar" data-spy="affix" class="col-xs-2 col-sm-2 hidden-xs affix">
                 <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
                 <ul class="nav nav-pills nav-stacked">
                     <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
@@ -33,9 +33,8 @@
                 </ul>
             </div>
         </div>
-        <div class="col-sm-2"></div>
-        <div id="container-map" class="col-sm-10 col-sm-offset-2">
-            <div id="map-container" class="col-xs-12 col-sm-10">
+        <div id="container-map" class="col-xs-12 col-sm-10 col-sm-offset-2">
+            <div id="map-container" class="col-xs-12 col-sm-12">
                 <script id="vessels-info" type="text/x-handlebars-template">
                     {{#vessel}}
                     <div id="content-vessels" class="col-xs-12 col-sm-6">

@@ -7,6 +7,7 @@ body {
     margin: 0;
     padding: 0
 }
+
 #container-map, #container, #rowmap, #map-container, #sidebar, #map-canvas {
     height: 100%;
     margin-top: 0;
@@ -15,7 +16,7 @@ body {
     padding-bottom: 0;
 }
 #sidebar, #map-container{
-    width:100%;
+    //width:100%;
 }
 #container-map, #container, #rowmap, #map-container{
     margin:0;
@@ -30,6 +31,7 @@ body {
 #logointertug2{
     width: 50%;
 }
+
 @media screen and (max-width: 500px){
     #logointertug2{
         width: 80%;
@@ -41,9 +43,23 @@ body {
 /*Estilos pagina ShipInfo */
 #sidebar{
     height: 100%;
-    z-index: 1;
+    z-index: 3;
 }
 #shipimage{
     width: 100%;
 }
 
+@media screen and (max-width: 767px){
+    #container{
+        height: 165px;
+    }
+    
+    #container-map{
+        //margin-top: 165px;
+    }
+    
+    #sidebarmini{
+        height: 165px;
+        margin-top:0;
+    }
+}
