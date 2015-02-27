@@ -28,6 +28,7 @@ Handlebars.registerHelper("isOutdatedDate", function (date) {
     var segundos = fecha2[2];
     var fecha = new Date(año, mes, dia, hora, minutos, segundos), actual = new Date();
     var diferenciaEnMinutos = Math.abs((actual - fecha) / 60000);
+    console.log(diferenciaEnMinutos);
     if (diferenciaEnMinutos >= 30) {
         return "list-group-item-danger";
     } else {
