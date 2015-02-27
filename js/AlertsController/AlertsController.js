@@ -21,7 +21,7 @@ Handlebars.registerHelper("isOutdatedDate", function (date) {
     var fecha1 = fechita[0].split('-');
     var fecha2 = fechita[1].split(':');
     var año = fecha1[0];
-    var mes = fecha1[1];
+    var mes = fecha1[1]-1;
     var dia = fecha1[2];
     var hora = fecha2[0];
     var minutos = fecha2[1];
