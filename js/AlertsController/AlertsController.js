@@ -27,6 +27,8 @@ Handlebars.registerHelper("isOutdatedDate", function (date) {
     var minutos = fecha2[1];
     var segundos = fecha2[2];
     var fecha = new Date(año, mes, dia, hora, minutos, segundos), actual = new Date();
+    console.log("Fecha gps:" + fecha);
+    console.log("Fecha actual:" + actual);
     if (fecha.getFullYear() < actual.getFullYear()) {
         return "list-group-item-danger";
     } else if (fecha.getMonth() < actual.getMonth()) {
