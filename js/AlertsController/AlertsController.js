@@ -1,5 +1,5 @@
 var templateForHandlebar = $('#vessels-info').html();
-
+var actualServerDate;
 function initAlerts() {
     try {
         getVesselsRequest(compileHandlebar);
@@ -11,24 +11,16 @@ function initAlerts() {
 
 function compileHandlebar(vessels, mapa) {
     var plantilla = Handlebars.compile(templateForHandlebar);
+    actualServerDate = vessels.actualdate;
     var html = plantilla(vessels);
     $('#map-container').html(html);
 }
 
 
 Handlebars.registerHelper("isOutdatedDate", function (date) {
-    var fechita = date.split(' ');
-    var fecha1 = fechita[0].split('-');
-    var fecha2 = fechita[1].split(':');
-    var año = fecha1[0];
-    var mes = fecha1[1] - 1;
-    var dia = fecha1[2];
-    var hora = fecha2[0];
-    var minutos = fecha2[1];
-    var segundos = fecha2[2];
-    var fecha = new Date(año, mes, dia, hora, minutos, segundos), actual = new Date();
-    var diferenciaEnMinutos = Math.abs((actual - fecha) / 60000);
-    console.log(diferenciaEnMinutos);
+    var fechaGps = stringToDate(date);
+    var fechaActual = stringToDate(actualServerDate);
+    var diferenciaEnMinutos = Math.abs((fechaActual - fechaGps) / 60000);
     if (diferenciaEnMinutos >= 30) {
         return "list-group-item-danger";
     } else {
@@ -46,3 +38,18 @@ Handlebars.registerHelper("isOverSpeedTop", function (vessel) {
         return "";
     }
 });
+
+function stringToDate(date){
+    //String to date function - Compatible con IE
+    var divDateOfTime = date.split(' ');
+    var divDate = divDateOfTime[0].split('-');
+    var divTime = divDateOfTime[1].split(':');
+    var año = divDate[0];
+    var mes = divDate[1] - 1;
+    var dia = divDate[2];
+    var hora = divTime[0];
+    var minutos = divTime[1];
+    var segundos = divTime[2];
+    var fecha = new Date(año, mes, dia, hora, minutos, segundos)
+    return fecha;
+}

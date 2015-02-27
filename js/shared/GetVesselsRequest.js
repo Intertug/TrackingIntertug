@@ -5,6 +5,7 @@ function getVesselsRequest(callback) {
                 .done(function (data) {
                     var datos = data.childNodes[0].childNodes[0].nodeValue;
                     datos = JSON.parse(datos);
+                    datos.vessels.actualdate = datos._dte;
                     var vessels = datos.vessels;
                     callback(vessels);
                 });
@@ -12,5 +13,4 @@ function getVesselsRequest(callback) {
         console.log(err);
         throw err;
     }
-
 }
