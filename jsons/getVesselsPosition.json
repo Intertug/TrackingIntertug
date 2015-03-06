@@ -84,13 +84,13 @@
                 "long": "-80.73716666666667"
             },
             {
-                "id": "1",
+                "id": "2",
                 "platformname": "CX15",
                 "lat": "-3.60750",
                 "long": "-80.73667"
             },
             {
-                "id": "1",
+                "id": "3",
                 "platformname": "Z1-8-A",
                 "lat": "-3.42000",
                 "long": "-80.58362"
@@ -117,7 +117,7 @@
                 "long": "-80.751183",
                 "radius": "1852",
                 "opacity": "0.4",
-                "fillcolor": "#FF0000"
+                "fillcolor": "#220230"
             },
             {
                 "id": "2",
@@ -134,19 +134,25 @@
         "mooringarea": [
             {
                 "id": "1",
-                "mooringarea": "Amarre 2T",
+                "mooringareaname": "Amarradero Albacora Sur (Multiboyas para Buque Tanque)",
+                "fillColor": "#FF0000",
+                "opacity": "0.35",
                 "vertices": [
                     {
-                        "lat": "-5.1232",
-                        "long": "-80.2390"
+                        "lat": "-3.418054",
+                        "long": "-80.590462"
                     },
                     {
-                        "lat": "-4.1232",
-                        "long": "-80.2390"
+                        "lat": "-3.415512",
+                        "long": "-80.589995"
                     },
                     {
-                        "lat": "-4.5232",
-                        "long": "-80.2390"
+                        "lat": "-3.414516",
+                        "long": "-80.588213"
+                    },
+                    {
+                        "lat": "-3.415872",
+                        "long": "-80.587411"
                     }
                 ]
             }

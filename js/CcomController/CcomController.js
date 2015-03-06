@@ -1,4 +1,4 @@
-var vesselsMarkers = [], docksMarkers = [], anchorageAreaMarkers = [], mapa, mc = null;
+var vesselsMarkers = [], docksMarkers = [], anchorageAreaMarkers = [], mooringAreasMarkers = [], mapa, mc = null;
 
 function ccomRequest() {
     try {
@@ -26,12 +26,14 @@ function initmap(datos) {
     };
     mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     setFunctions(datos);
+    setDocks(datos);
+    setAnchorageAreas(datos);
+    setMooringAreas(datos);
 }
 
 function setFunctions(datos) {
     setVessels(datos);
-    setDocks(datos);
-    setAnchorageAreas(datos);
+
 }
 
 function setVessels(datos) {
@@ -41,28 +43,28 @@ function setVessels(datos) {
     infowindow = new google.maps.InfoWindow({
         content: ""
     });
-    for (i = 0; i < vessels.length; i++) {
+    for (var i = 0; i < vessels.length; i++) {
         var content = "<h6>" + vessels[i].vesselname + " </h6>"
                 + "<b> Velocidad </b>: " + vessels[i].speed + " Nudos<br>"
                 + "<b> Fecha </b>: " + vessels[i].gpsdate
                 + "<br><br>";
         var position = new google.maps.LatLng(vessels[i].lat, vessels[i].long);
-        var marcador = new google.maps.Marker({
+        vesselsMarkers[i] = new google.maps.Marker({
             position: position,
             icon: '../imgs/' + vessels[i].icon,
             draggable: false,
             title: vessels[i].vesselname,
-            zIndex: 1,
+            zIndex: 2,
             html: content,
             map: mapa
         });
 
-        vesselsMarkers[i] = marcador;
-        google.maps.event.addListener(marcador, 'mouseover', function () {
+        //vesselsMarkers[i] = marcador;
+        google.maps.event.addListener(vesselsMarkers[i], 'mouseover', function () {
             infowindow.setContent(this.html);
             infowindow.open(mapa, this);
         });
-        google.maps.event.addListener(marcador, 'mouseout', function () {
+        google.maps.event.addListener(vesselsMarkers[i], 'mouseout', function () {
             infowindow.close();
         });
     }
@@ -77,7 +79,7 @@ function setDocks(datos) {
     infowindow = new google.maps.InfoWindow({
         content: ""
     });
-    for (i = 0; i < docks.length; i++) {
+    for (var i = 0; i < docks.length; i++) {
         var content = "<h6>" + docks[i].dockname + " </h6>";
         var position = new google.maps.LatLng(docks[i].lat, docks[i].long);
         var marcador = new google.maps.Marker({
@@ -107,7 +109,7 @@ function setAnchorageAreas(datos) {
     infowindow = new google.maps.InfoWindow({
         content: ""
     });
-    for (i = 0; i < anchorageareas.length; i++) {
+    for (var i = 0; i < anchorageareas.length; i++) {
         var coordenada = new google.maps.LatLng(anchorageareas[i].lat, anchorageareas[i].long);
         var circleOptions = {
             strokeColor: anchorageareas[i].fillcolor,
@@ -135,9 +137,50 @@ function setAnchorageAreas(datos) {
     }
 }
 
-function cleanMarkers(markers) {
-    if (mc !== null) {
-        mc.clearMarkers();
+function setMooringAreas(datos) {
+    var moorings = datos.mooringareas.mooringarea;
+    var infowindow = null;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
+    for (var i = 0; i < moorings.length; i++) {
+        arraycoordenadas = [];
+        mooringAreasMarkers[i] = {};
+        for (var j = 0; j < moorings[i].vertices.length; j++) {
+            arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j].lat, moorings[i].vertices[j].long));
+        }
+        console.log(arraycoordenadas);
+        mooringAreasMarkers[i] = new google.maps.Polygon({
+            paths: arraycoordenadas,
+            strokeColor: moorings[i].fillColor,
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            zIndex: 5,
+            fillColor: moorings[i].fillColor,
+            fillOpacity: moorings[i].opacity,
+            html: moorings[i].mooringareaname,
+            map: mapa
+        });
+        console.log(mooringAreasMarkers[i].map);
+        mooringAreasMarkers[i].setMap(mapa);
+        console.log(mooringAreasMarkers[i].map);
+        google.maps.event.addListener(mooringAreasMarkers[i], 'click', function (event) {
+            var point = this.getPath().getAt(0);
+            infowindow.setContent(this.html);
+            if (event) {
+                point = event.latLng;
+            }
+            infowindow.setPosition(point);
+            infowindow.open(mapa);
+        });
     }
-    markers = [], mc = null;
+
+}
+
+function cleanMarkers(markers) {
+    for (var i = 0; i < markers.lenght; i++) {
+        markers[i].setMap(null);
+        markers[i] = null;
+    }
+    markers = [];
 }
