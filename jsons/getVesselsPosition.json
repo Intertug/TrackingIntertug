@@ -1,0 +1,164 @@
+{
+    "_fnc": "GetVesselsPosition",
+    "_rsp": "CONNOK",
+    "_dte": "2015-03-06 08:34:50",
+    "_ver": "1.15.01.08",
+    "_ans": "OK_QRY",
+    "center": {
+        "lat": "-3.920865",
+        "long": "-80.507695"
+    },
+    "zoom": "8",
+    "vessels": {
+        "vessel": [
+            {
+                "id": "5",
+                "vesselname": "CAREX",
+                "lat": "9.4909535",
+                "long": "-75.7717203333333",
+                "speed": "0.41",
+                "gpsdate": "2015-02-08 16:04:00",
+                "icon": "ship.png"
+            },
+            {
+                "id": "16",
+                "vesselname": "ODIN",
+                "lat": "3.89332983333333",
+                "long": "-77.0772623333333",
+                "speed": "0",
+                "gpsdate": "2015-03-06 08:34:00",
+                "icon": "ship.png"
+            },
+            {
+                "id": "23",
+                "vesselname": "VALI",
+                "lat": "-3.421136",
+                "long": "-80.5900798333333",
+                "speed": "0.669",
+                "gpsdate": "2015-03-06 08:32:00",
+                "rpm": "492",
+                "rpmdate": "2015-03-06 08:31:24",
+                "icon": "ship.png"
+            },
+            {
+                "id": "28",
+                "vesselname": "MISTRAL",
+                "lat": "-3.41984616666667",
+                "long": "-80.5910645",
+                "speed": "0.882",
+                "gpsdate": "2015-03-06 08:33:01",
+                "rpm": "501",
+                "rpmdate": "2015-03-06 08:31:57",
+                "icon": "ship.png"
+            },
+            {
+                "id": "33",
+                "vesselname": "BARU PACIFICO",
+                "lat": "-3.63370666666667",
+                "long": "-80.5871338333333",
+                "speed": "0.037",
+                "gpsdate": "2015-03-06 08:32:02",
+                "rpm": "0",
+                "rpmdate": "2015-03-06 08:31:31",
+                "icon": "ship.png"
+            },
+            {
+                "id": "34",
+                "vesselname": "BARU INTI",
+                "lat": "-3.59014683333333",
+                "long": "-80.7461018333333",
+                "speed": "0.1",
+                "gpsdate": "2015-03-06 08:34:00",
+                "rpm": "759",
+                "rpmdate": "2015-03-06 08:34:04",
+                "icon": "ship.png"
+            }
+        ]
+    },
+    "platforms": {
+        "platform": [
+            {
+                "id": "1",
+                "platformname": "Plataforma Z10",
+                "lat": "-5.291892",
+                "long": "-80.2873282"
+            }
+        ]
+    },
+    "docks": {
+        "dock": [
+            {
+                "id": "1",
+                "dockname": "Muelle peru",
+                "lat": "-2.291892",
+                "long": "-79.2873282",
+                "icon": "port.png"
+            }
+        ]
+    },
+    "anchorageareas": {
+        "anchoragearea": [
+            {
+                "id": "1",
+                "anchoragearea": "Area 1",
+                "lat": "-2.291892",
+                "long": "-79.2873282",
+                "radius": "5"
+            }
+        ]
+    },
+    "mooringareas": {
+        "mooringarea": [
+            {
+                "id": "1",
+                "mooringarea": "Amarre 2T",
+                "vertices": [
+                    {
+                        "lat": "-5.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-4.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-4.5232",
+                        "long": "-80.2390"
+                    }
+                ]
+            }
+        ]
+    },
+    "headlights": {
+        "headlight": [
+            {
+                "id": "1",
+                "headlightname": "Faro X1",
+                "lat": "-4.5232",
+                "long": "-80.2390"
+            }
+        ]
+    },
+    "delimitations": {
+        "delimitation": [
+            {
+                "id": "1",
+                "delimitationname": "Delimitacion embarcacion",
+                "vertices": [
+                    {
+                        "lat": "-7.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-6.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-6.5232",
+                        "long": "-80.2390"
+                    }
+                ]
+            }
+        ]
+    }
+}
