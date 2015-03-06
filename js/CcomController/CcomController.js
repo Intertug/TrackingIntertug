@@ -1,4 +1,4 @@
-var vesselsMarkers = [], docksMarkers = [], mapa, mc = null;
+var vesselsMarkers = [], docksMarkers = [], anchorageAreaMarkers = [], mapa, mc = null;
 
 function ccomRequest() {
     try {
@@ -28,9 +28,10 @@ function initmap(datos) {
     setFunctions(datos);
 }
 
-function setFunctions(datos){
+function setFunctions(datos) {
     setVessels(datos);
     setDocks(datos);
+    setAnchorageAreas(datos);
 }
 
 function setVessels(datos) {
@@ -52,8 +53,10 @@ function setVessels(datos) {
             draggable: false,
             title: vessels[i].vesselname,
             zIndex: 1,
-            html: content
+            html: content,
+            map: mapa
         });
+
         vesselsMarkers[i] = marcador;
         google.maps.event.addListener(marcador, 'mouseover', function () {
             infowindow.setContent(this.html);
@@ -63,11 +66,12 @@ function setVessels(datos) {
             infowindow.close();
         });
     }
-    var clusterOptions = {gridSize: 60, maxZoom: 0.1};
-    mc = new MarkerClusterer(mapa, vesselsMarkers, clusterOptions);
+    //var clusterOptions = {gridSize: 60, maxZoom: 0.1};
+    //mc = new MarkerClusterer(mapa, vesselsMarkers, clusterOptions);
 }
 
 function setDocks(datos) {
+    cleanMarkers(docksMarkers);
     docks = datos.docks.dock;
     var infowindow = null;
     infowindow = new google.maps.InfoWindow({
@@ -92,6 +96,41 @@ function setDocks(datos) {
         });
         google.maps.event.addListener(marcador, 'mouseout', function () {
             infowindow.close();
+        });
+    }
+}
+
+function setAnchorageAreas(datos) {
+    cleanMarkers(anchorageAreaMarkers);
+    anchorageareas = datos.anchorageareas.anchoragearea;
+    var infowindow = null;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
+    for (i = 0; i < anchorageareas.length; i++) {
+        var coordenada = new google.maps.LatLng(anchorageareas[i].lat, anchorageareas[i].long);
+        var circleOptions = {
+            strokeColor: anchorageareas[i].fillcolor,
+            strokeOpacity: anchorageareas[i].opacity,
+            strokeWeight: 1,
+            fillColor: anchorageareas[i].fillcolor,
+            fillOpacity: anchorageareas[i].opacity,
+            map: mapa,
+            center: coordenada,
+            html: anchorageareas[i].anchorageareaname,
+            radius: parseInt(anchorageareas[i].radius)
+
+        };
+        var circle = new google.maps.Circle(circleOptions);
+        anchorageAreaMarkers[i] = circle;
+        google.maps.event.addListener(circle, 'click', function (event) {
+            var point = this.center;
+            infowindow.setContent(this.html);
+            if (event) {
+                point = event.latLng;
+            }
+            infowindow.setPosition(point);
+            infowindow.open(mapa, this);
         });
     }
 }
