@@ -81,19 +81,22 @@
                 "id": "1",
                 "platformname": "CX11",
                 "lat": "-3.59541666666",
-                "long": "-80.73716666666667"
+                "long": "-80.73716666666667",
+                "icon": "offshore_platform.png"
             },
             {
                 "id": "2",
                 "platformname": "CX15",
                 "lat": "-3.60750",
-                "long": "-80.73667"
+                "long": "-80.73667",
+                "icon": "offshore_platform.png"
             },
             {
                 "id": "3",
                 "platformname": "Z1-8-A",
                 "lat": "-3.42000",
-                "long": "-80.58362"
+                "long": "-80.58362",
+                "icon": "offshore_platform.png"
             }
         ]
     },

@@ -1,4 +1,9 @@
-var vesselsMarkers = [], docksMarkers = [], anchorageAreaMarkers = [], mooringAreasMarkers = [], mapa, mc = null;
+var vesselsMarkers = [],
+        docksMarkers = [],
+        anchorageAreaMarkers = [],
+        mooringAreasMarkers = [],
+        platformMarkers = [];
+var mapa, mc = null;
 
 function ccomRequest() {
     try {
@@ -26,6 +31,7 @@ function initmap(datos) {
     };
     mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     setFunctions(datos);
+    setPlatforms(datos);
     setDocks(datos);
     setAnchorageAreas(datos);
     setMooringAreas(datos);
@@ -70,6 +76,34 @@ function setVessels(datos) {
     }
     //var clusterOptions = {gridSize: 60, maxZoom: 0.1};
     //mc = new MarkerClusterer(mapa, vesselsMarkers, clusterOptions);
+}
+
+function setPlatforms(datos) {
+    plataformas = datos.platforms.platform;
+    var infowindow = null;
+    infowindow = new google.maps.InfoWindow({
+        content: ""
+    });
+    for (var i = 0; i < plataformas.length; i++) {
+        var content = "<h6>" + plataformas[i].platformname + " </h6>";
+        var position = new google.maps.LatLng(plataformas[i].lat, plataformas[i].long);
+        platformMarkers[i] = new google.maps.Marker({
+            position: position,
+            icon: '../imgs/' + plataformas[i].icon,
+            draggable: false,
+            title: plataformas[i].platforname,
+            zIndex: 1,
+            html: content,
+            map: mapa
+        });
+        google.maps.event.addListener(platformMarkers[i], 'mouseover', function () {
+            infowindow.setContent(this.html);
+            infowindow.open(mapa, this);
+        });
+        google.maps.event.addListener(platformMarkers[i], 'mouseout', function () {
+            infowindow.close();
+        });
+    }
 }
 
 function setDocks(datos) {
