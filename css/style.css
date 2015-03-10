@@ -49,6 +49,10 @@ body {
     width: 100%;
 }
 
+.list-group{
+    height: 247px;
+}
+
 @media screen and (max-width: 767px){
     #container{
         height: 180px;
