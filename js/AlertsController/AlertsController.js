@@ -1,5 +1,6 @@
 var templateForHandlebar = $('#vessels-info').html();
 var actualServerDate;
+var i2 = true;
 function initAlerts() {
     try {
         getVesselsRequest(compileHandlebar);
@@ -10,8 +11,10 @@ function initAlerts() {
 }
 
 function compileHandlebar(vessels, mapa) {
+    console.log(vessels);
     var plantilla = Handlebars.compile(templateForHandlebar);
     actualServerDate = vessels.actualdate;
+    vessels.i = true;
     var html = plantilla(vessels);
     $('#map-container').html(html);
 }
@@ -39,7 +42,23 @@ Handlebars.registerHelper("isOverSpeedTop", function (vessel) {
     }
 });
 
-function stringToDate(date){
+Handlebars.registerHelper("isPair", function (i, options) {
+    i2 = !i2;
+    i = i2;
+    console.log(i);
+    if (i) {
+        return options.fn(this);
+    }
+});
+
+Handlebars.registerHelper("isPairClose", function (i, options) {
+    i = i2;
+    if (i) {
+        return options.fn(this);
+    }
+});
+
+function stringToDate(date) {
     //String to date function - Compatible con IE
     var divDateOfTime = date.split(' ');
     var divDate = divDateOfTime[0].split('-');

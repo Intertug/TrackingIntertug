@@ -8,6 +8,7 @@ function getVesselsRequest(callback) {
                     datos = JSON.parse(datos);
                     datos.vessels.actualdate = datos._dte;
                     var vessels = datos.vessels;
+                    console.log(vessels);
                     callback(vessels);
                 });
     } catch (err) {

@@ -37,6 +37,10 @@
             <div id="map-container" class="col-xs-12 col-sm-12">
                 <script id="vessels-info" type="text/x-handlebars-template">
                     {{#vessel}}
+                    
+                    {{#isPair ../i}}
+                    <div class="row">
+                    {{/isPair}}
                     <div id="content-vessels" class="col-xs-12 col-sm-6">
                     <div class="page-header">
                     <h2 id="shipnametitle">{{vesselname}}</h2>
@@ -68,6 +72,10 @@
                     </div>
                     </div>
                     </div>
+                    {{#isPairClose ../i}}
+                    </div>
+                    {{/isPairClose}}
+                    
                     {{/vessel}}
                 </script>
             </div>
