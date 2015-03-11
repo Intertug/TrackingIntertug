@@ -1,6 +1,6 @@
 var templateForHandlebar = $('#vessels-info').html();
 var actualServerDate;
-var i2 = false;
+var showDivRow = false;
 
 function initAlerts() {
     try {
@@ -37,25 +37,21 @@ Handlebars.registerHelper("isOverSpeedTop", function (vessel) {
             return "list-group-item-danger";
     } else if (parseFloat(vessel.speed) > 9) {
         return "list-group-item-danger";
-    } else {
-        return "";
     }
+    return "";
 });
 
-Handlebars.registerHelper("ShowDivRow", function (i, options) {
-    //console.log(i);
-    if (i2) {
+Handlebars.registerHelper("ShowDivRow", function (options) {
+    if (showDivRow) {
         return options.fn(this);
     }
 });
 
-Handlebars.registerHelper("ChangeBool", function (i, options) {
-    i2 = !i2;
-    console.log(i2);
+Handlebars.registerHelper("ChangeBool", function () {
+    showDivRow = !showDivRow;
 });
 
 function stringToDate(date) {
-    //String to date function - Compatible con IE
     var divDateOfTime = date.split(' ');
     var divDate = divDateOfTime[0].split('-');
     var divTime = divDateOfTime[1].split(':');
@@ -65,6 +61,6 @@ function stringToDate(date) {
     var hora = divTime[0];
     var minutos = divTime[1];
     var segundos = divTime[2];
-    var fecha = new Date(año, mes, dia, hora, minutos, segundos)
+    var fecha = new Date(año, mes, dia, hora, minutos, segundos);
     return fecha;
 }
