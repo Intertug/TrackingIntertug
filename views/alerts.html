@@ -37,10 +37,10 @@
             <div id="map-container" class="col-xs-12 col-sm-12">
                 <script id="vessels-info" type="text/x-handlebars-template">
                     {{#vessel}}
-                    
-                    {{#isPair ../i}}
-                    <div class="row">
-                    {{/isPair}}
+                    {{ChangeBool ../i}}
+                    {{#ShowDivRow ../i}}
+                    <div class="row vessels-rows">
+                    {{/ShowDivRow}}
                     <div id="content-vessels" class="col-xs-12 col-sm-6">
                     <div class="page-header">
                     <h2 id="shipnametitle">{{vesselname}}</h2>
@@ -72,15 +72,16 @@
                     </div>
                     </div>
                     </div>
-                    {{#isPairClose ../i}}
+                    {{ChangeBool ../i}}
+                    {{#ShowDivRow ../i}}
                     </div>
-                    {{/isPairClose}}
-                    
+                    {{/ShowDivRow}}
+                    {{ChangeBool ../i}}
                     {{/vessel}}
                 </script>
             </div>
         </div>
-        <!--	JavaScripts		-->
+        <!--	JavaScripts	-->
         <script src="../js/jquery.min.js"></script>
         <script src="../js/shared/GetVesselsRequest.js"></script>
         <script src="../js/AlertsController/AlertsController.js"></script>
