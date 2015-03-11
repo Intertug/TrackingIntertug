@@ -12,6 +12,7 @@ function initAlerts() {
 }
 
 function compileHandlebar(vessels, mapa) {
+    showDivRow = false;
     var plantilla = Handlebars.compile(templateForHandlebar);
     actualServerDate = vessels.actualdate;
     vessels.i = true;
