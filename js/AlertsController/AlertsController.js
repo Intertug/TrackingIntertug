@@ -1,5 +1,5 @@
 var templateForHandlebar = $('#vessels-info').html();
-var actualServerDate;
+var fechaActualDelServidor;
 var showDivRow = false;
 
 function initAlerts() {
@@ -14,7 +14,7 @@ function initAlerts() {
 function compileHandlebar(vessels, mapa) {
     showDivRow = false;
     var plantilla = Handlebars.compile(templateForHandlebar);
-    actualServerDate = vessels.actualdate;
+    fechaActualDelServidor = vessels.actualdate;
     vessels.i = true;
     var html = plantilla(vessels);
     $('#map-container').html(html);
@@ -23,7 +23,7 @@ function compileHandlebar(vessels, mapa) {
 
 Handlebars.registerHelper("isOutdatedDate", function (date) {
     var fechaGps = stringToDate(date);
-    var fechaActual = stringToDate(actualServerDate);
+    var fechaActual = stringToDate(fechaActualDelServidor);
     var diferenciaEnMinutos = Math.abs((fechaActual - fechaGps) / 60000);
     if (diferenciaEnMinutos >= 30) {
         return "list-group-item-danger";

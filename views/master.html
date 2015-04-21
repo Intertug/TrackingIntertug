@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
+        <title>Intertug Tracking</title>
+        <link rel="shortcut icon" href="../favicon.ico" />
+        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/master.css">
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&amp;sensor=true">
+        </script>
+        <script src="../js/markerclusterer.js"></script>
+    </head>
+    <body onload="initmap()">
+        <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toogle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="master-navbar-brand" class="navbar-brand" href="inicio.html">
+                        <img id="navbar-logo" alt="Intertug" src="../imgs/logointertug.jpg">
+                    </a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="inicio.html">Flotas</a></li>
+                        <li><a href="ccom.html">Flota Colombia</a></li>
+                        <li><a href="ccom.html">Flota Perú</a></li>
+                        <li><a href="ccom.html">Flota México</a></li>
+                        <li><a href="alerts.html">Alertas</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="#">Action</a></li>
+                                <li role="presentation"><a href="#">Another action</a></li>
+                                <li role="presentation"><a href="#">Something else here</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation"><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div id="master-main-content" class="container-fluid">
+            <div id="master-row-content" class="row">
+                <!-- Main Content -->
+                <div id="master-sidebar" class="col-sm-3 affix">
+                    <br>
+                    <div class="panel panel-primary">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Baru Pacifico</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Se encuentra ubicado en Perú, realizando trabajos de remolcación.
+                                Creado en el año 2000</p>
+                            <a href="shipinfo.html" class="btn btn-success btn-block">Mas info</a>
+                        </div>
+
+                        <!-- Table -->
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Variable</th>
+                                    <th>Valor</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Velocidad</td>
+                                    <td>8.3</td>
+                                    <td>2015-04-21 12:00:00</td>
+                                </tr>
+                                <tr>
+                                    <td>Posición</td>
+                                    <td>(38.23, 82.32)</td>
+                                    <td>2015-04-21 12:00:00</td>
+                                </tr>
+                                <tr>
+                                    <td>RPM</td>
+                                    <td>1225.3</td>
+                                    <td>2015-04-21 12:00:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="master-content">
+                    <div id="master-col-content" class="col-sm-9 col-sm-offset-3">
+                        <div id="map-canvas">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--	JavaScripts   -->
+        <script src="../js/master.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
