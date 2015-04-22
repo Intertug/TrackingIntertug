@@ -1,0 +1,196 @@
+{
+    "_fnc": "GetVesselsPosition",
+    "_rsp": "CONNOK",
+    "_dte": "2015-03-06 08:34:50",
+    "_ver": "1.15.01.08",
+    "_ans": "OK_QRY",
+    "center": {
+        "lat": "-3.920865",
+        "long": "-80.507695"
+    },
+    "zoom": "9",
+    "vessels": {
+        "vessel": [
+            {
+                "id": "5",
+                "vesselname": "CAREX",
+                "lat": "9.4909535",
+                "long": "-75.7717203333333",
+                "speed": "0.41",
+                "gpsdate": "2015-02-08 16:04:00",
+                "icon": "ship.png"
+            },
+            {
+                "id": "16",
+                "vesselname": "ODIN",
+                "lat": "3.89332983333333",
+                "long": "-77.0772623333333",
+                "speed": "0",
+                "gpsdate": "2015-03-06 08:34:00",
+                "icon": "ship.png"
+            },
+            {
+                "id": "23",
+                "vesselname": "VALI",
+                "lat": "-3.421136",
+                "long": "-80.5900798333333",
+                "speed": "0.669",
+                "gpsdate": "2015-03-06 08:32:00",
+                "rpm": "492",
+                "rpmdate": "2015-03-06 08:31:24",
+                "icon": "ship.png"
+            },
+            {
+                "id": "28",
+                "vesselname": "MISTRAL",
+                "lat": "-3.41984616666667",
+                "long": "-80.5910645",
+                "speed": "0.882",
+                "gpsdate": "2015-03-06 08:33:01",
+                "rpm": "501",
+                "rpmdate": "2015-03-06 08:31:57",
+                "icon": "ship.png"
+            },
+            {
+                "id": "33",
+                "vesselname": "BARU PACIFICO",
+                "lat": "-3.63370666666667",
+                "long": "-80.5871338333333",
+                "speed": "0.037",
+                "gpsdate": "2015-03-06 08:32:02",
+                "rpm": "0",
+                "rpmdate": "2015-03-06 08:31:31",
+                "icon": "ship.png"
+            },
+            {
+                "id": "34",
+                "vesselname": "BARU INTI",
+                "lat": "-3.59014683333333",
+                "long": "-80.7461018333333",
+                "speed": "0.1",
+                "gpsdate": "2015-03-06 08:34:00",
+                "rpm": "759",
+                "rpmdate": "2015-03-06 08:34:04",
+                "icon": "ship.png"
+            }
+        ]
+    },
+    "platforms": {
+        "platform": [
+            {
+                "id": "1",
+                "platformname": "CX11",
+                "lat": "-3.59541666666",
+                "long": "-80.73716666666667",
+                "icon": "offshore_platform.png"
+            },
+            {
+                "id": "2",
+                "platformname": "CX15",
+                "lat": "-3.60750",
+                "long": "-80.73667",
+                "icon": "offshore_platform.png"
+            },
+            {
+                "id": "3",
+                "platformname": "Z1-8-A",
+                "lat": "-3.42000",
+                "long": "-80.58362",
+                "icon": "offshore_platform.png"
+            }
+        ]
+    },
+    "docks": {
+        "dock": [
+            {
+                "id": "1",
+                "dockname": "Muelle La Cruz",
+                "lat": "-3.633691",
+                "long": "-80.587355",
+                "icon": "port.png"
+            }
+        ]
+    },
+    "anchorageareas": {
+        "anchoragearea": [
+            {
+                "id": "1",
+                "anchorageareaname": "Zona de Fondeo Remolcadores - Lado Sur CX15",
+                "lat": "-3.617833",
+                "long": "-80.751183",
+                "radius": "1852",
+                "opacity": "0.4",
+                "fillcolor": "#220230"
+            },
+            {
+                "id": "2",
+                "anchorageareaname": "Zona de Fondeo Remolcadores - Lado Sur Albacora",
+                "lat": "-3.435783",
+                "long": "-80.590333",
+                "radius": "1852",
+                "opacity": "0.4",
+                "fillcolor": "#220230"
+            }
+        ]
+    },
+    "mooringareas": {
+        "mooringarea": [
+            {
+                "id": "1",
+                "mooringareaname": "Amarradero Albacora Sur (Multiboyas para Buque Tanque)",
+                "fillColor": "#FF0000",
+                "opacity": "0.35",
+                "vertices": [
+                    {
+                        "lat": "-3.418054",
+                        "long": "-80.590462"
+                    },
+                    {
+                        "lat": "-3.415512",
+                        "long": "-80.589995"
+                    },
+                    {
+                        "lat": "-3.414516",
+                        "long": "-80.588213"
+                    },
+                    {
+                        "lat": "-3.415872",
+                        "long": "-80.587411"
+                    }
+                ]
+            }
+        ]
+    },
+    "headlights": {
+        "headlight": [
+            {
+                "id": "1",
+                "headlightname": "Faro X1",
+                "lat": "-4.5232",
+                "long": "-80.2390"
+            }
+        ]
+    },
+    "delimitations": {
+        "delimitation": [
+            {
+                "id": "1",
+                "delimitationname": "Delimitacion embarcacion",
+                "vertices": [
+                    {
+                        "lat": "-7.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-6.1232",
+                        "long": "-80.2390"
+                    },
+                    {
+                        "lat": "-6.5232",
+                        "long": "-80.2390"
+                    }
+                ]
+            }
+        ]
+    }
+}
