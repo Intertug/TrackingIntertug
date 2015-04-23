@@ -37,48 +37,48 @@
         <div id="container-map" class="col-xs-12 col-sm-10 col-sm-offset-2">
             <div id="map-container" class="col-xs-12 col-sm-12">
                 <script id="vessels-info" type="text/x-handlebars-template">
-                    {{#vessel}}
-                    {{ChangeBool}}
-                    {{#ShowDivRow}}
-                    <div class="row vessels-rows">
+                {{#vessel}}
+                {{ChangeBool}}
+                {{#ShowDivRow}}
+                <div class="row vessels-rows">
                     {{/ShowDivRow}}
                     <div id="content-vessels" class="col-xs-12 col-sm-6">
-                    <div class="page-header">
-                    <h2 id="shipnametitle">{{vesselname}}</h2>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-12">
-                    <div class="list-group">
-                    <a class="list-group-item">
-                    <b>ID</b>: {{id}} 
-                    </a>
-                    <a class="list-group-item ">
-                    <b>Posición GPS</b>: ({{lat}} , {{long}})
-                    </a>
-                    <a class="list-group-item {{isOutdatedDate gpsdate}}" >
-                    <b>Fecha GPS</b>: {{gpsdate}} 
-                    </a>
-                    <a class="list-group-item {{isOverSpeedTop speed}}">
-                    <b>Velocidad</b>: {{speed}}
-                    </a>
-                    {{#if rpm}}
-                    <a class="list-group-item ">
-                    <b>RPM</b>: {{rpm}}
-                    </a>
-                    <a class="list-group-item {{isOutdatedDate rpmdate}}" class="{{alerta}}">
-                    <b>Fecha RPM</b>: {{rpmdate}}
-                    </a>
-                    {{/if}}
-                    </div>
-                    </div>
-                    </div>
+                        <div class="page-header">
+                            <h2 id="shipnametitle">{{vesselname}}</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="list-group">
+                                    <a class="list-group-item">
+                                        <b>ID</b>: {{id}} 
+                                    </a>
+                                    <a class="list-group-item ">
+                                        <b>Posición GPS</b>: ({{lat}} , {{long}})
+                                    </a>
+                                    <a class="list-group-item {{isOutdatedDate gpsdate}}" >
+                                        <b>Fecha GPS</b>: {{gpsdate}} 
+                                    </a>
+                                    <a class="list-group-item {{isOverSpeedTop speed}}">
+                                        <b>Velocidad</b>: {{speed}}
+                                    </a>
+                                    {{#if rpm}}
+                                    <a class="list-group-item ">
+                                        <b>RPM</b>: {{rpm}}
+                                    </a>
+                                    <a class="list-group-item {{isOutdatedDate rpmdate}}" class="{{alerta}}">
+                                        <b>Fecha RPM</b>: {{rpmdate}}
+                                    </a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {{ChangeBool}}
                     {{#ShowDivRow}}
-                    </div>
-                    {{/ShowDivRow}}
-                    {{ChangeBool}}
-                    {{/vessel}}
+                </div>
+                {{/ShowDivRow}}
+                {{ChangeBool}}
+                {{/vessel}}
                 </script>
             </div>
         </div>

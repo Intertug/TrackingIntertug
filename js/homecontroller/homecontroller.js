@@ -2,6 +2,7 @@ var GlobalHome = {
     mapa: null,
     mc: null,
     markers: [],
+    templateForHandlebar: $('#vessel-info').html()
 };
 function initmap() {
     var centro = new google.maps.LatLng(9.024365, -72.913396);
@@ -32,6 +33,11 @@ function initmap() {
     }
 }
 
+function showVesselInfo(datos){
+    var vessel = datos;
+    compileHandlebar(vessel);
+}
+
 function setMarkers(vessels) {
     if (GlobalHome.mc !== null) {
         GlobalHome.mc.clearMarkers();
@@ -54,7 +60,8 @@ function setMarkers(vessels) {
             draggable: false,
             title: vessels[i].vesselname,
             zIndex: 1,
-            html: content
+            html: content,
+            id: vessels[i].id
         });
         GlobalHome.markers[i] = marcador;
         google.maps.event.addListener(marcador, 'mouseover', function () {
@@ -64,8 +71,18 @@ function setMarkers(vessels) {
         google.maps.event.addListener(marcador, 'mouseout', function () {
             infowindow.close();
         });
+        
+        google.maps.event.addListener(marcador, 'click', function(){
+            getVessel(showVesselInfo, this.id);
+        });
     }
     var clusterOptions = {gridSize: 60, maxZoom: 12};
     GlobalHome.mc =
             new MarkerClusterer(GlobalHome.mapa, GlobalHome.markers, clusterOptions);
+}
+
+function compileHandlebar(vessel) {
+    var plantilla = Handlebars.compile(GlobalHome.templateForHandlebar);
+    var html = plantilla(vessel);
+    $('#handlebar-html').html(html);
 }

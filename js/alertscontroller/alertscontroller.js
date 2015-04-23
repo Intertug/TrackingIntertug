@@ -1,6 +1,8 @@
-var templateForHandlebar = $('#vessels-info').html();
-var fechaActualDelServidor;
-var showDivRow = false;
+var GlobalAlerts = {
+    templateForHandlebar: $('#vessels-info').html(),
+    fechaActualDelServidor: null,
+    showDivRow: false
+};
 
 function initAlerts() {
     try {
@@ -11,10 +13,10 @@ function initAlerts() {
     }
 }
 
-function compileHandlebar(vessels, mapa) {
-    showDivRow = false;
-    var plantilla = Handlebars.compile(templateForHandlebar);
-    fechaActualDelServidor = vessels.actualdate;
+function compileHandlebar(vessels) {
+    GlobalAlerts.showDivRow = false;
+    var plantilla = Handlebars.compile(GlobalAlerts.templateForHandlebar);
+    GlobalAlerts.fechaActualDelServidor = vessels.actualdate;
     vessels.i = true;
     var html = plantilla(vessels);
     $('#map-container').html(html);
@@ -23,7 +25,7 @@ function compileHandlebar(vessels, mapa) {
 
 Handlebars.registerHelper("isOutdatedDate", function (date) {
     var fechaGps = stringToDate(date);
-    var fechaActual = stringToDate(fechaActualDelServidor);
+    var fechaActual = stringToDate(GlobalAlerts.fechaActualDelServidor);
     var diferenciaEnMinutos = Math.abs((fechaActual - fechaGps) / 60000);
     if (diferenciaEnMinutos >= 30) {
         return "list-group-item-danger";
@@ -43,13 +45,13 @@ Handlebars.registerHelper("isOverSpeedTop", function (vessel) {
 });
 
 Handlebars.registerHelper("ShowDivRow", function (options) {
-    if (showDivRow) {
+    if (GlobalAlerts.showDivRow) {
         return options.fn(this);
     }
 });
 
 Handlebars.registerHelper("ChangeBool", function () {
-    showDivRow = !showDivRow;
+    GlobalAlerts.showDivRow = !GlobalAlerts.showDivRow;
 });
 
 function stringToDate(date) {
