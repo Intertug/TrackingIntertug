@@ -1,8 +1,59 @@
+/* Refactored */
+
+var request = {
+    getVesselsPosition: getVesselsPosition()
+};
+
+var model = {
+    vessels: request.getVesselsPosition.vessels,
+    options: request.getVesselsPosition.options
+};
+
+var controller = {
+    initmap: function () {
+        var centro = new google.maps.LatLng(9.024365, -72.913396);
+        // var centro = model.options.centro;
+        var opciones = {
+            zoom: 4,
+            center: centro,
+            mapTypeId: google.maps.MapTypeId.TERRAIN,
+            mapTypeControl: true,
+            streetViewControl: false,
+            scaleControl: true,
+            mapTypeControlOptions:
+                    {position: google.maps.ControlPosition.LEFT_TOP},
+            zoomControlOptions:
+                    {position: google.maps.ControlPosition.LEFT_CENTER},
+            panControlOptions:
+                    {position: google.maps.ControlPosition.LEFT_CENTER},
+            scaleControlOptions:
+                    {position: google.maps.ControlPosition.BOTTOM_CENTER}
+        };
+        //var opciones = model.options.opciones;
+        views.renderMap(opciones);
+    },
+    setMarkers: function () {
+
+    },
+    getVesselsPosition: function () {
+
+    }
+};
+
+var views = {
+    renderMap: function (opciones) {
+        var mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
+    }
+};
+
+
+/* Without refactoring. */
 var GlobalHome = {
     mapa: null,
     mc: null,
     markers: [],
-    templateForHandlebar: $('#vessel-info').html()
+    templateForHandlebar: $('#vessel-info').html(),
+    vessels: {}
 };
 function initmap() {
     var centro = new google.maps.LatLng(9.024365, -72.913396);
@@ -24,8 +75,12 @@ function initmap() {
     };
     GlobalHome.mapa =
             new google.maps.Map(document.getElementById("map-canvas"), opciones);
+    callGetVesselsPosition();
+}
+
+function callGetVesselsPosition() {
     try {
-        getVesselsPosition(setMarkers);
+        var vessels = getVesselsPosition(setMarkers);
         setInterval(getVesselsPosition, 60000, setMarkers);
     } catch (err) {
         console.log(err);
@@ -33,7 +88,7 @@ function initmap() {
     }
 }
 
-function showVesselInfo(datos){
+function showVesselInfo(datos) {
     var vessel = datos;
     compileHandlebar(vessel);
 }
@@ -71,8 +126,8 @@ function setMarkers(vessels) {
         google.maps.event.addListener(marcador, 'mouseout', function () {
             infowindow.close();
         });
-        
-        google.maps.event.addListener(marcador, 'click', function(){
+
+        google.maps.event.addListener(marcador, 'click', function () {
             getVessel(showVesselInfo, this.id);
         });
     }

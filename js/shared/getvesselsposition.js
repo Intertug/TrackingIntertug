@@ -7,7 +7,12 @@ function getVesselsPosition(callback) {
                     datos = JSON.parse(datos);
                     datos.vessels.actualdate = datos._dte;
                     var vessels = datos.vessels;
-                    callback(vessels);
+                    var data = {
+                        vessels: vessels,
+                        options: datos
+                    };
+                    return data;
+                    //callback(vessels);
                 });
     } catch (err) {
         console.log(err);
