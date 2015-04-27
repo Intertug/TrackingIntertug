@@ -11,8 +11,8 @@ function getVesselsPosition(callback) {
                         vessels: vessels,
                         options: datos
                     };
+                    callback(data);
                     return data;
-                    //callback(vessels);
                 });
     } catch (err) {
         console.log(err);

@@ -7,6 +7,7 @@ function getVessel(callback, id) {
                     //var datos = data.childNodes[0].childNodes[0].nodeValue;
                     //datos = JSON.parse(datos);
                     callback(datos);
+                    return datos;
                 });
     } catch (err) {
         console.log(err);
