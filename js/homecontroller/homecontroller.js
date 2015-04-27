@@ -1,5 +1,3 @@
-/* Refactored */
-
 var request = {
     getVessels: function (callback) {
         getVesselsPosition(callback);
