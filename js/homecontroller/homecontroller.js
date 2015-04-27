@@ -58,8 +58,8 @@ var controller = {
     getVesselsPosition: function () {
         request.getVessels(controller.setMarkers);
     },
-    getVesselInfo: function (marcador) {
-        request.getVesselInfo(this.setVesselInfo,marcador.id);
+    getVesselInfo: function (id) {
+        request.getVesselInfo(this.setVesselInfo, id);
     }
 };
 
@@ -106,7 +106,7 @@ var views = {
                 infowindow.close();
             });
             google.maps.event.addListener(marcador, 'click', function () {
-                controller.getVesselInfo(marcador);
+                controller.getVesselInfo(marcador.id);
             });
         }
         var clusterOptions = {gridSize: 60, maxZoom: 12};
