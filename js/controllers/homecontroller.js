@@ -33,11 +33,11 @@ var controller = {
             streetViewControl: false,
             scaleControl: true,
             mapTypeControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_TOP},
+                    {position: google.maps.ControlPosition.RIGHT_TOP},
             zoomControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
+                    {position: google.maps.ControlPosition.RIGHT_CENTER},
             panControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
+                    {position: google.maps.ControlPosition.RIGHT_CENTER},
             scaleControlOptions:
                     {position: google.maps.ControlPosition.BOTTOM_CENTER}
         };
