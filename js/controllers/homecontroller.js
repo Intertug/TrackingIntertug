@@ -48,10 +48,22 @@ var controller = {
         var boolean = model.setModel(datos);
         if (boolean) {
             views.renderMarkers(model.vessels);
+            views.renderRmLi(model.vessels);
         }
     },
+    setRmList: function () {
+        views.renderRmLi(model.vessels);
+    },
     setVesselInfo: function (datos) {
-        views.renderHandlebar(datos);
+        var posicion = {};
+        for (var i = 0, len = views.markers.length; i < len; i++) {
+            if (views.markers[i].id === datos.vessel.id) {
+                posicion.lat = datos.vessel.lat;
+                posicion.long = datos.vessel.long;
+            }
+        }
+        views.renderVesselPanel(datos);
+        views.zoomOnVessel(posicion);
     },
     getVesselsPosition: function () {
         request.getVessels(controller.setMarkers);
@@ -65,7 +77,8 @@ var views = {
     mapa: null,
     mc: null,
     markers: [],
-    templateForHandlebar: $('#vessel-info').html(),
+    templateForVesselPanel: $('#vessel-info').html(),
+    templateForRmLi: $('#rms-dropdown-li').html(),
     renderMap: function (opciones) {
         this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     },
@@ -107,14 +120,26 @@ var views = {
                 controller.getVesselInfo(marcador.id);
             });
         }
+        console.log(this.markers);
         var clusterOptions = {gridSize: 60, maxZoom: 12};
         this.mc =
                 new MarkerClusterer(this.mapa, this.markers, clusterOptions);
     },
-    renderHandlebar: function (vessel) {
-        var plantilla = Handlebars.compile(this.templateForHandlebar);
+    renderVesselPanel: function (vessel) {
+        var plantilla = Handlebars.compile(this.templateForVesselPanel);
         var html = plantilla(vessel);
         $('#handlebar-html').html(html);
+    },
+    renderRmLi: function (vessel) {
+        var plantilla = Handlebars.compile(this.templateForRmLi);
+        var html = plantilla(vessel);
+        $('#rm-list').html(html);
+    },
+    zoomOnVessel: function (posicion) {
+        console.log(posicion);
+        var pos = new google.maps.LatLng(posicion.lat, posicion.long);
+        this.mapa.setCenter(pos);
+        this.mapa.setZoom(11);
     }
 };
 

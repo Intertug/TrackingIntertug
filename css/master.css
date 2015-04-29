@@ -39,6 +39,13 @@ body {
     background-color: #ffca08;
 }
 
+.scrollable-menu {
+    height: auto;
+    width: 100%;
+    max-height: 250px;
+    overflow-x: hidden;
+}
+
 #master-content{
     height: 100%;
 }
