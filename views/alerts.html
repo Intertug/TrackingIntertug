@@ -25,24 +25,30 @@
                     </a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="master-navbar-total">
                     <ul class="nav navbar-nav">
-                        <li><a href="inicio.html">Flotas</a></li>
-                        <li><a href="ccom.html">Flota Colombia</a></li>
-                        <li><a href="ccom.html">Flota Perú</a></li>
-                        <li><a href="ccom.html">Flota México</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Flotas <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="ccom.html">Flota Colombia</a></li>
+                                <li role="presentation"><a href="ccom.html">Flota Perú</a></li>
+                                <li role="presentation"><a href="ccom.html">Flota México</a></li>
+                                <li role="presentation"><a href="ccom.html">Flota Brasil</a></li>
+                            </ul>
+                        </li>
                         <li><a href="alerts.html">Alertas</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Ayuda</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Servicios <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li role="presentation"><a href="#">Action</a></li>
-                                <li role="presentation"><a href="#">Another action</a></li>
-                                <li role="presentation"><a href="#">Something else here</a></li>
-                                <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a href="#">Separated link</a></li>
+                                <li role="presentation"><a href="#">Bussiness Inteligence</a></li>
+                                <li role="presentation"><a href="#">Iris</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -63,52 +69,52 @@
                         </div>
                     </div>
                     <script id="vessels-info" type="text/x-handlebars-template">
-                    {{#vessel}}
-                    {{ChangeBool}}
-                    {{#ShowDivRow}}
-                    <div class="row">
-                    {{/ShowDivRow}}
-                    <div id="content-vessels" class="col-xs-12 col-sm-6">
-                    <div class="page-header">
-                    <h2 id="shipnametitle">{{vesselname}} <small>ID: {{id}}</small></h2>
-                    </div>
-                    <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-condensed">
-                    <thead>
-                    <tr>
-                    <th>Variable</th>
-                    <th>Valor</th>
-                    <th>Fecha</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td><span class="glyphicon glyphicon-map-marker"></span> Posicion</td>
-                    <td>({{roundNumber lat}},{{roundNumber long}})</td>
-                    <td class="{{isOutdatedDate gpsdate}}">{{gpsdate}}</td>
-                    </tr>
-                    <tr">
-                    <td><span class="glyphicon glyphicon-signal"></span> Velocidad</td>
-                    <td class="{{isOverSpeedTop 200}}">{{speed}}</td>
-                    <td class="{{isOutdatedDate gpsdate}}">{{gpsdate}}</td>
-                    </tr>
-                    {{#if rpm}}
-                    <tr>
-                    <td><span class="glyphicon glyphicon-dashboard"></span> RPM</td>
-                    <td>{{rpm}}</td>
-                    <td class="{{isOutdatedDate rpmdate}}">{{rpmdate}}</td>
-                    </tr>
-                    {{/if}}
-                    </tbody>
-                    </table>
-                    </div>
-                    </div>
-                    {{ChangeBool}}
-                    {{#ShowDivRow}}
-                    </div>
-                    {{/ShowDivRow}}
-                    {{ChangeBool}}
-                    {{/vessel}}
+                        {{#vessel}}
+                        {{ChangeBool}}
+                        {{#ShowDivRow}}
+                        <div class="row">
+                        {{/ShowDivRow}}
+                        <div id="content-vessels" class="col-xs-12 col-sm-6">
+                        <div class="page-header">
+                        <h2 id="shipnametitle">{{vesselname}} <small>ID: {{id}}</small></h2>
+                        </div>
+                        <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-condensed">
+                        <thead>
+                        <tr>
+                        <th>Variable</th>
+                        <th>Valor</th>
+                        <th>Fecha</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                        <td><span class="glyphicon glyphicon-map-marker"></span> Posicion</td>
+                        <td>({{roundNumber lat}},{{roundNumber long}})</td>
+                        <td class="{{isOutdatedDate gpsdate}}">{{gpsdate}}</td>
+                        </tr>
+                        <tr">
+                        <td><span class="glyphicon glyphicon-signal"></span> Velocidad</td>
+                        <td class="{{isOverSpeedTop 200}}">{{speed}}</td>
+                        <td class="{{isOutdatedDate gpsdate}}">{{gpsdate}}</td>
+                        </tr>
+                        {{#if rpm}}
+                        <tr>
+                        <td><span class="glyphicon glyphicon-dashboard"></span> RPM</td>
+                        <td>{{rpm}}</td>
+                        <td class="{{isOutdatedDate rpmdate}}">{{rpmdate}}</td>
+                        </tr>
+                        {{/if}}
+                        </tbody>
+                        </table>
+                        </div>
+                        </div>
+                        {{ChangeBool}}
+                        {{#ShowDivRow}}
+                        </div>
+                        {{/ShowDivRow}}
+                        {{ChangeBool}}
+                        {{/vessel}}
                     </script>
                 </div>
             </div>
