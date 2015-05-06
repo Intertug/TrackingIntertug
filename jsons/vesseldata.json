@@ -1,3 +1,41 @@
 {
-    "name": "Practicante Sistemas"
+	"vessels": [
+		{
+			"veseelID": 23,
+			"position": {
+				"value": {
+					"lat": -3.64152483333,
+					"lon": -80.7135416667
+				},
+				"label": "Posición"
+			},
+			"speed": {
+				"value": 4.5,
+				"label": "Velocidad"
+			},
+			"engine": [
+				{
+					"type": "propulsion",
+					"code": "FR54",
+					"location": "center",
+					"dayhours": {
+						"value": 82,
+						"label": "Horas de uso"
+					},
+					"dayfuel": {
+						"value": 200,
+						"label": "Combustible consumido"
+					},
+					"maxrpm": {
+						"value": 1200,
+						"label": "RPM Máximo"
+					},
+					"maxfuelrate": {
+						"value": 201,
+						"label": "Máximo consumo por hora"
+					}
+				}
+			]
+		}
+	]
 }
