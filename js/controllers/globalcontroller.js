@@ -55,11 +55,12 @@ var controller = {
         views.renderRmLi(model.vessels);
     },
     setVesselInfo: function (datos) {
+        ;
         var posicion = {};
         for (var i = 0, len = views.markers.length; i < len; i++) {
-            if (views.markers[i].id === datos.vessel.id) {
-                posicion.lat = datos.vessel.lat;
-                posicion.long = datos.vessel.long;
+            if (views.markers[i].id === datos.id) {
+                posicion.lat = datos.lat;
+                posicion.long = datos.long;
             }
         }
         views.renderVesselPanel(datos);
@@ -69,7 +70,14 @@ var controller = {
         request.getVessels(controller.setMarkers);
     },
     getVesselInfo: function (id) {
-        request.getVesselInfo(this.setVesselInfo, id);
+        ;
+        var vessels = model.vessels.vessel;
+        for (var i = 0, len = vessels.length; i < len; i++) {
+            if (vessels[i].id == id) {
+                controller.setVesselInfo(vessels[i]);
+                
+            }
+        }
     }
 };
 
@@ -117,10 +125,9 @@ var views = {
                 infowindow.close();
             });
             google.maps.event.addListener(marcador, 'click', function () {
-                controller.getVesselInfo(marcador.id);
+                controller.getVesselInfo(this.id);
             });
         }
-        console.log(this.markers);
         var clusterOptions = {gridSize: 60, maxZoom: 12};
         this.mc =
                 new MarkerClusterer(this.mapa, this.markers, clusterOptions);
@@ -136,7 +143,7 @@ var views = {
         $('#rm-list').html(html);
     },
     zoomOnVessel: function (posicion) {
-        console.log(posicion);
+        ;
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);

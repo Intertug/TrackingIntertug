@@ -12,24 +12,6 @@
     "vessels": {
         "vessel": [
             {
-                "id": "5",
-                "vesselname": "CAREX",
-                "lat": "9.4909535",
-                "long": "-75.7717203333333",
-                "speed": "0.41",
-                "gpsdate": "2015-02-08 16:04:00",
-                "icon": "ship.png"
-            },
-            {
-                "id": "16",
-                "vesselname": "ODIN",
-                "lat": "3.89332983333333",
-                "long": "-77.0772623333333",
-                "speed": "0",
-                "gpsdate": "2015-03-06 08:34:00",
-                "icon": "ship.png"
-            },
-            {
                 "id": "23",
                 "vesselname": "VALI",
                 "lat": "-3.421136",

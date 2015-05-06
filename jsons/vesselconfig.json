@@ -1,0 +1,22 @@
+{
+    "vessels": [
+        {
+            "id": "23",
+            "vesselname": "VALI",
+            "image": "vali.jpg",
+            "callsign": "989834",
+            "IMO": "98SDNJ8",
+            "flag": "peru.png",
+            "fleetID": "2",
+            "fleetName": "Perú",
+            "datasheet": {
+                "value": "http://infobeans.intertug.com/validatasheet.pdf",
+                "label": "Ficha técnica"
+            },
+            "yearbuilt": {
+                "value": "2008",
+                "label": "Año de construcción"
+            }
+        }
+    ]
+}

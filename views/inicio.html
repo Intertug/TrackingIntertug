@@ -5,48 +5,77 @@
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />    
         <title>Tracking Intertug</title>
         <link rel="shortcut icon" href="../favicon.ico" />
-        <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../css/style.css">
-        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
+        <script>
+            var query = window.location.search.substring(1);
+            function getQueryVariable(query, variable)
+            {
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] === variable) {
+                        return pair[1];
+                    }
+                }
+                return(false);
+            }
+
+            var sessionid = getQueryVariable(query, "sessionid");
+            document.cookie = "sessionid=" + sessionid;
+            var x = document.cookie;
+            console.log(x);
+            var cookie = getQueryVariable(x, "sessionid");
+            console.log("Session id from cookie " + cookie);
+            if (cookie !== "false") {
+                window.location = "global.html"
+            }
         </script>
-        <script src="../js/shared/markerclusterer.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=geometry"></script>
     </head>
-    <body id="body" onload="initialize()">
-        <div id="container"  class="col-sm-2">
-            <div id="sidebar" data-spy="affix" class="col-xs-2 col-sm-2 hidden-xs affix">
-                <h1><img alt="intertug" title="intertug" id="logointertug" src="../imgs/logointertug.jpg"></h1>
-                <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-                    <li role="presentation"><a href="ccom.html"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
-                </ul>
-            </div>
-            <div id="sidebarmini" class="visible-xs-inline-block col-xs-12"><!-- Logo + Menu Responsive para pantallas menores a 768px -->
-                <h1 id="titulosidebarmini"><img alt="intertug" title="intertug" id="logointertug2" src="../imgs/logointertug.jpg"></h1>
-                <ul class="nav nav-tabs">
-                    <li role="presentation" ><a href="inicio.html"><span class="glyphicon glyphicon-tag"></span> Flotas</a>
-                    </li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Colombia</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Perú</a></li>
-                    <li role="presentation"><a href="#"><span class="glyphicon glyphicon-tag"></span> Flota Mexico</a></li>
-                    <li role="presentation"><a href="alerts.html" class="active"><span class="glyphicon glyphicon-tag"></span>Alertas</a></li>
-                </ul>
-            </div>
+    <body>
+        <div id="template">
+            <script id="handlebarhtml" type="text/x-handlebars-template">
+                <p>
+                <img src="{{imgurl}}" alt="jejejej"/>
+                </p>
+            </script>
         </div>
-        <div id="container-map" class="col-sm-10">
-            <div id="map-container" class="col-xs-12 col-sm-12">
-                <div id="map-canvas">
-                </div>
-            </div>
-        </div>
-        <!--	JavaScripts   -->
+        <script src="../js/shared/handlebars.js"></script>
         <script src="../js/shared/jquery.min.js"></script>
-        <script src="../js/shared/getvesselsposition.js"></script>
-        <script src="../js/shared/getvessel.js"></script>
-        <script src="../js/controllers/homecontroller.js"></script>
-        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+                    var recorrido = [
+                        new google.maps.LatLng(-3.61773333333, -80.5907063333),
+                        new google.maps.LatLng(-3.61770483333, -80.5907796667),
+                        new google.maps.LatLng(-3.62285816667, -80.5934163333),
+                        new google.maps.LatLng(-3.63370666667, -80.5871175),
+                        new google.maps.LatLng(-3.6337265, -80.5871093333),
+                        new google.maps.LatLng(-3.63126316667, -80.5893148333),
+                        new google.maps.LatLng(-3.6182465, -80.657609),
+                        new google.maps.LatLng(-3.616595, -80.7031006667),
+                        new google.maps.LatLng(-3.64149683333, -80.7134765),
+                        new google.maps.LatLng(-3.6413885, -80.7135173333),
+                        new google.maps.LatLng(-3.6414235, -80.713558),
+                        new google.maps.LatLng(-3.6413885, -80.7135498333),
+                        new google.maps.LatLng(-3.64134316667, -80.7135416667),
+                        new google.maps.LatLng(-3.64152483333, -80.7135416667),
+                        new google.maps.LatLng(-3.64161983333, -80.713387),
+                        new google.maps.LatLng(-3.64173333333, -80.7131998333),
+                        new google.maps.LatLng(-3.64172166667, -80.7127278333),
+                        new google.maps.LatLng(-3.6412415, -80.7129476667),
+                        new google.maps.LatLng(-3.60814666667, -80.7375651667),
+                    ];
+
+                    var encode = google.maps.geometry.encoding.encodePath(recorrido);
+                    var datos = {
+                        imgurl: "//maps.googleapis.com/maps/api/staticmap?size=400x400&markers=color:red%7Clabel:A%7C-3.62285816667,-80.5934163333&markers=color:red%7Clabel:A%7C-3.6414235,-80.71355&path=weight:3%7Ccolor:green%7Cenc:"
+                                + encode,
+                    };
+                    var template = $('#handlebarhtml').html();
+                    var plantilla = Handlebars.compile(template);
+                    console.log(template);
+
+                    var html = plantilla(datos);
+
+                    $('#template').html(html);
+        </script>
     </body>
 </html>

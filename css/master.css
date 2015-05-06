@@ -1,7 +1,8 @@
-/* 
+/*
     Created on : 21/04/2015, 09:52:35 AM
     Author     : Santiago Mendoza
 */
+
 html{
     height: 100%;
 }
@@ -35,8 +36,9 @@ body {
 }
 
 #master-sidebar{
-    height: 100%;
+    height: 95%;
     background-color: #ffca08;
+    overflow: auto;
 }
 
 .scrollable-menu {
