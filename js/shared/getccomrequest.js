@@ -1,6 +1,6 @@
 function getCcomRequest(callback) {
     try {
-        $.get("../jsons/getVesselsPosition.json",
+        $.get("../jsons/fleetconfig.json",
                 {SessionID: "", GetData: ""})
                 .done(function (data) {
                     var datos = data;

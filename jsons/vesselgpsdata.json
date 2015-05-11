@@ -1,26 +1,59 @@
 {
-    "coordenates":
-            [
-                {
+    "vesselID": 23,
+    "coordenates": [
+        {
+            "position": {
+                "value": {
                     "lat": -3.61773333333,
-                    "lon": -80.5907063333,
-                    "speed": 9.2,
-                    "datetime": "2015-05-05 12:03:15",
-                    "alert": "true"
-
+                    "lon": -80.5907063333
                 },
-                {
+                "label": "Posición"
+            },
+            "speed": {
+                "value": 9.2,
+                "label": "Velocidad"
+            },
+            "datetime": {
+                "value": "2015-05-05 12:03:15",
+                "label": "Fecha"
+            },
+            "alert": "true"
+        },
+        {
+            "position": {
+                "value": {
                     "lat": -3.616595,
-                    "lon": -80.7031006667,
-                    "speed": 3.4,
-                    "datetime": "2015-05-05 12:04:15"
+                    "lon": -80.7031006667
                 },
-                {
+                "label": "Posición"
+            },
+            "speed": {
+                "value": 7.2,
+                "label": "Velocidad"
+            },
+            "datetime": {
+                "value": "2015-05-05 12:03:15",
+                "label": "Fecha"
+            },
+            "alert": "false"
+        },
+        {
+            "position": {
+                "value": {
                     "lat": -3.60814666667,
-                    "lon": -80.7375651667,
-                    "speed": 7.6,
-                    "datetime": "2015-05-05 12:05:15"
-                }
-            ]
-
+                    "lon": -80.7375651667
+                },
+                "label": "Posición"
+            },
+            "speed": {
+                "value": 2.5,
+                "label": "Velocidad"
+            },
+            "datetime": {
+                "value": "2015-05-05 12:03:15",
+                "label": "Fecha"
+            },
+            "alert": "false"
+        }
+    ]
 }

@@ -57,6 +57,11 @@ body {
     padding: 0;
 }
 
+#fleet-html{
+    color: #272787;
+}
+
+
 #title-vessel-panel{
     overflow: hidden;
     color: white;

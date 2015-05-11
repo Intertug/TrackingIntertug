@@ -1,3 +1,72 @@
 {
-    "name": "Practicante Sistemas"
+    "sesson_id": "7129834n23y9f",
+    "linksmenu": [
+        {
+            "links": [
+                {
+                    "value": "ccom.html",
+                    "label": "Flota Colombia"
+                },
+                {
+                    "value": "ccom.html",
+                    "label": "Flota Perú"
+                }
+            ],
+            "label": "Flotas",
+            "position": "left"
+        },
+        {
+            "value": "alerts.html",
+            "label": "Alertas",
+            "position": "left"
+        },
+        {
+            "links": [
+                {
+                    "value": "http://www.BI.com",
+                    "label": "BI"
+                },
+                {
+                    "value": "http://www.iris.com",
+                    "label": "Iris"
+                },
+                {
+                    "value": "http://www.ayuda.com",
+                    "label": "Ayuda"
+                }
+            ],
+            "label": "Enlaces",
+            "position": "right"
+        }
+    ],
+    "btns": {
+        "vessel-info": [
+            {
+                "value": "route.html",
+                "label": "Recorrido"
+            },
+            {
+                "value": "Reportes.html",
+                "label": "Reportes"
+            },
+            {
+                "value": "control.html",
+                "label": "Control"
+            }
+        ],
+        "tugs": {
+            "label": "Remolcadores"
+        }
+    },
+    "mapZoom": "4",
+    "mapCenter": {
+        "lat": "9.024365",
+        "long": "-72.913396"
+    },
+    "infotip": {
+        "value": "Haz clic en cualquier remolcador para ver su información en este panel",
+        "label": "Info tip:"
+    },
+    "companylogo": "logointertug.jpg"
 }
+

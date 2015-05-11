@@ -2,6 +2,7 @@
     "ccomName": "Perú",
     "ccomID": "2",
     "ccomDescription": "Flotas de perú en licitación con BaruOffshore",
+    "ccomFlag": "peru.jpg",
     "regionData": {
         "entities": [
             {
@@ -34,16 +35,14 @@
                     "value": "CX11",
                     "label": "Plataforma"
                 },
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "-3.59541666666",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.737166666",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "-3.59541666666",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.737166666",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -55,16 +54,14 @@
                     "value": "CX15",
                     "label": "Plataforma"
                 },
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "-3.60750",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.73667",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "-3.60750",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.73667",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -76,16 +73,14 @@
                     "value": "Z1-8-A",
                     "label": "Plataforma"
                 },
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "3.42000",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.58362",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "3.42000",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.58362",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -98,16 +93,14 @@
             {
                 "id": "1",
                 "dockname": "Muelle La Cruz",
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "-3.633691",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.587355",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "-3.633691",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.587355",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -120,16 +113,14 @@
             {
                 "id": "1",
                 "anchorageareaname": "Zona de Fondeo Remolcadores - Lado Sur CX15",
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "-3.617833",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.751183",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "-3.617833",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.751183",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -149,16 +140,14 @@
             {
                 "id": "2",
                 "anchorageareaname": "Zona de Fondeo Remolcadores - Lado Sur Albacora",
-                "posicion": {
-                    "value": {
-                        "lat": {
-                            "value": "-3.435783",
-                            "label": "Latitud"
-                        },
-                        "long": {
-                            "value": "-80.590333",
-                            "label": "Longitud"
-                        }
+                "position": {
+                    "lat": {
+                        "value": "-3.435783",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.590333",
+                        "label": "Longitud"
                     },
                     "label": "Posicion"
                 },
@@ -192,61 +181,53 @@
                 },
                 "vertices": [
                     {
-                        "posicion": {
-                            "value": {
-                                "lat": {
-                                    "value": "-3.418054",
-                                    "label": "Latitud"
-                                },
-                                "long": {
-                                    "value": "-80.590462",
-                                    "label": "Longitud"
-                                }
+                        "position": {
+                            "lat": {
+                                "value": "-3.418054",
+                                "label": "Latitud"
+                            },
+                            "long": {
+                                "value": "-80.590462",
+                                "label": "Longitud"
                             },
                             "label": "Posicion"
                         }
                     },
                     {
-                        "posicion": {
-                            "value": {
-                                "lat": {
-                                    "value": "-3.415512",
-                                    "label": "Latitud"
-                                },
-                                "long": {
-                                    "value": "-80.589995",
-                                    "label": "Longitud"
-                                }
+                        "position": {
+                            "lat": {
+                                "value": "-3.415512",
+                                "label": "Latitud"
+                            },
+                            "long": {
+                                "value": "-80.589995",
+                                "label": "Longitud"
                             },
                             "label": "Posicion"
                         }
                     },
                     {
-                        "posicion": {
-                            "value": {
-                                "lat": {
-                                    "value": "-3.414516",
-                                    "label": "Latitud"
-                                },
-                                "long": {
-                                    "value": "-80.588213",
-                                    "label": "Longitud"
-                                }
+                        "position": {
+                            "lat": {
+                                "value": "-3.414516",
+                                "label": "Latitud"
+                            },
+                            "long": {
+                                "value": "-80.588213",
+                                "label": "Longitud"
                             },
                             "label": "Posicion"
                         }
                     },
                     {
-                        "posicion": {
-                            "value": {
-                                "lat": {
-                                    "value": "-3.415872",
-                                    "label": "Latitud"
-                                },
-                                "long": {
-                                    "value": "-80.587411",
-                                    "label": "Longitud"
-                                }
+                        "position": {
+                            "lat": {
+                                "value": "-3.415872",
+                                "label": "Latitud"
+                            },
+                            "long": {
+                                "value": "-80.587411",
+                                "label": "Longitud"
                             },
                             "label": "Posicion"
                         }
@@ -260,7 +241,7 @@
             {
                 "id": "1",
                 "headlightname": "Faro X1",
-                "posicion": {
+                "position": {
                     "value": {
                         "lat": {
                             "value": "-4.5232",
