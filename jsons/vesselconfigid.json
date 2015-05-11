@@ -1,5 +1,5 @@
 {
-    "vessels": {
+    "vessel": {
         "id": "23",
         "vesselname": "VALI",
         "image": "vali.jpg",
@@ -17,4 +17,5 @@
             "label": "Año de construcción"
         }
     }
+
 }

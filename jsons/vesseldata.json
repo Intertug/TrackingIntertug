@@ -2,7 +2,7 @@
     "clusterGrid": "60",
     "vessels": [
         {
-            "veseelID": 23,
+            "vesselID": 23,
             "vesselName": "RM Baru",
             "position": {
                 "lat": -3.64152483333,

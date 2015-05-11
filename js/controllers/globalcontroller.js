@@ -55,7 +55,6 @@ var controller = {
         views.renderRmLi(model.vessels);
     },
     setVesselInfo: function (datos) {
-        ;
         var posicion = {};
         for (var i = 0, len = views.markers.length; i < len; i++) {
             if (views.markers[i].id === datos.id) {
@@ -143,7 +142,6 @@ var views = {
         $('#rm-list').html(html);
     },
     zoomOnVessel: function (posicion) {
-        ;
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);

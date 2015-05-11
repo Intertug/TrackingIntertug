@@ -30,11 +30,54 @@ var request = {
         }
     },
     vesselconfig: function (callback) {
-
+        try {
+            $.get("../jsons/vesselconfig.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
     },
     vesseldata: function (callback) {
         try {
             $.get("../jsons/vesseldata.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
+    vesseldataid: function (callback, id) {
+        try {
+            $.get("../jsons/vesseldataid.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
+    vesselconfigid: function (callback, id) {
+        try {
+            $.get("../jsons/vesselconfigid.json",
                     {SessionID: "", GetData: ""})
                     .done(function (data) {
                         var datos = data;
@@ -51,12 +94,15 @@ var request = {
 
 var model = {
     vessels: {},
+    vesselsData: {},
     platforms: {},
     docks: {},
     anchorageAreas: {},
     mooringAreas: {},
     ccomInfo: {},
     visualConfig: {},
+    vessel: {},
+    vesselData: {},
     setFleet: function (datos) {
         this.platforms = datos.platforms;
         this.docks = datos.docks;
@@ -82,6 +128,12 @@ var model = {
             mapZoom: parseInt(datos.mapZoom),
         };
         return true;
+    },
+    setVessel: function (datos) {
+        this.vessel = datos.vessel;
+    },
+    setVesselData: function (datos) {
+        this.vesselData = datos;
     }
 };
 
@@ -114,7 +166,7 @@ var controller = {
         request.userconfig(this.setUserConfig);
     },
     vesseldata: function () {
-        request.vesseldata(this.setVessels);
+        request.vesseldata(controller.setVessels);
     },
     setFleet: function (datos) {
         var boolean = model.setFleet(datos);
@@ -134,7 +186,22 @@ var controller = {
     setVessels: function (datos) {
         model.setVessels(datos);
         views.renderVessels(model.vessels);
+        views.renderRmsList(model.vessels);
+    },
+    requestVesselInfo: function (id) {
+        request.vesseldataid(this.showVesselInfo, id);
+        //request.vesselconfigid(controller.showVesselInfo, id);
+    },
+    showVesselInfo: function (datos) {
+        model.setVesselData(datos);
+        var posicion = {
+            lat: datos.vessels.position.lat,
+            long: datos.vessels.position.long
+        };
+        views.renderVesselPanel(model.vessel, model.vesselData);
+        views.zoomOnVessel(posicion);
     }
+
 };
 
 var views = {
@@ -145,6 +212,7 @@ var views = {
     docksMarkers: [],
     anchorageAreaMarkers: [],
     mooringAreaMarkers: [],
+    templateRmList: $('#rms-dropdown-li').html(),
     renderMap: function (opciones) {
         this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     },
@@ -170,7 +238,7 @@ var views = {
                 icon: '../imgs/ship.png',
                 draggable: false,
                 title: vessels[i].vesselName,
-                zIndex: 1,
+                zIndex: 3,
                 html: content,
                 id: vessels[i].vesselID
             });
@@ -183,7 +251,7 @@ var views = {
                 infowindow.close();
             });
             google.maps.event.addListener(marcador, 'click', function () {
-                controller.getVesselInfo(this.id);
+                controller.requestVesselInfo(this.id);
             });
         }
         var clusterOptions = {gridSize: 60, maxZoom: 12};
@@ -365,6 +433,32 @@ var views = {
         var plantilla = Handlebars.compile(source);
         var html = plantilla(datos);
         $('#fleet-html').html(html);
+    },
+    renderVesselPanel: function (vessel, vesselData) {
+        var template = $('#vessel-info').html();
+        var plantilla = Handlebars.compile(template);
+        console.log(vesselData);
+        var data = {
+            vessel: vessel,
+            vesselData: vesselData.vessels
+        };
+        var html = plantilla(data);
+        $('#handlebar-html').html(html);
+    },
+    renderRmsList: function (vessel) {
+        console.log(vessel);
+        var data = {
+            vessel: vessel
+        };
+        var template = this.templateRmList;
+        var plantilla = Handlebars.compile(template);
+        var html = plantilla(data);
+        $('#rm-list').html(html);
+    },
+    zoomOnVessel: function (posicion) {
+        var pos = new google.maps.LatLng(posicion.lat, posicion.long);
+        this.mapa.setCenter(pos);
+        this.mapa.setZoom(11);
     }
 };
 
@@ -372,4 +466,5 @@ function initialize() {
     controller.userconfig();
     controller.fleetconfig();
     controller.vesseldata();
+    var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
 }
