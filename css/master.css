@@ -11,6 +11,7 @@ body {
     padding-top: 50px;
 }
 
+
 #navbar{
     background-color: #ffca08;
 }
@@ -39,6 +40,7 @@ body {
     height: 95%;
     background-color: #ffca08;
     overflow: auto;
+    position: fixed;
 }
 
 .scrollable-menu {
@@ -48,13 +50,11 @@ body {
     overflow-x: hidden;
 }
 
-#master-content{
-    height: 100%;
-}
 
 #master-col-content{
     height: 100%;
     padding: 0;
+    
 }
 
 #fleet-html{

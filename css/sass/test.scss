@@ -1,0 +1,51 @@
+$navbar-height: 50px;
+$sidebar-width: 350px;
+
+.navbar{
+	background-color: #ffca08;
+}
+
+	.navbar-brand{
+		padding: 0;
+	}
+
+	.navbar-logo{
+		height: $navbar-height;
+	}
+
+.sidebar{
+	background-color: #ffca08;
+	position: fixed;
+	top: 50px;
+	bottom: 0px;
+	height: -webkit-calc(100% - #{$navbar-height});
+	height: -moz-calc(100% - #{$navbar-height});
+	height: calc(100% - #{$navbar-height});
+	width: $sidebar-width;
+	overflow: auto;
+
+	@media all and (max-width: 750px){
+		content: "";
+		visibility: hidden;
+	}
+}
+
+.main{
+	background-color: olive;
+	position: fixed;
+	left: $sidebar-width;
+	top: 50px;
+	bottom: 0px;
+	width: -webkit-calc(100% - #{$sidebar-width});
+	width: -moz-calc(100% - #{$sidebar-width});
+	width: calc(100% - #{$sidebar-width});
+	height: -webkit-calc(100% - #{$navbar-height});
+	height: -moz-calc(100% - #{$navbar-height});
+	height: calc(100% - #{$navbar-height});
+	overflow: auto;
+	
+	@media all and (max-width: 850px){
+		left:0px;
+		width: 100%;
+	}
+}

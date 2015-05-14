@@ -1,0 +1,46 @@
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/test.scss */
+.navbar {
+  background-color: #ffca08; }
+
+/* line 8, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/test.scss */
+.navbar-brand {
+  padding: 0; }
+
+/* line 12, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/test.scss */
+.navbar-logo {
+  height: 50px; }
+
+/* line 16, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/test.scss */
+.sidebar {
+  background-color: #ffca08;
+  position: fixed;
+  top: 50px;
+  bottom: 0px;
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+  width: 350px;
+  overflow: auto; }
+  @media all and (max-width: 750px) {
+    .sidebar {
+      content: "";
+      visibility: hidden; } }
+
+/* line 33, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/test.scss */
+.main {
+  background-color: olive;
+  position: fixed;
+  left: 350px;
+  top: 50px;
+  bottom: 0px;
+  width: -webkit-calc(100% - 350px);
+  width: -moz-calc(100% - 350px);
+  width: calc(100% - 350px);
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+  overflow: auto; }
+  @media all and (max-width: 850px) {
+    .main {
+      left: 0px;
+      width: 100%; } }
