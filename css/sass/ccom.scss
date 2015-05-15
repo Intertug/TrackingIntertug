@@ -1,0 +1,26 @@
+@import 'base';
+
+.sidebar__dropdown{
+	margin: 5px;
+}
+
+.sidebar__dropdown__list{
+	width: 100%;
+	max-height: 200px;
+	overflow: auto;
+}
+
+.sidebar__rmpanel{
+	margin: 10px 5px 5px 5px;
+}
+
+.rmpanel__table{
+	width: 100%;
+}
+.rmpanel__footer{
+	text-align: center;
+}
+
+.main__map{
+	height: 100%;
+}

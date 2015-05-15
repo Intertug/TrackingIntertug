@@ -1,0 +1,34 @@
+@import 'base';
+
+.sidebar__form{
+	width: $sidebar-width - 10px;
+	margin: 5px;
+}
+
+	.form__group{
+		margin-top: 5px;
+		width: 100%;
+	}
+
+	.form__label{
+		width: 30%;
+		font-size: 0.9rem;
+
+	}
+
+	.form__input{
+		display:inline;
+		margin: 0;
+		width: 65%;
+		margin-top: 5px;
+		font-size: 1rem;
+	}
+
+	.form__rmselect{
+		width: 100%;
+	}
+	
+	.form__submit{
+		margin-top: 5px;
+		font-size: 1rem;
+	}

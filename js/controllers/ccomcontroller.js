@@ -213,6 +213,7 @@ var views = {
     anchorageAreaMarkers: [],
     mooringAreaMarkers: [],
     templateRmList: $('#rms-dropdown-li').html(),
+    templateVesselPanel: $('#vessel-info').html(),
     renderMap: function (opciones) {
         this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     },
@@ -388,6 +389,7 @@ var views = {
     },
     renderLeftMenu: function (linksmenu) {
         var leftmenus = [];
+
         for (var i = 0, len = linksmenu.length; i < len; i++) {
             if (linksmenu[i].position === 'left') {
                 leftmenus.push(linksmenu[i]);
@@ -396,10 +398,11 @@ var views = {
         var datos = {
             linksmenu: leftmenus
         };
+
         var source = $("#navbar-menu-left").html();
         var template = Handlebars.compile(source);
         var html = template(datos);
-        $('#menu-navbar-left').html(html);
+        $('#navbar__left').html(html);
     },
     renderRightMenu: function (linksmenu) {
         var rightmenus = [];
@@ -414,7 +417,7 @@ var views = {
         var source = $("#navbar-menu-right").html();
         var plantilla = Handlebars.compile(source);
         var html = plantilla(datos);
-        $('#menu-navbar-right').html(html);
+        $('#navbar__right').html(html);
     },
     renderInfoTip: function (infotip) {
         var datos = {
@@ -435,18 +438,16 @@ var views = {
         $('#fleet-html').html(html);
     },
     renderVesselPanel: function (vessel, vesselData) {
-        var template = $('#vessel-info').html();
+        var template = this.templateVesselPanel;
         var plantilla = Handlebars.compile(template);
-        console.log(vesselData);
         var data = {
             vessel: vessel,
             vesselData: vesselData.vessels
         };
         var html = plantilla(data);
-        $('#handlebar-html').html(html);
+        $('#rmpanel').html(html);
     },
     renderRmsList: function (vessel) {
-        console.log(vessel);
         var data = {
             vessel: vessel
         };
@@ -466,5 +467,5 @@ function initialize() {
     controller.userconfig();
     controller.fleetconfig();
     controller.vesseldata();
-    var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
+    //var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
 }
