@@ -1,8 +1,8 @@
 @import 'base';
 
 .sidebar__form{
-	width: $sidebar-width - 10px;
 	margin: 5px;
+	text-align: center;
 }
 
 	.form__group{
@@ -31,4 +31,19 @@
 	.form__submit{
 		margin-top: 5px;
 		font-size: 1rem;
+	}
+
+.main{
+	
+}
+	.main__tabpanel{
+		height: 90%;
+	}
+	
+	.main__tabpanel__content{
+		height: 100%;
+	}
+
+	.tabpanel__content_pane{
+		height: 100%;
 	}
