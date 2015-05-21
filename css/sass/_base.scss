@@ -2,6 +2,7 @@
 
 $navbar-height: 50px;
 $sidebar-width: 350px;
+$breakpoint: 850px;
 
 html{
 	font-size: 16px;
@@ -31,7 +32,7 @@ html{
 	width: $sidebar-width;
 	overflow: auto;
 
-	@media all and (max-width: 750px){
+	@media all and (max-width: $breakpoint){
 		content: "";
 		visibility: hidden;
 	}
@@ -74,7 +75,7 @@ html{
 	height: calc(100% - #{$navbar-height});
 	overflow: auto;
 	
-	@media all and (max-width: 850px){
+	@media all and (max-width: $breakpoint){
 		left:0px;
 		width: 100%;
 	}

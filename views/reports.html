@@ -112,7 +112,7 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs main__tabpanel__list" role="tablist">
             <li role="presentation" class="active">
-                <a href="#bar_chart" aria-controls="home" role="tab" data-toggle="tab">Gráfica</a>
+                <a href="#line_chart" aria-controls="home" role="tab" data-toggle="tab">Gráfica</a>
             </li>
             <li role="presentation">
                 <a href="#table_chart" aria-controls="profile" role="tab" data-toggle="tab">Tabla</a>
@@ -120,30 +120,56 @@
             </ul>
             <!-- Tab panes -->
             <div class="tab-content main__tabpanel__content">
-                <div role="tabpanel" class="tab-pane active tabpanel__content_pane" id="bar_chart"></div>
+                <div role="tabpanel" class="tab-pane active tabpanel__content_pane" id="line_chart">
+                    <div class="alert alert-info alert-dismissable sidebar__infotip" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>Cargando!</strong> Estamos cargando el reporte.     
+                    </div>
+                </div>
                 <div role="tabpanel" class="tab-pane tabpanel__content_pane" id="table_chart">
-                    <table id="pane__table" class="table table-bordered pane__table">
+                    <script id="table-info" type="text/x-handlebars-template">
+                    <table id="pane__table" class="table table-bordered table-responsive pane__table">
+                        {{#labels}}
                         <tr>
-                            <th rowspan="2">Día</th>
-                            <th colspan="2">Propulsor Babor</th>
-                            <th colspan="2">Propulsor Estribor</th>
+                            <th rowspan="2">{{dayLabel}}</th>
+                            <th colspan="2">{{PBLabel}}</th>
+                            <th colspan="2">{{PELabel}}</th>
 
-                            <th colspan="2">Generador Babor</th>
-                            <th colspan="2">Generador Estribor</th>
-                            <th rowspan="2">Consumo Total de Combustible</th>
+                            <th colspan="2">{{GBLabel}}</th>
+                            <th colspan="2">{{GELabel}}</th>
+                            <th rowspan="2">{{totalLabel}}</th>
                         </tr>
                         <tr>
-                            <td>Consumo</td>
-                            <td>Horas</td>
-                            <td>Consumo</td>
-                            <td>Horas</td>
+                            <td>{{consumption}}</td>
+                            <td>{{hoursLabel}}</td>
+                            <td>{{consumption}}</td>
+                            <td>{{hoursLabel}}</td>
                             
-                            <td>Consumo</td>
-                            <td>Horas</td>
-                            <td>Consumo</td>
-                            <td>Horas</td>
+                            <td>{{consumption}}</td>
+                            <td>{{hoursLabel}}</td>
+                            <td>{{consumption}}</td>
+                            <td>{{hoursLabel}}</td>
                         </tr>
+                        {{/labels}}
+                        {{#report}}
+                        <tr>
+                            <td>{{day}}</td>
+                            <td>{{CMPB}}</td>
+                            <td>{{HMPB}}</td>
+                            <td>{{CMPE}}</td>
+                            <td>{{HMPE}}</td>
+                            
+                            <td>{{CMGB}}</td>
+                            <td>{{HMGB}}</td>
+                            <td>{{CMGE}}</td>
+                            <td>{{HMGE}}</td>
+                            <th>{{total}}</th>
+                        </tr>
+                        {{/report}}
                     </table>
+                    </script>
                 </div>
             </div>
         </div>
@@ -154,8 +180,8 @@
     <script src="../js/controllers/reportscontroller.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script>
-            google.load('visualization', '1.0', {'packages':['corechart']});
-            google.setOnLoadCallback(views.drawCharts);
+            google.load('visualization', '1.0', {'packages':['corechart', 'line']});
+            google.setOnLoadCallback(controller.reportData);
         </script>
     <script src="../js/shared/jquery.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
