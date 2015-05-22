@@ -6620,46 +6620,92 @@ html {
       left: 0px;
       width: 100%; } }
 
-/* line 3, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.sidebar__form {
-  margin: 5px;
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+* {
+  box-sizing: border-box; }
+
+/* line 7, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar__card__description {
   text-align: center; }
 
-/* line 8, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__group {
-  margin-top: 5px;
+/* line 11, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report {
+  text-align: center; }
+
+/* line 15, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report--red {
+  color: red; }
+
+/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report--green {
+  color: green; }
+
+/* line 23, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar__rmpanel {
+  margin: 10px 5px 5px 5px; }
+
+/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__table {
   width: 100%; }
 
-/* line 13, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__label {
-  width: 30%;
-  font-size: 0.9rem; }
+/* line 30, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__footer {
+  text-align: center; }
 
-/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__input {
-  display: inline;
-  margin: 0;
-  width: 65%;
-  margin-top: 5px;
-  font-size: 1rem; }
-
-/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__rmselect {
-  width: 100%; }
-
-/* line 31, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__submit {
-  margin-top: 5px;
-  font-size: 1rem; }
-
-/* line 39, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.main__tabpanel {
-  height: 90%; }
-
-/* line 43, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.main__tabpanel__content {
+/* line 34, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.main__map {
   height: 100%; }
 
-/* line 47, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.tabpanel__content_pane {
-  height: 100%; }
+/* line 38, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.dates {
+  background-color: #ffca08;
+  position: fixed;
+  top: 50px;
+  left: 40%;
+  width: 40%;
+  text-align: center;
+  border-radius: 0 0 10px 10px; }
+  @media screen and (max-width: 650px) {
+    .dates {
+      content: '^'; } }
+
+/* line 51, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.dates__container {
+  margin: 5px 0 5px 0; }
+
+/* line 55, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar-right {
+  position: fixed;
+  top: 70px;
+  right: 0px;
+  height: 110px;
+  width: 50px;
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px; }
+
+/* line 65, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible {
+  display: none;
+  z-index: 2; }
+
+/* line 70, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.labels-title {
+  position: fixed;
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: normal;
+  max-width: 5px; }
+
+/* line 81, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible:checked ~ .sidebar-right {
+  background-color: red;
+  width: 150px;
+  height: 80%; }
+  /* line 85, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+  #sidebar-collapsible:checked ~ .sidebar-right .labels-title {
+    padding-left: 0;
+    font-size: 1rem;
+    text-align: center;
+    margin-left: 5px;
+    max-width: 50px;
+    word-wrap: break-word; }

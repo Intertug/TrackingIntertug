@@ -1,0 +1,94 @@
+@import 'base';
+
+$sidebar-right-width: 20px;
+*{
+	box-sizing:border-box;
+}
+.sidebar__card__description{
+	text-align: center;
+}
+
+	.last-report{
+		text-align: center;
+	}
+
+		.last-report--red{
+			color: red;
+		}
+
+		.last-report--green{
+			color: green;
+		}
+
+.sidebar__rmpanel{
+	margin: 10px 5px 5px 5px;
+}
+
+.rmpanel__table{
+	width: 100%;
+}
+.rmpanel__footer{
+	text-align: center;
+}
+
+.main__map{
+	height: 100%;
+}
+
+.dates{
+	background-color: $yellow-intertug;
+	position: fixed;
+	top: $navbar-height;
+	left: 40%;
+	width: 40%;
+	text-align: center;
+	border-radius: 0 0 10px 10px;
+	@media screen and (max-width: 650px){
+		content: '^';
+	}
+}
+
+	.dates__container{
+		margin: 5px 0 5px 0;
+	}
+
+.sidebar-right{
+	position: fixed;
+	top: $navbar-height+20px;
+	right: 0px;
+	height: 110px;
+	width: 50px;
+	background-color: $yellow-intertug;
+	border-radius: 10px 0 0 10px;
+}
+
+	#sidebar-collapsible{
+		display: none;
+		z-index: 2;
+	}
+
+	.labels-title{
+		position: fixed;
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: normal;
+		//margin-left: 5px;
+		//padding-left: 10px;
+		max-width: 5px;
+		//word-wrap: break-word;
+	}
+
+	#sidebar-collapsible:checked ~ .sidebar-right{
+		background-color: red;
+		width: 150px;
+		height: 80%;
+		.labels-title{
+			padding-left: 0;
+			font-size: 1rem;
+			text-align: center;
+			margin-left: 5px;
+			max-width: 50px;
+			word-wrap: break-word;
+		}
+	}
+

@@ -3,13 +3,14 @@
 $navbar-height: 50px;
 $sidebar-width: 350px;
 $breakpoint: 850px;
+$yellow-intertug: #ffca08;
 
 html{
 	font-size: 16px;
 }
 
 .navbar{
-	background-color: #ffca08;
+	background-color: $yellow-intertug;
 }
 
 	.navbar-brand{
@@ -21,7 +22,7 @@ html{
 	}
 
 .sidebar{
-	background-color: #ffca08;
+	background-color: $yellow-intertug;
 	position: fixed;
 	top: 50px;
 	bottom: 0px;
@@ -56,6 +57,10 @@ html{
 	.sidebar__card__description{
 		font-size: 1.1rem;
 		text-align: justify;
+	}
+
+	.sidebar__card__image{
+		width: 100%;
 	}
 
 	.sidebar__infotip{
