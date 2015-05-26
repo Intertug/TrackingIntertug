@@ -6541,23 +6541,2290 @@ button.close {
     display: none !important; }
  }
 
-/* line 8, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-html {
+/*!
+ *  Font Awesome 4.3.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2') format('woff2'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg') format('svg');
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-2x {
+  font-size: 2em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-3x {
+  font-size: 3em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-4x {
+  font-size: 4em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-5x {
+  font-size: 5em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ul > li {
+  position: relative; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-li.fa-lg {
+  left: -1.85714286em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-border {
+  padding: 0.2em 0.25em 0.15em;
+  border: solid 0.08em #eee;
+  border-radius: 0.1em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.pull-right {
+  float: right; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.pull-left {
+  float: left; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa.pull-left {
+  margin-right: 0.3em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa.pull-right {
+  margin-left: 0.3em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8); }
+
+@-webkit-keyframes fa-spin {
+  /* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  /* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+@keyframes fa-spin {
+  /* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
+
+  /* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg); } }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1); }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+:root .fa-rotate-90, :root .fa-rotate-180, :root .fa-rotate-270, :root .fa-flip-horizontal, :root .fa-flip-vertical {
+  filter: none; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack-1x, .fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack-1x {
+  line-height: inherit; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack-2x {
+  font-size: 2em; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-inverse {
+  color: #fff; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-glass:before {
+  content: "\f000"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-music:before {
+  content: "\f001"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-search:before {
+  content: "\f002"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-envelope-o:before {
+  content: "\f003"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-heart:before {
+  content: "\f004"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-star:before {
+  content: "\f005"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-star-o:before {
+  content: "\f006"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-user:before {
+  content: "\f007"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-film:before {
+  content: "\f008"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-th-large:before {
+  content: "\f009"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-th:before {
+  content: "\f00a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-th-list:before {
+  content: "\f00b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-check:before {
+  content: "\f00c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-remove:before, .fa-close:before, .fa-times:before {
+  content: "\f00d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-search-plus:before {
+  content: "\f00e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-search-minus:before {
+  content: "\f010"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-power-off:before {
+  content: "\f011"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-signal:before {
+  content: "\f012"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gear:before, .fa-cog:before {
+  content: "\f013"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-trash-o:before {
+  content: "\f014"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-home:before {
+  content: "\f015"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-o:before {
+  content: "\f016"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-clock-o:before {
+  content: "\f017"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-road:before {
+  content: "\f018"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-download:before {
+  content: "\f019"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-o-down:before {
+  content: "\f01a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-o-up:before {
+  content: "\f01b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-inbox:before {
+  content: "\f01c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-play-circle-o:before {
+  content: "\f01d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rotate-right:before, .fa-repeat:before {
+  content: "\f01e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-refresh:before {
+  content: "\f021"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-list-alt:before {
+  content: "\f022"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lock:before {
+  content: "\f023"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flag:before {
+  content: "\f024"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-headphones:before {
+  content: "\f025"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-volume-off:before {
+  content: "\f026"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-volume-down:before {
+  content: "\f027"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-volume-up:before {
+  content: "\f028"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-qrcode:before {
+  content: "\f029"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-barcode:before {
+  content: "\f02a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tag:before {
+  content: "\f02b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tags:before {
+  content: "\f02c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-book:before {
+  content: "\f02d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bookmark:before {
+  content: "\f02e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-print:before {
+  content: "\f02f"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-camera:before {
+  content: "\f030"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-font:before {
+  content: "\f031"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bold:before {
+  content: "\f032"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-italic:before {
+  content: "\f033"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-text-height:before {
+  content: "\f034"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-text-width:before {
+  content: "\f035"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-align-left:before {
+  content: "\f036"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-align-center:before {
+  content: "\f037"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-align-right:before {
+  content: "\f038"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-align-justify:before {
+  content: "\f039"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-list:before {
+  content: "\f03a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dedent:before, .fa-outdent:before {
+  content: "\f03b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-indent:before {
+  content: "\f03c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-video-camera:before {
+  content: "\f03d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-photo:before, .fa-image:before, .fa-picture-o:before {
+  content: "\f03e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pencil:before {
+  content: "\f040"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-map-marker:before {
+  content: "\f041"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-adjust:before {
+  content: "\f042"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tint:before {
+  content: "\f043"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-edit:before, .fa-pencil-square-o:before {
+  content: "\f044"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-share-square-o:before {
+  content: "\f045"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-check-square-o:before {
+  content: "\f046"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrows:before {
+  content: "\f047"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-step-backward:before {
+  content: "\f048"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fast-backward:before {
+  content: "\f049"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-backward:before {
+  content: "\f04a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-play:before {
+  content: "\f04b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pause:before {
+  content: "\f04c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stop:before {
+  content: "\f04d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-forward:before {
+  content: "\f04e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fast-forward:before {
+  content: "\f050"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-step-forward:before {
+  content: "\f051"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-eject:before {
+  content: "\f052"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-left:before {
+  content: "\f053"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-right:before {
+  content: "\f054"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plus-circle:before {
+  content: "\f055"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-minus-circle:before {
+  content: "\f056"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-times-circle:before {
+  content: "\f057"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-check-circle:before {
+  content: "\f058"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-question-circle:before {
+  content: "\f059"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-info-circle:before {
+  content: "\f05a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-crosshairs:before {
+  content: "\f05b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-times-circle-o:before {
+  content: "\f05c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-check-circle-o:before {
+  content: "\f05d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ban:before {
+  content: "\f05e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-left:before {
+  content: "\f060"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-right:before {
+  content: "\f061"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-up:before {
+  content: "\f062"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-down:before {
+  content: "\f063"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mail-forward:before, .fa-share:before {
+  content: "\f064"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-expand:before {
+  content: "\f065"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-compress:before {
+  content: "\f066"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plus:before {
+  content: "\f067"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-minus:before {
+  content: "\f068"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-asterisk:before {
+  content: "\f069"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-exclamation-circle:before {
+  content: "\f06a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gift:before {
+  content: "\f06b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-leaf:before {
+  content: "\f06c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fire:before {
+  content: "\f06d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-eye:before {
+  content: "\f06e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-eye-slash:before {
+  content: "\f070"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-warning:before, .fa-exclamation-triangle:before {
+  content: "\f071"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plane:before {
+  content: "\f072"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-calendar:before {
+  content: "\f073"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-random:before {
+  content: "\f074"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-comment:before {
+  content: "\f075"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-magnet:before {
+  content: "\f076"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-up:before {
+  content: "\f077"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-down:before {
+  content: "\f078"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-retweet:before {
+  content: "\f079"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-shopping-cart:before {
+  content: "\f07a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-folder:before {
+  content: "\f07b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-folder-open:before {
+  content: "\f07c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrows-v:before {
+  content: "\f07d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrows-h:before {
+  content: "\f07e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bar-chart-o:before, .fa-bar-chart:before {
+  content: "\f080"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-twitter-square:before {
+  content: "\f081"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-facebook-square:before {
+  content: "\f082"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-camera-retro:before {
+  content: "\f083"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-key:before {
+  content: "\f084"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gears:before, .fa-cogs:before {
+  content: "\f085"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-comments:before {
+  content: "\f086"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-thumbs-o-up:before {
+  content: "\f087"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-thumbs-o-down:before {
+  content: "\f088"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-star-half:before {
+  content: "\f089"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-heart-o:before {
+  content: "\f08a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sign-out:before {
+  content: "\f08b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-linkedin-square:before {
+  content: "\f08c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-thumb-tack:before {
+  content: "\f08d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-external-link:before {
+  content: "\f08e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sign-in:before {
+  content: "\f090"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-trophy:before {
+  content: "\f091"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-github-square:before {
+  content: "\f092"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-upload:before {
+  content: "\f093"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lemon-o:before {
+  content: "\f094"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-phone:before {
+  content: "\f095"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-square-o:before {
+  content: "\f096"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bookmark-o:before {
+  content: "\f097"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-phone-square:before {
+  content: "\f098"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-twitter:before {
+  content: "\f099"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-facebook-f:before, .fa-facebook:before {
+  content: "\f09a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-github:before {
+  content: "\f09b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-unlock:before {
+  content: "\f09c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-credit-card:before {
+  content: "\f09d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rss:before {
+  content: "\f09e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hdd-o:before {
+  content: "\f0a0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bullhorn:before {
+  content: "\f0a1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bell:before {
+  content: "\f0f3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-certificate:before {
+  content: "\f0a3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hand-o-right:before {
+  content: "\f0a4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hand-o-left:before {
+  content: "\f0a5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hand-o-up:before {
+  content: "\f0a6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hand-o-down:before {
+  content: "\f0a7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-left:before {
+  content: "\f0a8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-right:before {
+  content: "\f0a9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-up:before {
+  content: "\f0aa"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-down:before {
+  content: "\f0ab"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-globe:before {
+  content: "\f0ac"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-wrench:before {
+  content: "\f0ad"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tasks:before {
+  content: "\f0ae"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-filter:before {
+  content: "\f0b0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-briefcase:before {
+  content: "\f0b1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrows-alt:before {
+  content: "\f0b2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-group:before, .fa-users:before {
+  content: "\f0c0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chain:before, .fa-link:before {
+  content: "\f0c1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cloud:before {
+  content: "\f0c2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flask:before {
+  content: "\f0c3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cut:before, .fa-scissors:before {
+  content: "\f0c4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-copy:before, .fa-files-o:before {
+  content: "\f0c5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paperclip:before {
+  content: "\f0c6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-save:before, .fa-floppy-o:before {
+  content: "\f0c7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-square:before {
+  content: "\f0c8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+  content: "\f0c9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-list-ul:before {
+  content: "\f0ca"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-list-ol:before {
+  content: "\f0cb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-strikethrough:before {
+  content: "\f0cc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-underline:before {
+  content: "\f0cd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-table:before {
+  content: "\f0ce"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-magic:before {
+  content: "\f0d0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-truck:before {
+  content: "\f0d1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pinterest:before {
+  content: "\f0d2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pinterest-square:before {
+  content: "\f0d3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-google-plus-square:before {
+  content: "\f0d4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-google-plus:before {
+  content: "\f0d5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-money:before {
+  content: "\f0d6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-caret-down:before {
+  content: "\f0d7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-caret-up:before {
+  content: "\f0d8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-caret-left:before {
+  content: "\f0d9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-caret-right:before {
+  content: "\f0da"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-columns:before {
+  content: "\f0db"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-unsorted:before, .fa-sort:before {
+  content: "\f0dc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-down:before, .fa-sort-desc:before {
+  content: "\f0dd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-up:before, .fa-sort-asc:before {
+  content: "\f0de"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-envelope:before {
+  content: "\f0e0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-linkedin:before {
+  content: "\f0e1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rotate-left:before, .fa-undo:before {
+  content: "\f0e2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-legal:before, .fa-gavel:before {
+  content: "\f0e3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dashboard:before, .fa-tachometer:before {
+  content: "\f0e4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-comment-o:before {
+  content: "\f0e5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-comments-o:before {
+  content: "\f0e6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flash:before, .fa-bolt:before {
+  content: "\f0e7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sitemap:before {
+  content: "\f0e8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-umbrella:before {
+  content: "\f0e9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paste:before, .fa-clipboard:before {
+  content: "\f0ea"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lightbulb-o:before {
+  content: "\f0eb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-exchange:before {
+  content: "\f0ec"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cloud-download:before {
+  content: "\f0ed"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cloud-upload:before {
+  content: "\f0ee"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-user-md:before {
+  content: "\f0f0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stethoscope:before {
+  content: "\f0f1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-suitcase:before {
+  content: "\f0f2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bell-o:before {
+  content: "\f0a2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-coffee:before {
+  content: "\f0f4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cutlery:before {
+  content: "\f0f5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-text-o:before {
+  content: "\f0f6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-building-o:before {
+  content: "\f0f7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hospital-o:before {
+  content: "\f0f8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ambulance:before {
+  content: "\f0f9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-medkit:before {
+  content: "\f0fa"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fighter-jet:before {
+  content: "\f0fb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-beer:before {
+  content: "\f0fc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-h-square:before {
+  content: "\f0fd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plus-square:before {
+  content: "\f0fe"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-double-left:before {
+  content: "\f100"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-double-right:before {
+  content: "\f101"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-double-up:before {
+  content: "\f102"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-double-down:before {
+  content: "\f103"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-left:before {
+  content: "\f104"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-right:before {
+  content: "\f105"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-up:before {
+  content: "\f106"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angle-down:before {
+  content: "\f107"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-desktop:before {
+  content: "\f108"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-laptop:before {
+  content: "\f109"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tablet:before {
+  content: "\f10a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mobile-phone:before, .fa-mobile:before {
+  content: "\f10b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-circle-o:before {
+  content: "\f10c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-quote-left:before {
+  content: "\f10d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-quote-right:before {
+  content: "\f10e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-spinner:before {
+  content: "\f110"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-circle:before {
+  content: "\f111"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mail-reply:before, .fa-reply:before {
+  content: "\f112"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-github-alt:before {
+  content: "\f113"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-folder-o:before {
+  content: "\f114"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-folder-open-o:before {
+  content: "\f115"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-smile-o:before {
+  content: "\f118"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-frown-o:before {
+  content: "\f119"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-meh-o:before {
+  content: "\f11a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gamepad:before {
+  content: "\f11b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-keyboard-o:before {
+  content: "\f11c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flag-o:before {
+  content: "\f11d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flag-checkered:before {
+  content: "\f11e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-terminal:before {
+  content: "\f120"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-code:before {
+  content: "\f121"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mail-reply-all:before, .fa-reply-all:before {
+  content: "\f122"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-star-half-empty:before, .fa-star-half-full:before, .fa-star-half-o:before {
+  content: "\f123"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-location-arrow:before {
+  content: "\f124"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-crop:before {
+  content: "\f125"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-code-fork:before {
+  content: "\f126"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-unlink:before, .fa-chain-broken:before {
+  content: "\f127"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-question:before {
+  content: "\f128"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-info:before {
+  content: "\f129"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-exclamation:before {
+  content: "\f12a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-superscript:before {
+  content: "\f12b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-subscript:before {
+  content: "\f12c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-eraser:before {
+  content: "\f12d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-puzzle-piece:before {
+  content: "\f12e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-microphone:before {
+  content: "\f130"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-microphone-slash:before {
+  content: "\f131"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-shield:before {
+  content: "\f132"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-calendar-o:before {
+  content: "\f133"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fire-extinguisher:before {
+  content: "\f134"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rocket:before {
+  content: "\f135"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-maxcdn:before {
+  content: "\f136"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-circle-left:before {
+  content: "\f137"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-circle-right:before {
+  content: "\f138"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-circle-up:before {
+  content: "\f139"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-chevron-circle-down:before {
+  content: "\f13a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-html5:before {
+  content: "\f13b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-css3:before {
+  content: "\f13c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-anchor:before {
+  content: "\f13d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-unlock-alt:before {
+  content: "\f13e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bullseye:before {
+  content: "\f140"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ellipsis-h:before {
+  content: "\f141"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ellipsis-v:before {
+  content: "\f142"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rss-square:before {
+  content: "\f143"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-play-circle:before {
+  content: "\f144"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ticket:before {
+  content: "\f145"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-minus-square:before {
+  content: "\f146"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-minus-square-o:before {
+  content: "\f147"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-level-up:before {
+  content: "\f148"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-level-down:before {
+  content: "\f149"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-check-square:before {
+  content: "\f14a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pencil-square:before {
+  content: "\f14b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-external-link-square:before {
+  content: "\f14c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-share-square:before {
+  content: "\f14d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-compass:before {
+  content: "\f14e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-down:before, .fa-caret-square-o-down:before {
+  content: "\f150"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-up:before, .fa-caret-square-o-up:before {
+  content: "\f151"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-right:before, .fa-caret-square-o-right:before {
+  content: "\f152"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-euro:before, .fa-eur:before {
+  content: "\f153"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gbp:before {
+  content: "\f154"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dollar:before, .fa-usd:before {
+  content: "\f155"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-rupee:before, .fa-inr:before {
+  content: "\f156"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cny:before, .fa-rmb:before, .fa-yen:before, .fa-jpy:before {
+  content: "\f157"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ruble:before, .fa-rouble:before, .fa-rub:before {
+  content: "\f158"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-won:before, .fa-krw:before {
+  content: "\f159"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bitcoin:before, .fa-btc:before {
+  content: "\f15a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file:before {
+  content: "\f15b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-text:before {
+  content: "\f15c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-alpha-asc:before {
+  content: "\f15d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-alpha-desc:before {
+  content: "\f15e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-amount-asc:before {
+  content: "\f160"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-amount-desc:before {
+  content: "\f161"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-numeric-asc:before {
+  content: "\f162"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sort-numeric-desc:before {
+  content: "\f163"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-thumbs-up:before {
+  content: "\f164"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-thumbs-down:before {
+  content: "\f165"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-youtube-square:before {
+  content: "\f166"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-youtube:before {
+  content: "\f167"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-xing:before {
+  content: "\f168"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-xing-square:before {
+  content: "\f169"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-youtube-play:before {
+  content: "\f16a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dropbox:before {
+  content: "\f16b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack-overflow:before {
+  content: "\f16c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-instagram:before {
+  content: "\f16d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-flickr:before {
+  content: "\f16e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-adn:before {
+  content: "\f170"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bitbucket:before {
+  content: "\f171"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bitbucket-square:before {
+  content: "\f172"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tumblr:before {
+  content: "\f173"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tumblr-square:before {
+  content: "\f174"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-long-arrow-down:before {
+  content: "\f175"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-long-arrow-up:before {
+  content: "\f176"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-long-arrow-left:before {
+  content: "\f177"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-long-arrow-right:before {
+  content: "\f178"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-apple:before {
+  content: "\f179"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-windows:before {
+  content: "\f17a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-android:before {
+  content: "\f17b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-linux:before {
+  content: "\f17c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dribbble:before {
+  content: "\f17d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-skype:before {
+  content: "\f17e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-foursquare:before {
+  content: "\f180"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-trello:before {
+  content: "\f181"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-female:before {
+  content: "\f182"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-male:before {
+  content: "\f183"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-gittip:before, .fa-gratipay:before {
+  content: "\f184"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sun-o:before {
+  content: "\f185"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-moon-o:before {
+  content: "\f186"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-archive:before {
+  content: "\f187"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bug:before {
+  content: "\f188"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-vk:before {
+  content: "\f189"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-weibo:before {
+  content: "\f18a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-renren:before {
+  content: "\f18b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pagelines:before {
+  content: "\f18c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stack-exchange:before {
+  content: "\f18d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-o-right:before {
+  content: "\f18e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-arrow-circle-o-left:before {
+  content: "\f190"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-left:before, .fa-caret-square-o-left:before {
+  content: "\f191"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dot-circle-o:before {
+  content: "\f192"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-wheelchair:before {
+  content: "\f193"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-vimeo-square:before {
+  content: "\f194"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-turkish-lira:before, .fa-try:before {
+  content: "\f195"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plus-square-o:before {
+  content: "\f196"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-space-shuttle:before {
+  content: "\f197"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-slack:before {
+  content: "\f198"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-envelope-square:before {
+  content: "\f199"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-wordpress:before {
+  content: "\f19a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-openid:before {
+  content: "\f19b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-institution:before, .fa-bank:before, .fa-university:before {
+  content: "\f19c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mortar-board:before, .fa-graduation-cap:before {
+  content: "\f19d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-yahoo:before {
+  content: "\f19e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-google:before {
+  content: "\f1a0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-reddit:before {
+  content: "\f1a1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-reddit-square:before {
+  content: "\f1a2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stumbleupon-circle:before {
+  content: "\f1a3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-stumbleupon:before {
+  content: "\f1a4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-delicious:before {
+  content: "\f1a5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-digg:before {
+  content: "\f1a6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pied-piper:before {
+  content: "\f1a7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pied-piper-alt:before {
+  content: "\f1a8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-drupal:before {
+  content: "\f1a9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-joomla:before {
+  content: "\f1aa"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-language:before {
+  content: "\f1ab"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-fax:before {
+  content: "\f1ac"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-building:before {
+  content: "\f1ad"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-child:before {
+  content: "\f1ae"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paw:before {
+  content: "\f1b0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-spoon:before {
+  content: "\f1b1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cube:before {
+  content: "\f1b2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cubes:before {
+  content: "\f1b3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-behance:before {
+  content: "\f1b4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-behance-square:before {
+  content: "\f1b5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-steam:before {
+  content: "\f1b6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-steam-square:before {
+  content: "\f1b7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-recycle:before {
+  content: "\f1b8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-automobile:before, .fa-car:before {
+  content: "\f1b9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cab:before, .fa-taxi:before {
+  content: "\f1ba"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tree:before {
+  content: "\f1bb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-spotify:before {
+  content: "\f1bc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-deviantart:before {
+  content: "\f1bd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-soundcloud:before {
+  content: "\f1be"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-database:before {
+  content: "\f1c0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-pdf-o:before {
+  content: "\f1c1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-word-o:before {
+  content: "\f1c2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-excel-o:before {
+  content: "\f1c3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-powerpoint-o:before {
+  content: "\f1c4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-photo-o:before, .fa-file-picture-o:before, .fa-file-image-o:before {
+  content: "\f1c5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-zip-o:before, .fa-file-archive-o:before {
+  content: "\f1c6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-sound-o:before, .fa-file-audio-o:before {
+  content: "\f1c7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-movie-o:before, .fa-file-video-o:before {
+  content: "\f1c8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-file-code-o:before {
+  content: "\f1c9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-vine:before {
+  content: "\f1ca"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-codepen:before {
+  content: "\f1cb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-jsfiddle:before {
+  content: "\f1cc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-life-bouy:before, .fa-life-buoy:before, .fa-life-saver:before, .fa-support:before, .fa-life-ring:before {
+  content: "\f1cd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-circle-o-notch:before {
+  content: "\f1ce"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ra:before, .fa-rebel:before {
+  content: "\f1d0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ge:before, .fa-empire:before {
+  content: "\f1d1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-git-square:before {
+  content: "\f1d2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-git:before {
+  content: "\f1d3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hacker-news:before {
+  content: "\f1d4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tencent-weibo:before {
+  content: "\f1d5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-qq:before {
+  content: "\f1d6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-wechat:before, .fa-weixin:before {
+  content: "\f1d7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-send:before, .fa-paper-plane:before {
+  content: "\f1d8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-send-o:before, .fa-paper-plane-o:before {
+  content: "\f1d9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-history:before {
+  content: "\f1da"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-genderless:before, .fa-circle-thin:before {
+  content: "\f1db"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-header:before {
+  content: "\f1dc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paragraph:before {
+  content: "\f1dd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sliders:before {
+  content: "\f1de"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-share-alt:before {
+  content: "\f1e0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-share-alt-square:before {
+  content: "\f1e1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bomb:before {
+  content: "\f1e2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-soccer-ball-o:before, .fa-futbol-o:before {
+  content: "\f1e3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-tty:before {
+  content: "\f1e4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-binoculars:before {
+  content: "\f1e5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-plug:before {
+  content: "\f1e6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-slideshare:before {
+  content: "\f1e7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-twitch:before {
+  content: "\f1e8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-yelp:before {
+  content: "\f1e9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-newspaper-o:before {
+  content: "\f1ea"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-wifi:before {
+  content: "\f1eb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-calculator:before {
+  content: "\f1ec"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paypal:before {
+  content: "\f1ed"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-google-wallet:before {
+  content: "\f1ee"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-visa:before {
+  content: "\f1f0"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-mastercard:before {
+  content: "\f1f1"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-discover:before {
+  content: "\f1f2"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-amex:before {
+  content: "\f1f3"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-paypal:before {
+  content: "\f1f4"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc-stripe:before {
+  content: "\f1f5"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bell-slash:before {
+  content: "\f1f6"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bell-slash-o:before {
+  content: "\f1f7"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-trash:before {
+  content: "\f1f8"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-copyright:before {
+  content: "\f1f9"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-at:before {
+  content: "\f1fa"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-eyedropper:before {
+  content: "\f1fb"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-paint-brush:before {
+  content: "\f1fc"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-birthday-cake:before {
+  content: "\f1fd"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-area-chart:before {
+  content: "\f1fe"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pie-chart:before {
+  content: "\f200"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-line-chart:before {
+  content: "\f201"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lastfm:before {
+  content: "\f202"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-lastfm-square:before {
+  content: "\f203"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-off:before {
+  content: "\f204"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-toggle-on:before {
+  content: "\f205"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bicycle:before {
+  content: "\f206"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-bus:before {
+  content: "\f207"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ioxhost:before {
+  content: "\f208"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-angellist:before {
+  content: "\f209"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cc:before {
+  content: "\f20a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-shekel:before, .fa-sheqel:before, .fa-ils:before {
+  content: "\f20b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-meanpath:before {
+  content: "\f20c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-buysellads:before {
+  content: "\f20d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-connectdevelop:before {
+  content: "\f20e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-dashcube:before {
+  content: "\f210"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-forumbee:before {
+  content: "\f211"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-leanpub:before {
+  content: "\f212"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-sellsy:before {
+  content: "\f213"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-shirtsinbulk:before {
+  content: "\f214"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-simplybuilt:before {
+  content: "\f215"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-skyatlas:before {
+  content: "\f216"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cart-plus:before {
+  content: "\f217"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-cart-arrow-down:before {
+  content: "\f218"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-diamond:before {
+  content: "\f219"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-ship:before {
+  content: "\f21a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-user-secret:before {
+  content: "\f21b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-motorcycle:before {
+  content: "\f21c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-street-view:before {
+  content: "\f21d"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-heartbeat:before {
+  content: "\f21e"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-venus:before {
+  content: "\f221"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mars:before {
+  content: "\f222"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mercury:before {
+  content: "\f223"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-transgender:before {
+  content: "\f224"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-transgender-alt:before {
+  content: "\f225"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-venus-double:before {
+  content: "\f226"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mars-double:before {
+  content: "\f227"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-venus-mars:before {
+  content: "\f228"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mars-stroke:before {
+  content: "\f229"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mars-stroke-v:before {
+  content: "\f22a"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-mars-stroke-h:before {
+  content: "\f22b"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-neuter:before {
+  content: "\f22c"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-facebook-official:before {
+  content: "\f230"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-pinterest-p:before {
+  content: "\f231"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-whatsapp:before {
+  content: "\f232"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-server:before {
+  content: "\f233"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-user-plus:before {
+  content: "\f234"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-user-times:before {
+  content: "\f235"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-hotel:before, .fa-bed:before {
+  content: "\f236"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-viacoin:before {
+  content: "\f237"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-train:before {
+  content: "\f238"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-subway:before {
+  content: "\f239"; }
+
+/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/font-awesome */
+.fa-medium:before {
+  content: "\f23a"; }
+
+/* line 10, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+body {
   font-size: 16px; }
 
-/* line 12, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 14, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar {
   background-color: #ffca08; }
 
-/* line 16, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 18, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar-brand {
   padding: 0; }
 
-/* line 20, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 22, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar-logo {
   height: 50px; }
 
-/* line 24, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 26, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar {
   background-color: #ffca08;
   position: fixed;
@@ -6574,35 +8841,35 @@ html {
       content: "";
       visibility: hidden; } }
 
-/* line 42, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 44, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card {
   padding: 5px; }
 
-/* line 46, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 48, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__title {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #181E86; }
 
-/* line 52, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 54, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__subtitle {
   font-weight: bold;
   color: #222788; }
 
-/* line 57, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__description {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   text-align: justify; }
 
-/* line 62, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 64, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__image {
   width: 100%; }
 
-/* line 66, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 68, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__infotip {
   margin: 5px; }
 
-/* line 70, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 72, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .main {
   position: fixed;
   left: 350px;
@@ -6620,43 +8887,56 @@ html {
       left: 0px;
       width: 100%; } }
 
-/* line 4, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-* {
-  box-sizing: border-box; }
+/* Common CSS */
+/* line 94, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+p[data-color=green] {
+  color: green; }
 
-/* line 7, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 98, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+p[data-color=red] {
+  color: red; }
+
+/* line 5, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .sidebar__card__description {
   text-align: center; }
 
-/* line 11, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 9, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .last-report {
   text-align: center; }
 
-/* line 15, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 13, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .last-report--red {
   color: red; }
 
-/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 17, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .last-report--green {
   color: green; }
 
-/* line 23, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 21, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .sidebar__rmpanel {
   margin: 10px 5px 5px 5px; }
 
-/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 25, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__opstate {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem; }
+
+/* line 31, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__date {
+  text-align: center;
+  font-weight: bold; }
+
+/* line 36, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .rmpanel__table {
+  background-color: #D8D8D8;
   width: 100%; }
 
-/* line 30, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-.rmpanel__footer {
-  text-align: center; }
-
-/* line 34, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 42, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .main__map {
   height: 100%; }
 
-/* line 38, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 46, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .dates {
   background-color: #ffca08;
   position: fixed;
@@ -6669,43 +8949,55 @@ html {
     .dates {
       content: '^'; } }
 
-/* line 51, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .dates__container {
   margin: 5px 0 5px 0; }
 
-/* line 55, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 63, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .sidebar-right {
   position: fixed;
   top: 70px;
   right: 0px;
-  height: 110px;
-  width: 50px;
+  height: 32px;
+  min-width: 30px;
   background-color: #ffca08;
-  border-radius: 10px 0 0 10px; }
+  border-radius: 10px 0 0 10px;
+  z-index: 1; }
 
-/* line 65, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 74, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 #sidebar-collapsible {
   display: none;
-  z-index: 2; }
+  width: 100%; }
 
-/* line 70, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+/* line 79, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .labels-title {
+  background-color: inherit;
+  border-radius: inherit;
+  padding: 0;
   position: fixed;
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0rem;
   font-weight: normal;
-  max-width: 5px; }
+  width: 100%;
+  margin: 0 0 5px 2px; }
 
-/* line 81, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-#sidebar-collapsible:checked ~ .sidebar-right {
-  background-color: red;
-  width: 150px;
-  height: 80%; }
-  /* line 85, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-  #sidebar-collapsible:checked ~ .sidebar-right .labels-title {
-    padding-left: 0;
-    font-size: 1rem;
-    text-align: center;
-    margin-left: 5px;
-    max-width: 50px;
-    word-wrap: break-word; }
+/* line 91, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.labels-title::before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-size: 2.5rem;
+  content: "\f137"; }
+
+/* line 100, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible:checked ~ .labels-title::before {
+  content: "\f138"; }
+
+/* line 104, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible:checked ~ .sibdebar-right__labels {
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px;
+  width: 200px;
+  height: 300px;
+  z-index: 2; }

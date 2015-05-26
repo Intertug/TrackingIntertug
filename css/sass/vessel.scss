@@ -1,9 +1,7 @@
 @import 'base';
 
 $sidebar-right-width: 20px;
-*{
-	box-sizing:border-box;
-}
+
 .sidebar__card__description{
 	text-align: center;
 }
@@ -24,12 +22,22 @@ $sidebar-right-width: 20px;
 	margin: 10px 5px 5px 5px;
 }
 
-.rmpanel__table{
-	width: 100%;
-}
-.rmpanel__footer{
-	text-align: center;
-}
+	.rmpanel__opstate{
+		text-align: center;
+		font-weight: bolder;
+		font-size: 2rem;
+	}
+
+	.rmpanel__date{
+		text-align: center;
+		font-weight: bold;
+	}
+
+	.rmpanel__table{
+		background-color: #D8D8D8 ;
+		width: 100%;
+	}
+	
 
 .main__map{
 	height: 100%;
@@ -56,39 +64,48 @@ $sidebar-right-width: 20px;
 	position: fixed;
 	top: $navbar-height+20px;
 	right: 0px;
-	height: 110px;
-	width: 50px;
+	height: 32px;
+	min-width: 30px;
 	background-color: $yellow-intertug;
 	border-radius: 10px 0 0 10px;
+	z-index: 1;
 }
 
 	#sidebar-collapsible{
-		display: none;
-		z-index: 2;
+		display:none;
+		width: 100%;
 	}
 
 	.labels-title{
+		background-color: inherit;
+		border-radius: inherit;
+		padding: 0;
 		position: fixed;
 		display: inline-block;
-		font-size: 0.8rem;
+		font-size: 0rem;
 		font-weight: normal;
-		//margin-left: 5px;
-		//padding-left: 10px;
-		max-width: 5px;
-		//word-wrap: break-word;
+		width: 100%;
+		margin: 0 0 5px 2px;
 	}
 
-	#sidebar-collapsible:checked ~ .sidebar-right{
-		background-color: red;
-		width: 150px;
-		height: 80%;
-		.labels-title{
-			padding-left: 0;
-			font-size: 1rem;
-			text-align: center;
-			margin-left: 5px;
-			max-width: 50px;
-			word-wrap: break-word;
-		}
+	.labels-title::before{
+		font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    font-size: 2.5rem;
+		content: "\f137";
+	}
+	
+	#sidebar-collapsible:checked ~ .labels-title::before{
+		content:  "\f138";
+	}
+
+	#sidebar-collapsible:checked ~ .sibdebar-right__labels{
+		background-color: $yellow-intertug;
+		border-radius: 10px 0 0 10px;
+		width: 200px;
+		height: 300px;
+		z-index: 2;
 	}
 

@@ -29,21 +29,6 @@ var request = {
             throw err;
         }
     },
-    /*vesselconfig: function (callback) {
-        try {
-            $.get("../jsons/vesselconfig.json",
-                    {SessionID: "", GetData: ""})
-                    .done(function (data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
-        } catch (err) {
-            console.log(err);
-            throw err;
-        }
-    },*/
     vesselconfigid: function (callback, id) {
         try {
             $.get("../jsons/vesselconfigid.json",
@@ -58,20 +43,54 @@ var request = {
             console.log(err);
             throw err;
         }
+    },
+    vesselgpsdata: function(callback, id){
+        try {
+            $.get("../jsons/vesselgpsdata.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        //console.log(id);
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
+    gpspoint: function(callback, date, id){
+        try {
+            $.get("../jsons/gpspoint.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        //console.log(id);
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
     }
 };
 
 var model = {
+    vessel: {},
     //vessels: {},
     //vesselsData: {},
+    coordenates: [],
     platforms: {},
     docks: {},
     anchorageAreas: {},
     mooringAreas: {},
     ccomInfo: {},
     visualConfig: {},
-    vessel: {},
     vesselData: {},
+    point: {},
     setFleet: function (datos) {
         this.platforms = datos.platforms;
         this.docks = datos.docks;
@@ -85,9 +104,9 @@ var model = {
         };
         return true;
     },
-    /*setVessels: function (datos) {
+    /** setVessels: function (datos) {
         this.vessels = datos.vessels;
-    },*/
+    },**/
     setVisualConfig: function (datos) {
         this.visualConfig = {
             linksmenu: datos.linksmenu,
@@ -103,6 +122,12 @@ var model = {
     },
     setVesselData: function (datos) {
         this.vesselData = datos;
+    },
+    setGPSData: function(datos){
+        this.coordenates = datos.coordenates;
+    },
+    setPointData: function(datos){
+        this.point = datos.point;
     }
 };
 
@@ -137,9 +162,24 @@ var controller = {
     vesselconfigid: function(){
         request.vesselconfigid(this.setVessel);
     },
+    vesselgpsdata: function(){
+        request.vesselgpsdata(this.setGPSData);
+    },
+    gpspoint: function(date, id){
+        request.gpspoint(this.setPointData, date = null, id = null);
+    },
     /*vesseldata: function () {
         request.vesseldata(controller.setVessels);
     },*/
+    setPointData: function(datos){
+        model.setPointData(datos);
+        views.renderPointPanel(model.point);
+    },
+    setGPSData: function(datos){
+        console.log("hola");
+        model.setGPSData(datos);
+        views.renderPoints(model.coordenates, model.vessel.id);
+    },
     setFleet: function (datos) {
         var boolean = model.setFleet(datos);
         views.renderPlatforms(model.platforms);
@@ -155,17 +195,9 @@ var controller = {
         //views.renderInfoTip(model.visualConfig.infotip);
     },
     setVessel: function(datos){
-        console.log(datos);
+        model.setVessel(datos);
         views.renderRmInfo(datos);
-    },
-    /*setVessels: function (datos) {
-        model.setVessels(datos);
-        views.renderVessels(model.vessels);
-        //views.renderRmsList(model.vessels);
-    },*/
-    /*requestVesselInfo: function (id) {
-        request.vesseldataid(this.showVesselInfo, id);
-    },*/
+    }/*,
     showVesselInfo: function (datos) {
         model.setVesselData(datos);
         var posicion = {
@@ -174,7 +206,7 @@ var controller = {
         };
         views.renderVesselPanel(model.vessel, model.vesselData);
         views.zoomOnVessel(posicion);
-    }
+    }*/
 
 };
 
@@ -188,36 +220,49 @@ var views = {
     mooringAreaMarkers: [],
     templateRmList: $('#rms-dropdown-li').html(),
     templateVesselPanel: $('#vessel-info').html(),
+    templatePointPanel: $('#point-panel').html(),
     renderMap: function (opciones) {
         this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
     },
-    renderVessels: function (datosvessels) {
+    renderPoints: function (datosvessels, vesselid) {
         var vessels = datosvessels;
-        if (this.mc !== null) {
-            this.mc.clearMarkers();
-        }
         this.markers = [];
-        this.mc = null;
         var infowindow = null;
+        console.log(vessels[0].position.value.lat);
         infowindow = new google.maps.InfoWindow({
             content: ""
         });
+        var coordenates = [];
         for (var i = 0, len = vessels.length; i < len; i++) {
-            var content = "<h6>" + vessels[i].vesselName + " </h6>"
-                    + "<b> Velocidad </b>: " + vessels[i].speed.value + " Nudos<br>"
-                    + "<b> Fecha </b>: " + vessels[i].gpsdate.value
-                    + "<br><br>";
-            var position = new google.maps.LatLng(vessels[i].position.lat, vessels[i].position.long);
+            var content =
+                    "<b> Velocidad </b>: " + vessels[i].speed.value + " Nudos<br>"
+                    + "<b> Fecha </b>: " + vessels[i].datetime.value;
+            var position = new google.maps.LatLng(vessels[i].position.value.lat, vessels[i].position.value.long);
+            coordenates[i] = position;
+            var color;
+            if(vessels[i].alert == 'true'){
+                color = 'red';
+            }else{
+                color = '#660099';
+            }
             var marcador = new google.maps.Marker({
                 position: position,
-                icon: '../imgs/ship.png',
+                icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 3,
+                    strokeColor: color,//'#11FB34' )
+                    fillColor: color
+                },
                 draggable: false,
-                title: vessels[i].vesselName,
+                //title: vessels[i].vesselName,
                 zIndex: 3,
                 html: content,
-                id: vessels[i].vesselID
+                id: vesselid,
+                date: vessels[i].datetime.value,
+                map: this.mapa
             });
             this.markers[i] = marcador;
+            console.log(marcador);
             google.maps.event.addListener(marcador, 'mouseover', function () {
                 infowindow.setContent(this.html);
                 infowindow.open(views.mapa, this);
@@ -226,12 +271,29 @@ var views = {
                 infowindow.close();
             });
             google.maps.event.addListener(marcador, 'click', function () {
-                controller.requestVesselInfo(this.id);
+                controller.gpspoint(this.date, this.id);
             });
         }
-        var clusterOptions = {gridSize: 60, maxZoom: 12};
-        this.mc =
-                new MarkerClusterer(views.mapa, views.markers, clusterOptions);
+
+
+        var flecha = {
+          path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+          scale: 1.25,
+          strokeColor: '#660099'//'#11FB34'
+        };
+        var linea = new google.maps.Polyline({
+          path: coordenates,
+          map: this.mapa,
+          icons: [{
+            icon: flecha,
+            offset: '50%',
+            repeat: "20px"
+          }],
+          geodesic: true,
+          strokeColor: '#660099',//'#11FB34',
+          strokeOpacity: 0.7,
+          strokeWeight: 1
+        });
     },
     renderPlatforms: function (datosplatforms) {
         var platforms = datosplatforms.platform;
@@ -402,7 +464,7 @@ var views = {
         var html = plantilla(datos);
         $('#rm-html').html(html);
     },
-    renderVesselPanel: function (vessel) {
+    /*renderVesselPanel: function (vessel) {
         var template = this.templateVesselPanel;
         var plantilla = Handlebars.compile(template);
         var data = {
@@ -410,11 +472,20 @@ var views = {
         };
         var html = plantilla(data);
         $('#rmpanel').html(html);
-    },
+    },*/
     zoomOnVessel: function (posicion) {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);
+    },
+    renderPointPanel: function(point){
+        var data = {
+            point: point
+        };
+        var template = this.templatePointPanel;
+        var plantilla = Handlebars.compile(template);
+        var html = plantilla(data);
+        $('#point-html').html(html);
     }
 };
 
@@ -422,6 +493,7 @@ function initialize() {
     controller.userconfig();
     controller.fleetconfig();
     controller.vesselconfigid();
+    controller.vesselgpsdata();
     //controller.vesseldata();
     //var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
 }

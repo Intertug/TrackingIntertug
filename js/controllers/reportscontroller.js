@@ -79,21 +79,30 @@ var controller = {
         rm = document.getElementById("rm").selectedIndex;
         dateone = document.getElementById("dateone").value;
         datetwo = document.getElementById("datetwo").value;
+        console.log(rm);
+        console.log(dateone);
+        console.log(datetwo);
         if(rm == null || rm == 0){
-            valid = false;
+            alert("Debes escoger un remolcador");
+            return false;
         }
         dateoneDate = new Date(dateone);
-        if(dateoneDate == " " || dateoneDate > today){
-            valid = false;
+        if(dateone == "" || dateoneDate > today){
+            alert("La fecha de inicio no puede estar vacía o ser mayor al día de hoy.");
+            return false;
         }
         datetwoDate = new Date(datetwo);
-        if(datetwoDate == " " || datetwoDate > today){
-            valid = false;
+        if(datetwo == "" || datetwoDate > today){
+            alert("La fecha de fin no puede estar vacía o ser mayor al día de hoy.");
+            return false;
         }
         if(dateoneDate > datetwoDate){
-            valid = false;
+            alert("La fecha de inicio no puede ser mayor a la fecha final");
+            return false;
         }
-        return valid;
+
+        return true;
+        
     },
     requestReport: function(){
         rm = document.getElementById("rm").selectedIndex;
