@@ -2,10 +2,16 @@
     "vessel": {
         "id": "23",
         "vesselname": "VALI",
-        "image": "vali.jpg",
-        "callsign": "989834",
-        "IMO": "98SDNJ8",
-        "flag": "peru.png",
+        "image": "vessel.jpg",
+        "callsign": {
+            "value": "989834",
+            "label": "Callsign"
+        },
+        "IMO": {
+            "value": "9381457",
+            "label": "IMO"
+        },
+        "flag": "flag.png",
         "fleetID": "2",
         "fleetName": "Perú",
         "datasheet": {
@@ -15,7 +21,11 @@
         "yearbuilt": {
             "value": "2008",
             "label": "Año de construcción"
+        },
+        "lastReport": {
+            "value": "2015-05-22 09:50:00",
+            "label": "Último reporte",
+            "color": "red"
         }
     }
-
 }

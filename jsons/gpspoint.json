@@ -1,0 +1,36 @@
+{
+	"vesselID": 23,
+	"point": {
+		"date": {
+			"value": "2015-05-26 09:30:00",
+			"label": "Fecha"
+		},
+		"operationalState": {
+			"value": "Maniobra",
+			"label": "Estado Operacional",
+			"color": "green"
+		},
+		"speed": {
+			"value": 10.2,
+			"label": "Velocidad",
+			"color": "red"
+		},
+		"rpm": {
+			"value": 200,
+			"label": "RPM",
+			"color": "green"
+		},
+		"consumption": {
+			"value": 130.2,
+			"label": "Consumo",
+			"color": "green"
+		},
+		"position": {
+			"value": {
+				"lat": -3.2382,
+				"long": -80.3847
+			},
+			"label": "Posicion"
+		}
+	}
+}

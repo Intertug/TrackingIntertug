@@ -3,7 +3,10 @@
         "id": "23",
         "vesselname": "VALI",
         "image": "vali.jpg",
-        "callsign": "989834",
+        "callsign": {
+            "value": "989834",
+            "label": "Callsign"
+        },
         "IMO": "98SDNJ8",
         "flag": "peru.png",
         "fleetID": "2",

@@ -8896,46 +8896,108 @@ p[data-color=green] {
 p[data-color=red] {
   color: red; }
 
-/* line 3, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.sidebar__form {
-  margin: 5px;
+/* line 5, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar__card__description {
   text-align: center; }
 
-/* line 8, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__group {
-  margin-top: 5px;
+/* line 9, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report {
+  text-align: center; }
+
+/* line 13, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report--red {
+  color: red; }
+
+/* line 17, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.last-report--green {
+  color: green; }
+
+/* line 21, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar__rmpanel {
+  margin: 10px 5px 5px 5px; }
+
+/* line 25, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__opstate {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 2rem; }
+
+/* line 31, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__date {
+  text-align: center;
+  font-weight: bold; }
+
+/* line 36, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.rmpanel__table {
+  background-color: #D8D8D8;
   width: 100%; }
 
-/* line 13, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__label {
-  width: 30%;
-  font-size: 1.5rem; }
+/* line 42, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.main__map {
+  height: 100%; }
 
-/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__input {
-  display: inline;
-  margin: 0;
-  width: 65%;
-  margin-top: 5px;
-  font-size: 1.5rem; }
+/* line 46, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.dates {
+  background-color: #ffca08;
+  position: fixed;
+  top: 50px;
+  left: 40%;
+  width: 40%;
+  text-align: center;
+  border-radius: 0 0 10px 10px; }
+  @media screen and (max-width: 650px) {
+    .dates {
+      content: '^'; } }
 
-/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__rmselect {
+/* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.dates__container {
+  margin: 5px 0 5px 0; }
+
+/* line 63, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.sidebar-right {
+  position: fixed;
+  top: 70px;
+  right: 0px;
+  height: 32px;
+  min-width: 30px;
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px;
+  z-index: 1; }
+
+/* line 74, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible {
+  display: none;
   width: 100%; }
 
-/* line 31, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.form__submit {
-  margin-top: 5px;
-  font-size: 1.5rem; }
+/* line 79, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.labels-title {
+  background-color: inherit;
+  border-radius: inherit;
+  padding: 0;
+  position: fixed;
+  display: inline-block;
+  font-size: 0rem;
+  font-weight: normal;
+  width: 100%;
+  margin: 0 0 5px 2px; }
 
-/* line 39, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.main__tabpanel {
-  height: 90%; }
+/* line 91, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+.labels-title::before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-size: 2.5rem;
+  content: "\f137"; }
 
-/* line 43, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.main__tabpanel__content {
-  height: 100%; }
+/* line 100, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible:checked ~ .labels-title::before {
+  content: "\f138"; }
 
-/* line 47, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.tabpanel__content_pane {
-  height: 100%; }
+/* line 104, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
+#sidebar-collapsible:checked ~ .sibdebar-right__labels {
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px;
+  width: 200px;
+  height: 300px;
+  z-index: 2; }
