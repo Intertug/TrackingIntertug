@@ -88,6 +88,76 @@ body{
 	}
 }
 
+.sidebar-right{
+	position: fixed;
+	top: $navbar-height+20px;
+	right: 0px;
+	height: 32px;
+	min-width: 30px;
+	background-color: $yellow-intertug;
+	border-radius: 10px 0 0 10px;
+	z-index: 1;
+}
+
+	#sidebar-collapsible{
+		display:none;
+	}
+
+	.labels-title{
+		//background-color: inherit;
+		border-radius: inherit;
+		padding: 0;
+		position: fixed;
+		display: inline-block;
+		font-weight: normal;
+		margin: 0 0 5px 2px;
+	}
+
+	.labels-title::before{
+		font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    font-size: 2.5rem;
+		content: "\f137";
+	}
+	
+	#sidebar-collapsible:checked ~ .labels-title::before{
+		content:  "\f138";
+	}
+
+	#sidebar-collapsible:checked ~ .sibdebar-right__labels{
+		background-color: $yellow-intertug;
+		border-radius: 10px 0 0 10px;
+		width: 200px;
+		height: 300px;
+		z-index: 2;
+		.sidebar-right__labels__entities{
+			padding-top: 40px;
+			display:block;
+		}
+	}
+
+	.sidebar-right__labels__entities{
+		display:none;
+	}
+
+	.entities__panel{
+		margin-left: 5px;
+		padding-right: 10px;
+		width: 100%;
+	}
+
+		.panel__title{
+			font-size: 1.8rem;
+			font-weight: bold;
+			margin-bottom: 0;
+		}
+
+		.panel__desc{
+			font-size: 1.3rem;
+		}
+
 /* Common CSS */
 
 

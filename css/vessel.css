@@ -8887,12 +8887,81 @@ body {
       left: 0px;
       width: 100%; } }
 
+/* line 91, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.sidebar-right {
+  position: fixed;
+  top: 70px;
+  right: 0px;
+  height: 32px;
+  min-width: 30px;
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px;
+  z-index: 1; }
+
+/* line 102, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+#sidebar-collapsible {
+  display: none; }
+
+/* line 106, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.labels-title {
+  border-radius: inherit;
+  padding: 0;
+  position: fixed;
+  display: inline-block;
+  font-weight: normal;
+  margin: 0 0 5px 2px; }
+
+/* line 116, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.labels-title::before {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-size: 2.5rem;
+  content: "\f137"; }
+
+/* line 125, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+#sidebar-collapsible:checked ~ .labels-title::before {
+  content: "\f138"; }
+
+/* line 129, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+#sidebar-collapsible:checked ~ .sibdebar-right__labels {
+  background-color: #ffca08;
+  border-radius: 10px 0 0 10px;
+  width: 200px;
+  height: 300px;
+  z-index: 2; }
+  /* line 135, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+  #sidebar-collapsible:checked ~ .sibdebar-right__labels .sidebar-right__labels__entities {
+    padding-top: 40px;
+    display: block; }
+
+/* line 141, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.sidebar-right__labels__entities {
+  display: none; }
+
+/* line 145, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.entities__panel {
+  margin-left: 5px;
+  padding-right: 10px;
+  width: 100%; }
+
+/* line 151, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.panel__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0; }
+
+/* line 157, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.panel__desc {
+  font-size: 1.3rem; }
+
 /* Common CSS */
-/* line 94, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 164, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 p[data-color=green] {
   color: green; }
 
-/* line 98, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 168, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 p[data-color=red] {
   color: red; }
 
@@ -8952,52 +9021,3 @@ p[data-color=red] {
 /* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .dates__container {
   margin: 5px 0 5px 0; }
-
-/* line 63, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-.sidebar-right {
-  position: fixed;
-  top: 70px;
-  right: 0px;
-  height: 32px;
-  min-width: 30px;
-  background-color: #ffca08;
-  border-radius: 10px 0 0 10px;
-  z-index: 1; }
-
-/* line 74, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-#sidebar-collapsible {
-  display: none;
-  width: 100%; }
-
-/* line 79, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-.labels-title {
-  background-color: inherit;
-  border-radius: inherit;
-  padding: 0;
-  position: fixed;
-  display: inline-block;
-  font-size: 0rem;
-  font-weight: normal;
-  width: 100%;
-  margin: 0 0 5px 2px; }
-
-/* line 91, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-.labels-title::before {
-  font-family: FontAwesome;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  font-size: 2.5rem;
-  content: "\f137"; }
-
-/* line 100, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-#sidebar-collapsible:checked ~ .labels-title::before {
-  content: "\f138"; }
-
-/* line 104, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
-#sidebar-collapsible:checked ~ .sibdebar-right__labels {
-  background-color: #ffca08;
-  border-radius: 10px 0 0 10px;
-  width: 200px;
-  height: 300px;
-  z-index: 2; }

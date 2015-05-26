@@ -7,21 +7,21 @@
         "entities": [
             {
                 "entity": {
-                    "value": "Entidad del mar",
+                    "value": "Dimar",
                     "label": "Entidad"
                 },
                 "tel": {
-                    "value": "6605949",
+                    "value": "01-800-0911670",
                     "label": "Telefono"
                 }
             },
             {
                 "entity": {
-                    "value": "Entidad del Oceano",
+                    "value": "Asociación Peruana de Agentes Marítimos",
                     "label": "Entidad"
                 },
                 "tel": {
-                    "value": "6605949",
+                    "value": "429 2695",
                     "label": "Telefono"
                 }
             }

@@ -172,6 +172,21 @@
     		
     	</div>
     </section>
+    <section class="sidebar-right">
+        <input type="checkbox" id="sidebar-collapsible"/><label for="sidebar-collapsible" class="labels-title"></label>
+        <div class="sibdebar-right__labels">
+            <div id="region-html" class="sidebar-right__labels__entities">
+                <script id="region-data" type="text/x-handlebars-template">
+                    {{#entities}}
+                        <div class="entities__panel">
+                            <p class="panel__title">{{entity.value}}</p>
+                            <p class="panel__desc">{{tel.value}}</p>
+                        </div>
+                    {{/entities}}                    
+                </script>
+            </div>
+        </div>
+    </section>
 	<script src="../js/shared/jquery.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/controllers/ccomcontroller.js"></script>
