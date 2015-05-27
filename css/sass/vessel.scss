@@ -52,11 +52,14 @@ $sidebar-right-width: 20px;
 	text-align: center;
 	border-radius: 0 0 10px 10px;
 	@media screen and (max-width: 650px){
-		content: '^';
+		width: 20px;
 	}
 }
 
 	.dates__container{
 		margin: 5px 0 5px 0;
+		@media screen and (max-width: 650px){
+			display: none;
+		}
 	}
 

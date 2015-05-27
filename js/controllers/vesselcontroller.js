@@ -134,7 +134,10 @@ var model = {
 var controller = {
     initmap: function () {
         //var centro = new google.maps.LatLng(9.024365, -72.913396);
-        var centro = new google.maps.LatLng(model.visualConfig.mapCenter.lat, model.visualConfig.mapCenter.long);
+        var centro = new google.maps.LatLng(
+            model.visualConfig.mapCenter.lat,
+            model.visualConfig.mapCenter.long
+        );
         var opciones = {
             zoom: model.visualConfig.mapZoom,
             center: centro,
@@ -142,14 +145,18 @@ var controller = {
             mapTypeControl: true,
             streetViewControl: false,
             scaleControl: true,
-            mapTypeControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_TOP},
-            zoomControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
-            panControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
-            scaleControlOptions:
-                    {position: google.maps.ControlPosition.BOTTOM_CENTER}
+            mapTypeControlOptions:{
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            zoomControlOptions:{
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            panControlOptions:{
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            scaleControlOptions:{
+                position: google.maps.ControlPosition.BOTTOM_CENTER
+            }
         };
         views.renderMap(opciones);
     },
@@ -177,8 +184,8 @@ var controller = {
     },
     setGPSData: function(datos){
         console.log("hola");
-        model.setGPSData(datos);
-        views.renderPoints(model.coordenates, model.vessel.id);
+        //model.setGPSData(datos);
+        views.renderPoints(datos.coordenates, model.vessel.id);
     },
     setFleet: function (datos) {
         var boolean = model.setFleet(datos);
@@ -222,59 +229,67 @@ var views = {
     templateVesselPanel: $('#vessel-info').html(),
     templatePointPanel: $('#point-panel').html(),
     renderMap: function (opciones) {
-        this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
+        this.mapa = new google.maps.Map(
+            document.getElementById("map-canvas"),
+            opciones
+        );
     },
     renderPoints: function (datosvessels, vesselid) {
+        console.log("veces");
         var vessels = datosvessels;
-        this.markers = [];
         var infowindow = null;
-        console.log(vessels[0].position.value.lat);
         infowindow = new google.maps.InfoWindow({
             content: ""
         });
         var coordenates = [];
         for (var i = 0, len = vessels.length; i < len; i++) {
-            var content =
-                    "<b> Velocidad </b>: " + vessels[i].speed.value + " Nudos<br>"
-                    + "<b> Fecha </b>: " + vessels[i].datetime.value;
-            var position = new google.maps.LatLng(vessels[i].position.value.lat, vessels[i].position.value.long);
-            coordenates[i] = position;
-            var color;
+            coordenates[i] = new google.maps.LatLng(
+                vessels[i].position.value.lat,
+                vessels[i].position.value.lon
+            );
+            var content = "<b> Velocidad </b>: "
+                + vessels[i].speed.value + " Nudos<br>"
+                + "<b> Fecha </b>: " + vessels[i].datetime.value;
+            var color = '#660099';
             if(vessels[i].alert == 'true'){
                 color = 'red';
-            }else{
-                color = '#660099';
+            }
+            var icon = {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 1.5,
+                strokeColor: color,
+                fillColor: color
+            };
+            if(vessels[i] === vessels[len-1]){
+                icon = '../imgs/ship.png';
+                this.mapa.setCenter(coordenates[i]);
+                this.mapa.setZoom(13);
             }
             var marcador = new google.maps.Marker({
-                position: position,
-                icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 3,
-                    strokeColor: color,//'#11FB34' )
-                    fillColor: color
-                },
+                position: coordenates[i],
+                icon: icon,
                 draggable: false,
-                //title: vessels[i].vesselName,
                 zIndex: 3,
                 html: content,
                 id: vesselid,
                 date: vessels[i].datetime.value,
                 map: this.mapa
             });
-            this.markers[i] = marcador;
-            console.log(marcador);
-            google.maps.event.addListener(marcador, 'mouseover', function () {
-                infowindow.setContent(this.html);
-                infowindow.open(views.mapa, this);
-            });
-            google.maps.event.addListener(marcador, 'mouseout', function () {
-                infowindow.close();
-            });
-            google.maps.event.addListener(marcador, 'click', function () {
-                controller.gpspoint(this.date, this.id);
-            });
+            google.maps.event.addListener(marcador, 'mouseover',
+                function () {
+                    infowindow.setContent(this.html);
+                    infowindow.open(views.mapa, this);
+                });
+            google.maps.event.addListener(marcador, 'mouseout',
+                function () {
+                    infowindow.close();
+                });
+            google.maps.event.addListener(marcador, 'click',
+                function () {
+                    controller.gpspoint(this.date, this.id);
+                });
+            
         }
-
 
         var flecha = {
           path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
@@ -291,7 +306,7 @@ var views = {
           }],
           geodesic: true,
           strokeColor: '#660099',//'#11FB34',
-          strokeOpacity: 0.7,
+          strokeOpacity: 1,
           strokeWeight: 1
         });
     },

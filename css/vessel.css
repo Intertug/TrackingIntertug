@@ -9016,8 +9016,11 @@ p[data-color=red] {
   border-radius: 0 0 10px 10px; }
   @media screen and (max-width: 650px) {
     .dates {
-      content: '^'; } }
+      width: 20px; } }
 
 /* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/vessel.scss */
 .dates__container {
   margin: 5px 0 5px 0; }
+  @media screen and (max-width: 650px) {
+    .dates__container {
+      display: none; } }
