@@ -178,12 +178,12 @@ var views = {
     drawCharts: function(report){
         var datos = report.reportData;
         var data = new google.visualization.DataTable();
-        data.addColumn('number', 'Day');
-        data.addColumn('number', 'PB');
-        data.addColumn('number', 'PE');
-        data.addColumn('number', 'GE');
-        data.addColumn('number', 'GB');
-        data.addColumn('number', 'BW');
+        data.addColumn('number', 'Día');
+        data.addColumn('number', 'Prop. Babor');
+        data.addColumn('number', 'Prop. Estribor');
+        data.addColumn('number', 'Generador Estribor');
+        data.addColumn('number', 'Generador Babor');
+        data.addColumn('number', 'Bowthruster');
         var rows = [];
         for(var i=0, len=datos.length; i<len; i++){
         var array = [];

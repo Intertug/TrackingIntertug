@@ -1,5 +1,7 @@
 @import 'base';
 
+$tabpanel-height: 44px;
+
 .sidebar__form{
 	margin: 5px;
 	text-align: center;
@@ -34,17 +36,21 @@
 	}
 
 .main{
-	
+	height: calc(100% - #{$navbar-height});
 }
 	.main__tabpanel{
-		height: 90%;
-	}
-	
-	.main__tabpanel__content{
 		height: 100%;
 	}
 
-	.tabpanel__content_pane{
+	.main__tabpanel__list{
+		height: $tabpanel-height;
+	}
+	
+	.main__tabpanel__content{
+		height: calc(100% - #{$tabpanel-height});
+	}
+
+	.content__pane__chart{
 		height: 100%;
 	}
 
