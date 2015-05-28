@@ -8965,22 +8965,22 @@ p[data-color=green] {
 p[data-color=red] {
   color: red; }
 
-/* line 3, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 5, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .sidebar__form {
   margin: 5px;
   text-align: center; }
 
-/* line 8, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 10, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .form__group {
   margin-top: 5px;
   width: 100%; }
 
-/* line 13, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 15, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .form__label {
   width: 30%;
   font-size: 1.5rem; }
 
-/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 21, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .form__input {
   display: inline;
   margin: 0;
@@ -8988,32 +8988,40 @@ p[data-color=red] {
   margin-top: 5px;
   font-size: 1.5rem; }
 
-/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 29, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .form__rmselect {
   width: 100%; }
 
-/* line 31, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 33, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .form__submit {
   margin-top: 5px;
   font-size: 1.5rem; }
 
-/* line 39, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 38, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+.main {
+  height: calc(100% - 50px); }
+
+/* line 41, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .main__tabpanel {
-  height: 90%; }
+  height: 100%; }
 
-/* line 43, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 45, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+.main__tabpanel__list {
+  height: 44px; }
+
+/* line 49, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .main__tabpanel__content {
+  height: calc(100% - 44px); }
+
+/* line 53, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+.content__pane__chart {
   height: 100%; }
 
-/* line 47, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
-.tabpanel__content_pane {
-  height: 100%; }
-
-/* line 51, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 57, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .content__pane__export {
   margin: 10px; }
 
-/* line 55, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
+/* line 61, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/reports.scss */
 .content__pane__table-container {
   margin: 0px;
   font-size: 1.5rem; }
