@@ -59,11 +59,8 @@ var views = {
             }
         });
 
-        Handlebars.registerHelper("isOverSpeedTop", function (vessel) {
-            if (vessel.id == 5) {
-                if (parseFloat(vessel.speed) > 8)
-                    return "danger";
-            } else if (parseFloat(vessel.speed) > 9) {
+        Handlebars.registerHelper("isOverSpeedTop", function (vesselspeed) {
+            if (parseFloat(vesselspeed) > 9) {
                 return "danger";
             }
             return "";

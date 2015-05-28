@@ -115,7 +115,7 @@
                 <a href="#line_chart" aria-controls="home" role="tab" data-toggle="tab">Gráfica</a>
             </li>
             <li role="presentation">
-                <a href="#table_chart" aria-controls="profile" role="tab" data-toggle="tab">Tabla</a>
+                <a href="#table-tab" aria-controls="profile" role="tab" data-toggle="tab">Tabla</a>
             </li>
             </ul>
             <!-- Tab panes -->
@@ -128,48 +128,55 @@
                         <strong>Cargando!</strong> Estamos cargando el reporte.     
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane tabpanel__content_pane" id="table_chart">
-                    <script id="table-info" type="text/x-handlebars-template">
-                    <table id="pane__table" class="table table-bordered table-responsive pane__table">
-                        {{#labels}}
-                        <tr>
-                            <th rowspan="2">{{dayLabel}}</th>
-                            <th colspan="2">{{PBLabel}}</th>
-                            <th colspan="2">{{PELabel}}</th>
+                <div id="table-tab" role="tabpanel" class="tab-pane tabpanel__content_pane">
+                    <div class="content__pane__export">
+                        <button id="exportTable" class="btn btn-success content__pane__export__btn">
+                        Excel
+                        </button>
+                    </div>
+                    <div id="table_chart" class="content__pane__table-container">
+                        <script id="table-info" type="text/x-handlebars-template">
+                        <table id="pane__table" class="table table-bordered table-responsive pane__table">
+                            {{#labels}}
+                            <tr>
+                                <th rowspan="2">{{dayLabel}}</th>
+                                <th colspan="2">{{PBLabel}}</th>
+                                <th colspan="2">{{PELabel}}</th>
 
-                            <th colspan="2">{{GBLabel}}</th>
-                            <th colspan="2">{{GELabel}}</th>
-                            <th rowspan="2">{{totalLabel}}</th>
-                        </tr>
-                        <tr>
-                            <td>{{consumption}}</td>
-                            <td>{{hoursLabel}}</td>
-                            <td>{{consumption}}</td>
-                            <td>{{hoursLabel}}</td>
-                            
-                            <td>{{consumption}}</td>
-                            <td>{{hoursLabel}}</td>
-                            <td>{{consumption}}</td>
-                            <td>{{hoursLabel}}</td>
-                        </tr>
-                        {{/labels}}
-                        {{#report}}
-                        <tr>
-                            <td>{{day}}</td>
-                            <td>{{CMPB}}</td>
-                            <td>{{HMPB}}</td>
-                            <td>{{CMPE}}</td>
-                            <td>{{HMPE}}</td>
-                            
-                            <td>{{CMGB}}</td>
-                            <td>{{HMGB}}</td>
-                            <td>{{CMGE}}</td>
-                            <td>{{HMGE}}</td>
-                            <th>{{total}}</th>
-                        </tr>
-                        {{/report}}
-                    </table>
-                    </script>
+                                <th colspan="2">{{GBLabel}}</th>
+                                <th colspan="2">{{GELabel}}</th>
+                                <th rowspan="2">{{totalLabel}}</th>
+                            </tr>
+                            <tr>
+                                <td>{{consumption}}</td>
+                                <td>{{hoursLabel}}</td>
+                                <td>{{consumption}}</td>
+                                <td>{{hoursLabel}}</td>
+                                
+                                <td>{{consumption}}</td>
+                                <td>{{hoursLabel}}</td>
+                                <td>{{consumption}}</td>
+                                <td>{{hoursLabel}}</td>
+                            </tr>
+                            {{/labels}}
+                            {{#report}}
+                            <tr>
+                                <td>{{day}}</td>
+                                <td>{{CMPB}}</td>
+                                <td>{{HMPB}}</td>
+                                <td>{{CMPE}}</td>
+                                <td>{{HMPE}}</td>
+                                
+                                <td>{{CMGB}}</td>
+                                <td>{{HMGB}}</td>
+                                <td>{{CMGE}}</td>
+                                <td>{{HMGE}}</td>
+                                <th>{{total}}</th>
+                            </tr>
+                            {{/report}}
+                        </table>
+                        </script>
+                    </div>
                 </div>
             </div>
         </div>
@@ -185,6 +192,7 @@
         </script>
     <script src="../js/shared/jquery.min.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/shared/excelexport.js"></script>
     <!-- Fin Scripts -->
 </body>
 </html>

@@ -175,6 +175,7 @@ var controller = {
         views.renderDocks(model.docks);
         views.renderAnchorageAreas(model.anchorageAreas);
         views.renderMooringAreas(model.mooringAreas);
+        views.renderRegionData(model.ccomInfo.regionData);
     },
     setUserConfig: function (datos) {
         model.setVisualConfig(datos);
@@ -460,6 +461,15 @@ var views = {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);
+    },
+    renderRegionData: function(regionData){
+        var data = {
+            entities: regionData.entities
+        };
+        var template = $('#region-data').html();
+        var plantilla = Handlebars.compile(template);
+        var html = plantilla(data);
+        $('#region-html').html(html);
     }
 };
 

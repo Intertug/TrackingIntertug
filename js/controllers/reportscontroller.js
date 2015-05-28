@@ -120,7 +120,16 @@ var controller = {
         }else{
             controller.drawCharts(datos);
         }
-        
+    },
+    exportTable: function(){
+        $(document).ready(function () {
+            $("#exportTable").click(function () {
+                $("#pane__table").battatech_excelexport({
+                    containerid: "pane__table",
+                    datatype: 'table'
+                });
+            });
+        });
     }
 };
 
@@ -254,5 +263,6 @@ var views = {
 
 function initialize(){
 	controller.userconfig();
+    controller.exportTable();
 	console.log("Éxito!!");
 }

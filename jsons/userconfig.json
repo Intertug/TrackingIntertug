@@ -58,10 +58,10 @@
             "label": "Remolcadores"
         }
     },
-    "mapZoom": "4",
+    "mapZoom": "9",
     "mapCenter": {
-        "lat": "9.024365",
-        "long": "-72.913396"
+        "lat": "-3.024365",
+        "long": "-80.913396"
     },
     "infotip": {
         "value": "Haz clic en cualquier remolcador para ver su información en este panel",
