@@ -8808,23 +8808,23 @@ button.close {
 .fa-medium:before {
   content: "\f23a"; }
 
-/* line 10, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 11, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 body {
   font-size: 16px; }
 
-/* line 14, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 15, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar {
   background-color: #ffca08; }
 
-/* line 18, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 19, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar-brand {
   padding: 0; }
 
-/* line 22, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 23, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .navbar-logo {
   height: 50px; }
 
-/* line 26, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 27, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar {
   background-color: #ffca08;
   position: fixed;
@@ -8841,35 +8841,35 @@ body {
       content: "";
       visibility: hidden; } }
 
-/* line 44, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 45, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card {
   padding: 5px; }
 
-/* line 48, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 49, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #181E86; }
 
-/* line 54, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 55, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__subtitle {
   font-weight: bold;
   color: #222788; }
 
-/* line 59, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 60, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__description {
   font-size: 1.5rem;
   text-align: justify; }
 
-/* line 64, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 65, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__card__image {
   width: 100%; }
 
-/* line 68, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 69, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar__infotip {
   margin: 5px; }
 
-/* line 72, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 73, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .main {
   position: fixed;
   left: 350px;
@@ -8887,81 +8887,87 @@ body {
       left: 0px;
       width: 100%; } }
 
-/* line 91, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 92, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.main__map {
+  height: 100%; }
+
+/* line 96, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar-right {
   position: fixed;
   top: 70px;
   right: 0px;
-  height: 32px;
+  height: 35px;
   min-width: 30px;
+  width: auto;
   background-color: #ffca08;
   border-radius: 10px 0 0 10px;
   z-index: 1; }
 
-/* line 102, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 108, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 #sidebar-collapsible {
   display: none; }
 
-/* line 106, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 112, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .labels-title {
   border-radius: inherit;
   padding: 0;
   position: fixed;
   display: inline-block;
-  font-weight: normal;
-  margin: 0 0 5px 2px; }
+  font-weight: normal; }
 
-/* line 116, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 123, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .labels-title::before {
   font-family: FontAwesome;
   font-style: normal;
   font-weight: normal;
   text-decoration: inherit;
   font-size: 2.5rem;
-  content: "\f137"; }
+  content: "\f137";
+  color: #181E86; }
 
-/* line 125, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 133, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 #sidebar-collapsible:checked ~ .labels-title::before {
-  content: "\f138"; }
+  content: "\f138";
+  position: relative;
+  right: 25px;
+  padding-right: 5px;
+  border-radius: 10px 0 0 10px;
+  background-color: white; }
 
-/* line 129, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-#sidebar-collapsible:checked ~ .sibdebar-right__labels {
+/* line 142, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+#sidebar-collapsible:checked .sidebar-right__labels__entities {
+  max-height: 250px; }
+
+/* line 146, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+#sidebar-collapsible:checked ~ .sidebar-right__labels {
   background-color: #ffca08;
   border-radius: 10px 0 0 10px;
   width: 200px;
-  height: 300px;
+  height: auto;
+  max-height: 250px;
   z-index: 2; }
-  /* line 135, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-  #sidebar-collapsible:checked ~ .sibdebar-right__labels .sidebar-right__labels__entities {
-    padding-top: 40px;
+  /* line 153, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+  #sidebar-collapsible:checked ~ .sidebar-right__labels .sidebar-right__labels__entities {
     display: block; }
 
-/* line 141, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 160, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 .sidebar-right__labels__entities {
   display: none; }
 
-/* line 145, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-.entities__panel {
-  margin-left: 5px;
-  padding-right: 10px;
-  width: 100%; }
+/* line 164, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.list-group-item-heading {
+  font-size: 1.5rem; }
 
-/* line 151, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-.panel__title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 0; }
-
-/* line 157, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
-.panel__desc {
-  font-size: 1.3rem; }
+/* line 168, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+.list-group-item-text {
+  font-size: 1.2rem; }
 
 /* Common CSS */
-/* line 164, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 175, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 p[data-color=green] {
   color: green; }
 
-/* line 168, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
+/* line 179, C:/Users/Practicante Sistemas/Documents/GitHub/TrackingIntertug/css/sass/base */
 p[data-color=red] {
   color: red; }
 

@@ -4,13 +4,29 @@ var request = {
     },
     getVesselInfo: function (callback, id) {
         getVessel(callback, id);
-    }
+    },
+    userconfig: function (callback) {
+        try {
+            $.get("../jsons/userconfig.json",
+                    {SessionID: "", GetData: ""})
+                    .done(function (data) {
+                        var datos = data;
+                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                        //datos = JSON.parse(datos);
+                        callback(datos);
+                    });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
 };
 
 var model = {
     vessels: {},
     options: {},
     vessel: {},
+    visualConfig: {},
     setModel: function (datos) {
         this.vessels = datos.vessels;
         this.options = datos.options;
@@ -18,7 +34,17 @@ var model = {
     },
     setVessel: function (datos) {
         this.vessel = datos;
-    }
+    },
+    setVisualConfig: function (datos) {
+        this.visualConfig = {
+            linksmenu: datos.linksmenu,
+            linksbotones: datos.linksbotones,
+            infotip: datos.infotip,
+            mapCenter: datos.mapCenter,
+            mapZoom: parseInt(datos.mapZoom),
+        };
+        return true;
+    },
 };
 
 var controller = {
@@ -44,6 +70,9 @@ var controller = {
         //var opciones = model.options.opciones;
         views.renderMap(opciones);
     },
+    userconfig: function () {
+        request.userconfig(this.setUserConfig);
+    },
     setMarkers: function (datos) {
         var boolean = model.setModel(datos);
         if (boolean) {
@@ -53,6 +82,13 @@ var controller = {
     },
     setRmList: function () {
         views.renderRmLi(model.vessels);
+    },
+    setUserConfig: function (datos) {
+        model.setVisualConfig(datos);
+        controller.initmap();
+        views.renderLeftMenu(model.visualConfig.linksmenu);
+        views.renderRightMenu(model.visualConfig.linksmenu);
+        views.renderInfoTip(model.visualConfig.infotip);
     },
     setVesselInfo: function (datos) {
         var posicion = {};
@@ -88,6 +124,47 @@ var views = {
     templateForRmLi: $('#rms-dropdown-li').html(),
     renderMap: function (opciones) {
         this.mapa = new google.maps.Map(document.getElementById("map-canvas"), opciones);
+    },
+    renderLeftMenu: function (linksmenu) {
+        var leftmenus = [];
+
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'left') {
+                leftmenus.push(linksmenu[i]);
+            }
+        }
+        var datos = {
+            linksmenu: leftmenus
+        };
+
+        var source = $("#navbar-menu-left").html();
+        var template = Handlebars.compile(source);
+        var html = template(datos);
+        $('#navbar__left').html(html);
+    },
+    renderRightMenu: function (linksmenu) {
+        var rightmenus = [];
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'right') {
+                rightmenus.push(linksmenu[i]);
+            }
+        }
+        var datos = {
+            linksmenu: rightmenus
+        };
+        var source = $("#navbar-menu-right").html();
+        var plantilla = Handlebars.compile(source);
+        var html = plantilla(datos);
+        $('#navbar__right').html(html);
+    },
+    renderInfoTip: function (infotip) {
+        var datos = {
+            infotip: infotip
+        };
+        var source = $("#infotip").html();
+        var plantilla = Handlebars.compile(source);
+        var html = plantilla(datos);
+        $('#infotip-html').html(html);
     },
     renderMarkers: function (datosvessels) {
         var vessels = datosvessels.vessel;
@@ -150,6 +227,7 @@ var views = {
 
 function initialize() {
     controller.initmap();
+    controller.userconfig();
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
 }

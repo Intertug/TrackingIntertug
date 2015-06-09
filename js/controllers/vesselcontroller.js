@@ -186,6 +186,8 @@ var controller = {
         console.log("hola");
         //model.setGPSData(datos);
         views.renderPoints(datos.coordenates, model.vessel.id);
+        console.log(datos.coordenates);
+        views.renderPointPanel(datos.coordenates[datos.coordenates.length-1]);
     },
     setFleet: function (datos) {
         var boolean = model.setFleet(datos);
@@ -204,6 +206,7 @@ var controller = {
     setVessel: function(datos){
         model.setVessel(datos);
         views.renderRmInfo(datos);
+        views.renderAlertsInfo(datos);
     }/*,
     showVesselInfo: function (datos) {
         model.setVesselData(datos);
@@ -479,21 +482,25 @@ var views = {
         var html = plantilla(datos);
         $('#rm-html').html(html);
     },
-    /*renderVesselPanel: function (vessel) {
-        var template = this.templateVesselPanel;
-        var plantilla = Handlebars.compile(template);
-        var data = {
-            vessel: vessel,
+    renderAlertsInfo: function(datos){
+        console.log(datos)
+        var datos = {
+            alerts: datos.vessel.alerts,
+            labels: datos.vessel.alerts[0]
         };
-        var html = plantilla(data);
-        $('#rmpanel').html(html);
-    },*/
+        console.log(datos.labels);
+        var source = $("#html-alerts").html();
+        var plantilla = Handlebars.compile(source);
+        var html = plantilla(datos);
+        $('#alerts-html').html(html);
+    },
     zoomOnVessel: function (posicion) {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);
     },
     renderPointPanel: function(point){
+        console.log(point);
         var data = {
             point: point
         };
