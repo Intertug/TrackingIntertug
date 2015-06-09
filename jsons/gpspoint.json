@@ -1,7 +1,7 @@
 {
 	"vesselID": 23,
 	"point": {
-		"date": {
+		"datetime": {
 			"value": "2015-05-26 09:30:00",
 			"label": "Fecha"
 		},

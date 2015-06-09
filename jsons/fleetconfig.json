@@ -24,6 +24,26 @@
                     "value": "429 2695",
                     "label": "Telefono"
                 }
+            },
+            {
+                "entity": {
+                    "value": "Asociación Peruana de Agentes Marítimos",
+                    "label": "Entidad"
+                },
+                "tel": {
+                    "value": "429 2695",
+                    "label": "Telefono"
+                }
+            },
+            {
+                "entity": {
+                    "value": "Asociación Peruana de Agentes Marítimos",
+                    "label": "Entidad"
+                },
+                "tel": {
+                    "value": "429 2695",
+                    "label": "Telefono"
+                }
             }
         ]
     },

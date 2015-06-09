@@ -18,9 +18,24 @@ $sidebar-right-width: 20px;
 			color: green;
 		}
 
+.alerts__panel{
+	margin: 10px 5px 5px 5px;
+	height: 34*2px;
+	overflow: auto;
+
+}
+
+	.alerts__table{
+		font-size: 1.2rem;
+	}
+
 .sidebar__rmpanel{
 	margin: 10px 5px 5px 5px;
 }
+	.rmpanel__title{
+		text-align: center;
+		font-size: 2.1rem;
+	}
 
 	.rmpanel__opstate{
 		text-align: center;
@@ -37,11 +52,6 @@ $sidebar-right-width: 20px;
 		background-color: #D8D8D8 ;
 		width: 100%;
 	}
-	
-
-.main__map{
-	height: 100%;
-}
 
 .dates{
 	background-color: $yellow-intertug;
@@ -61,5 +71,27 @@ $sidebar-right-width: 20px;
 		@media screen and (max-width: 650px){
 			display: none;
 		}
+	}
+
+.sidebar-right__labels__entities{
+	width: 200px;
+	//margin: 30px 0 0 5px;
+
+}
+
+	.circle::before{
+		content: '';
+		border-radius: 50%;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+	}
+
+	.circle--purple::before{
+		background-color: purple;
+	}
+
+	.circle--red::before{
+		background-color: red;
 	}
 

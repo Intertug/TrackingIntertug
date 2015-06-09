@@ -1,0 +1,23 @@
+@import 'base';
+
+.sidebar__alert{
+	width: $sidebar-width - 10px;
+	margin: 5px 5px 5px 5px;
+}
+
+.sidebar__rm-dropdown{
+	width: $sidebar-width - 10px;
+	margin: 0 5px 0 5px;
+}
+
+	.scrollable-menu{
+		width: 100%;
+		height: auto;
+		max-height: 200px;
+		overflow: auto;
+	}
+
+.sidebar__rm-panel{
+	width: $sidebar-width - 10px;
+	margin: 5px 5px 0 5px;
+}

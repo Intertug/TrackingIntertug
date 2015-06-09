@@ -6,6 +6,7 @@ $navbar-height: 50px;
 $sidebar-width: 350px;
 $breakpoint: 850px;
 $yellow-intertug: #ffca08;
+$blue-intertug: #181E86;
 
 body{
 	font-size: 16px;
@@ -48,7 +49,7 @@ body{
 	.sidebar__card__title{
 		font-size: 2.5rem;
 		font-weight: bold;
-		color: #181E86;
+		color: $blue-intertug;
 	}
 
 	.sidebar__card__subtitle{
@@ -88,12 +89,17 @@ body{
 	}
 }
 
+	.main__map{
+		height: 100%;
+	}
+
 .sidebar-right{
 	position: fixed;
 	top: $navbar-height+20px;
 	right: 0px;
-	height: 32px;
+	height: 35px;
 	min-width: 30px;
+	width: auto;
 	background-color: $yellow-intertug;
 	border-radius: 10px 0 0 10px;
 	z-index: 1;
@@ -110,7 +116,8 @@ body{
 		position: fixed;
 		display: inline-block;
 		font-weight: normal;
-		margin: 0 0 5px 2px;
+		//margin: 0 0 5px 2px;
+
 	}
 
 	.labels-title::before{
@@ -120,20 +127,32 @@ body{
 	    text-decoration: inherit;
 	    font-size: 2.5rem;
 		content: "\f137";
+		color: $blue-intertug;
 	}
 	
 	#sidebar-collapsible:checked ~ .labels-title::before{
 		content:  "\f138";
+		position: relative;
+		right: 25px;
+		padding-right: 5px;
+		border-radius: 10px 0 0 10px;
+		background-color: white;
 	}
 
-	#sidebar-collapsible:checked ~ .sibdebar-right__labels{
+	#sidebar-collapsible:checked .sidebar-right__labels__entities{
+		max-height: 250px;
+	}
+
+	#sidebar-collapsible:checked ~ .sidebar-right__labels{
 		background-color: $yellow-intertug;
 		border-radius: 10px 0 0 10px;
 		width: 200px;
-		height: 300px;
+		height: auto;
+		max-height: 250px;
 		z-index: 2;
 		.sidebar-right__labels__entities{
-			padding-top: 40px;
+			//margin: 0 5px 0 5px;
+			//padding-top: 40px;
 			display:block;
 		}
 	}
@@ -142,21 +161,13 @@ body{
 		display:none;
 	}
 
-	.entities__panel{
-		margin-left: 5px;
-		padding-right: 10px;
-		width: 100%;
+	.list-group-item-heading{
+		font-size: 1.5rem;
 	}
 
-		.panel__title{
-			font-size: 1.8rem;
-			font-weight: bold;
-			margin-bottom: 0;
-		}
-
-		.panel__desc{
-			font-size: 1.3rem;
-		}
+	.list-group-item-text{
+		font-size: 1.2rem;
+	}
 
 /* Common CSS */
 
