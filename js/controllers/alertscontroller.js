@@ -58,7 +58,8 @@ var views = {
             var fechaGps = controller.stringToDate(date);
             var fechaActual = controller.stringToDate(model.serverDate);
             var diferenciaEnMinutos = Math.abs((fechaActual - fechaGps) / 60000);
-            if (diferenciaEnMinutos >= 30) {
+            var limiteDeTiempoDesconectado = 30;
+            if (diferenciaEnMinutos >= limiteDeTiempoDesconectado) {
                 return "danger";
             } else {
                 return "";
@@ -66,7 +67,8 @@ var views = {
         });
 
         Handlebars.registerHelper("isOverSpeedTop", function (vesselspeed) {
-            if (parseFloat(vesselspeed) > 9) {
+            var limiteDeVelocidad = 9;
+            if (parseFloat(vesselspeed) > limiteDeVelocidad) {
                 return "danger";
             }
             return "";
