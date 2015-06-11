@@ -1,0 +1,24 @@
+{
+    "_fnc": "GetVesselsPosition",
+    "_rsp": "CONNOK",
+    "_dte": "2015-03-06 08:34:50",
+    "_ver": "1.15.01.08",
+    "_ans": "OK_QRY",
+    "center": {
+        "lat": "-3.920865",
+        "long": "-80.507695"
+    },
+    "zoom": "9",
+    "vessel": {
+        "id": "5",
+        "vesselname": "CAREX",
+        "lat": "9.4909535",
+        "long": "-75.7717203333333",
+        "speed": "0.41",
+        "gpsdate": "2015-02-08 16:04:00",
+        "rpm": "9.2",
+        "rpmdate": "2015-02-08 16:04:00",
+        "icon": "ship.png"
+
+    }
+}

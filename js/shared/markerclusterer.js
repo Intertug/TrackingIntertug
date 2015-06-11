@@ -1308,3 +1308,5 @@ Object.keys = Object.keys || function(o) {
     }  
     return result;  
 };
+
+module.exports = MarkerClusterer;

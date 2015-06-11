@@ -1,3 +1,9 @@
+var $ = require('jquery');
+window.jQuery = $;
+var bootstrap = require('../shared/bootstrap.js');
+var MarkerClusterer = require('../shared/markerclusterer.js');
+var Handlebars = require('handlebars');
+
 var request = {
     fleetconfig: function (callback) {
         try {
@@ -511,11 +517,11 @@ var views = {
     }
 };
 
-function initialize() {
+$(document).ready(function(){
     controller.userconfig();
     controller.fleetconfig();
     controller.vesselconfigid();
     controller.vesselgpsdata();
     //controller.vesseldata();
     //var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
-}
+});

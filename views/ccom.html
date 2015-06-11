@@ -8,10 +8,8 @@
         <link rel="stylesheet" href="../css/ccom.css">
          <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&sensor=true">
         </script>
-        <script src="../js/shared/handlebars.js"></script>
-        <script src="../js/shared/markerclusterer.js"></script>
 </head>
-<body onload="initialize()">
+<body>
 <!-- Navbar -->
 <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -107,7 +105,7 @@
             </li>
             <script id="rms-dropdown-li" type="text/x-handlebars-template">
                 {{#vessel}}
-                <li onclick="controller.requestVesselInfo({{id}})" role="presentation">
+                <li id="{{id}}" role="presentation">
                 <a role="menuitem" tabindex="-1" href="#">{{vesselName}}</a>
                 </li>
                 {{/vessel}}
@@ -189,8 +187,6 @@
         </div>
     </div>
 </section>
-<script src="../js/shared/jquery.min.js"></script>
-<script src="../js/shared/bootstrap.min.js"></script>
-<script src="../js/controllers/ccomcontroller.js"></script>
+<script src="../public/js/ccomcontroller.js"></script>
 </body>
 </html>

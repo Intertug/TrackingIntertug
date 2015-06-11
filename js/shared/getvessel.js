@@ -1,4 +1,5 @@
-function getVessel(callback, id) {
+var $ = require('jquery');
+module.exports = function getVessel(callback, id) {
     try {
         $.get("../jsons/getVessel.json",// /id,
                 {SessionID: "", GetData: ""})

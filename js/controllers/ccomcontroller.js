@@ -1,3 +1,10 @@
+var $ = require('jquery');
+window.jQuery = $;
+var bootstrap = require('../shared/bootstrap.js');
+var MarkerClusterer = require('../shared/markerclusterer.js');
+var Handlebars = require('handlebars');
+
+
 var request = {
     fleetconfig: function (callback) {
         try {
@@ -190,8 +197,10 @@ var controller = {
         views.renderRmsList(model.vessels);
     },
     requestVesselInfo: function (id) {
-        request.vesseldataid(this.showVesselInfo, id);
-        //request.vesselconfigid(controller.showVesselInfo, id);
+        $('#rm-list').on('click', 'li', function(event){
+            event.preventDefault();
+            request.vesseldataid(controller.showVesselInfo, id);
+        });  
     },
     showVesselInfo: function (datos) {
         model.setVesselData(datos);
@@ -473,9 +482,10 @@ var views = {
     }
 };
 
-function initialize() {
+$(document).ready(function(){
     controller.userconfig();
     controller.fleetconfig();
     controller.vesseldata();
+    controller.requestVesselInfo();
     //var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
-}
+});
