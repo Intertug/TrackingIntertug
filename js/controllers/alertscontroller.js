@@ -12,13 +12,9 @@ var request = {
 
 var model = {
     vessels: {},
-    options: {},
     serverDate: {},
     setVessels: function (vessels) {
         this.vessels = vessels;
-    },
-    setOptions: function (options) {
-        this.options = options;
     },
     setServerDate: function (serverDate) {
         this.serverDate = serverDate;
@@ -31,7 +27,7 @@ var controller = {
         var divDate = divDateOfTime[0].split('-');
         var divTime = divDateOfTime[1].split(':');
         var año = divDate[0];
-        var mes = divDate[1] - 1;
+        var mes = divDate[1] - 1; //Dates en javascript las fechas van de 0 a 11
         var dia = divDate[2];
         var hora = divTime[0];
         var minutos = divTime[1];
@@ -41,7 +37,6 @@ var controller = {
     },
     setVesselsInfo: function (datos) {
         model.setVessels(datos.vessels);
-        model.setOptions(datos.options);
         model.setServerDate(datos.vessels.actualdate);
         views.renderHandlebar(model.vessels);
     },
