@@ -1,0 +1,59 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="initial-scale=1.0, user-scalable=no"><title>Tracking Intertug</title><link rel="shortcut icon" href=../favicon.ico><script>
+            var query = window.location.search.substring(1);
+            function getQueryVariable(query, variable)
+            {
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++) {
+                    var pair = vars[i].split("=");
+                    if (pair[0] === variable) {
+                        return pair[1];
+                    }
+                }
+                return(false);
+            }
+
+            var sessionid = getQueryVariable(query, "sessionid");
+            document.cookie = "sessionid=" + sessionid;
+            var x = document.cookie;
+            console.log(x);
+            var cookie = getQueryVariable(x, "sessionid");
+            console.log("Session id from cookie " + cookie);
+            if (cookie !== "false") {
+                window.location = "global.html"
+            }
+        </script><script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=geometry"></script></head><body><div id=template><script id=handlebarhtml type=text/x-handlebars-template><p> <img src="{{imgurl}}" alt="jejejej"/> </p></script></div><script src=../js/shared/handlebars.js></script><script src=../js/shared/jquery.min.js></script><script type=text/javascript>
+                    var recorrido = [
+                        new google.maps.LatLng(-3.61773333333, -80.5907063333),
+                        new google.maps.LatLng(-3.61770483333, -80.5907796667),
+                        new google.maps.LatLng(-3.62285816667, -80.5934163333),
+                        new google.maps.LatLng(-3.63370666667, -80.5871175),
+                        new google.maps.LatLng(-3.6337265, -80.5871093333),
+                        new google.maps.LatLng(-3.63126316667, -80.5893148333),
+                        new google.maps.LatLng(-3.6182465, -80.657609),
+                        new google.maps.LatLng(-3.616595, -80.7031006667),
+                        new google.maps.LatLng(-3.64149683333, -80.7134765),
+                        new google.maps.LatLng(-3.6413885, -80.7135173333),
+                        new google.maps.LatLng(-3.6414235, -80.713558),
+                        new google.maps.LatLng(-3.6413885, -80.7135498333),
+                        new google.maps.LatLng(-3.64134316667, -80.7135416667),
+                        new google.maps.LatLng(-3.64152483333, -80.7135416667),
+                        new google.maps.LatLng(-3.64161983333, -80.713387),
+                        new google.maps.LatLng(-3.64173333333, -80.7131998333),
+                        new google.maps.LatLng(-3.64172166667, -80.7127278333),
+                        new google.maps.LatLng(-3.6412415, -80.7129476667),
+                        new google.maps.LatLng(-3.60814666667, -80.7375651667),
+                    ];
+
+                    var encode = google.maps.geometry.encoding.encodePath(recorrido);
+                    var datos = {
+                        imgurl: "//maps.googleapis.com/maps/api/staticmap?size=400x400&markers=color:red%7Clabel:A%7C-3.62285816667,-80.5934163333&markers=color:red%7Clabel:A%7C-3.6414235,-80.71355&path=weight:3%7Ccolor:green%7Cenc:"
+                                + encode,
+                    };
+                    var template = $('#handlebarhtml').html();
+                    var plantilla = Handlebars.compile(template);
+                    console.log(template);
+
+                    var html = plantilla(datos);
+
+                    $('#template').html(html);
+        </script></body></html>

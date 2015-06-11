@@ -1,3 +1,11 @@
+var $ = require('jquery');
+window.jQuery = $;
+var bootstrap = require('../shared/bootstrap.js');
+var MarkerClusterer = require('../shared/markerclusterer.js');
+var Handlebars = require('handlebars');
+var getVesselsPosition = require('../shared/getvesselsposition.js');
+var getVessel = require('../shared/getvessel.js');
+
 var request = {
     getVessels: function (callback) {
         getVesselsPosition(callback);
@@ -104,15 +112,18 @@ var controller = {
     getVesselsPosition: function () {
         request.getVessels(controller.setMarkers);
     },
-    getVesselInfo: function (id) {
-        ;
-        var vessels = model.vessels.vessel;
-        for (var i = 0, len = vessels.length; i < len; i++) {
-            if (vessels[i].id == id) {
-                controller.setVesselInfo(vessels[i]);
-                
+    getVesselInfo: function () {
+        console.log("AQUI");
+        $('#rm-list').on('click', 'li', function(event){
+            event.preventDefault();
+            console.log($( this ).text());
+            var vessels = model.vessels.vessel;
+            for (var i = 0, len = vessels.length; i < len; i++) {
+                if (vessels[i].id == this.id) {
+                    controller.setVesselInfo(vessels[i]);
+                }
             }
-        }
+        });            
     }
 };
 
@@ -225,9 +236,10 @@ var views = {
     }
 };
 
-function initialize() {
+$(document).ready(function(){
     controller.initmap();
     controller.userconfig();
+    controller.getVesselInfo();
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
-}
+});

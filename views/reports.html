@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="../favicon.ico" />
     <link rel="stylesheet" href="../css/reports.css">
 </head>
-<body onload="initialize()">
+<body>
     <!-- Navbar -->
     <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -183,16 +183,13 @@
     </section>
     <!-- Fin main -->
     <!-- Scripts -->
-    <script src="../js/shared/handlebars.js"></script>
-    <script src="../js/controllers/reportscontroller.js"></script>
+    <script src="../public/js/reportscontroller.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script>
-            google.load('visualization', '1.0', {'packages':['corechart', 'line']});
-            google.setOnLoadCallback(controller.reportData);
-        </script>
-    <script src="../js/shared/jquery.min.js"></script>
-    <script src="../js/shared/bootstrap.min.js"></script>
-    <script src="../js/shared/excelexport.js"></script>
+    <script>
+        google.load('visualization', '1.0', {'packages':['corechart', 'line']});
+        google.setOnLoadCallback(LoadedCharts);
+    </script>
+    
     <!-- Fin Scripts -->
 </body>
 </html>

@@ -1,4 +1,5 @@
-function getVesselsPosition(callback) {
+var $ = require('jquery');
+module.exports = function getVesselsPosition(callback) {
     try {
         $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition",
                 {SessionID: "", GetData: ""})

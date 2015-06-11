@@ -1,3 +1,9 @@
+var $ = require('jquery');
+var getVesselsPosition = require('../shared/getvesselsposition');
+var Handlebars = require('handlebars');
+window.jQuery = $;
+var bootstrap = require('../shared/bootstrap.js');
+
 var request = {
     getVessels: function (callback) {
         getVesselsPosition(callback);
@@ -89,8 +95,8 @@ var views = {
     }
 };
 
-function initialize() {
+$(document).ready(function(){
     views.registerHelpers();
     controller.getVessels();
     setInterval(controller.getVessels, 60000);
-}
+});

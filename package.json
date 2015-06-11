@@ -1,0 +1,28 @@
+{
+  "name": "TrackingIntertug",
+  "version": "0.0.0",
+  "description": "Aplicación web para tracking y monitoreo de remolcadores.",
+  "author": "Santiago Mendoza Ramirez <contacto@santiagomendoza.org>",
+  "license": "EULA",
+  "dependencies": {
+    "jquery": "^1.7.4",
+    "handlebars": "^3.0.3",
+    "bootstrap": "^3.3.4"
+  },
+  "devDependencies": {
+    "gulp-uglify": "^0.2.1",
+    "gulp": "^3.5.6",
+    "gulp-imagemin": "^0.1.5",
+    "gulp-strip-debug": "^0.3.0",
+    "gulp-minify-css": "^0.3.0",
+    "gulp-changed": "^0.2.1",
+    "gulp-minify-html": "^0.1.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-browserify": "^0.5.0",
+    "gulp-minify-css": "^0.3.0"
+  },
+  "subdomain": "TrackingIntertug",
+  "engines": {
+    "node": "0.10.x"
+  }
+}

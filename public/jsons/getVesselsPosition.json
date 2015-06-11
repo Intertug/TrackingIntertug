@@ -1,0 +1,61 @@
+{
+    "_fnc": "GetVesselsPosition",
+    "_rsp": "CONNOK",
+    "_dte": "2015-03-06 08:34:50",
+    "_ver": "1.15.01.08",
+    "_ans": "OK_QRY",
+    "center": {
+        "lat": -3.920865,
+        "long": -80.507695
+    },
+    "zoom": 9,
+    "clusterGrid": 60,
+    "vessels": {
+        "vessel": [
+            {
+                "id": "23",
+                "vesselname": "VALI",
+                "lat": "-3.421136",
+                "long": "-80.5900798333333",
+                "speed": "0.669",
+                "gpsdate": "2015-03-06 08:32:00",
+                "rpm": "492",
+                "rpmdate": "2015-03-06 08:31:24",
+                "icon": "ship.png"
+            },
+            {
+                "id": "28",
+                "vesselname": "MISTRAL",
+                "lat": "-3.41984616666667",
+                "long": "-80.5910645",
+                "speed": "0.882",
+                "gpsdate": "2015-03-06 08:33:01",
+                "rpm": "501",
+                "rpmdate": "2015-03-06 08:31:57",
+                "icon": "ship.png"
+            },
+            {
+                "id": "33",
+                "vesselname": "BARU PACIFICO",
+                "lat": "-3.63370666666667",
+                "long": "-80.5871338333333",
+                "speed": "0.037",
+                "gpsdate": "2015-03-06 08:32:02",
+                "rpm": "0",
+                "rpmdate": "2015-03-06 08:31:31",
+                "icon": "ship.png"
+            },
+            {
+                "id": "34",
+                "vesselname": "BARU INTI",
+                "lat": "-3.59014683333333",
+                "long": "-80.7461018333333",
+                "speed": "0.1",
+                "gpsdate": "2015-03-06 08:34:00",
+                "rpm": "759",
+                "rpmdate": "2015-03-06 08:34:04",
+                "icon": "ship.png"
+            }
+        ]
+    }
+}

@@ -1,3 +1,11 @@
+var $ = require('jquery');
+window.jQuery = $;
+var bootstrap = require('../shared/bootstrap.js');
+var battatech_excelexport = require('../shared/excelexport.js');
+var MarkerClusterer = require('../shared/markerclusterer.js');
+var Handlebars = require('handlebars');
+
+
 var request = {
 	userconfig: function(callback){
 		try {
@@ -261,8 +269,12 @@ var views = {
     }
 };
 
-function initialize(){
+$(document).ready(function(){
 	controller.userconfig();
     controller.exportTable();
 	console.log("Éxito!!");
+});
+
+window.LoadedCharts = function(){
+    controller.reportData();
 }
