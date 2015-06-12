@@ -108,17 +108,13 @@ var controller = {
             alert("La fecha de inicio no puede ser mayor a la fecha final");
             return false;
         }
-
         return true;
-        
     },
     requestReport: function(){
         rm = document.getElementById("rm").selectedIndex;
         dateone = document.getElementById("dateone").value;
         datetwo = document.getElementById("datetwo").value;
         request.getReport(rm,dateone, datetwo, controller.generateReport);
-    },
-    generateReport: function(datos){
     },
     drawCharts: function(datos){
         var bool = model.setReportData(datos);
@@ -194,45 +190,45 @@ var views = {
         data.addColumn('number', 'Bowthruster');
         var rows = [];
         for(var i=0, len=datos.length; i<len; i++){
-        var array = [];
-        var day = datos[i].day.split("-");
-        array.push(parseInt(day[2]));
-        if(datos[i].HMPB !== 0){
-            PBperf = datos[i].CMPB / datos[i].HMPB;
-            array.push(PBperf);
-        }else{
-            array.push(0);
-        }
+            var array = [];
+            var day = datos[i].day.split("-");
+            array.push(parseInt(day[2]));
+            if(datos[i].HMPB !== 0){
+                PBperf = datos[i].CMPB / datos[i].HMPB;
+                array.push(PBperf);
+            }else{
+                array.push(0);
+            }
 
-        if(datos[i].HMPE !== 0){
-            PEperf = datos[i].CMPE / datos[i].HMPE;
-            array.push(PEperf);
-        }else{
-            array.push(0);
-        }
+            if(datos[i].HMPE !== 0){
+                PEperf = datos[i].CMPE / datos[i].HMPE;
+                array.push(PEperf);
+            }else{
+                array.push(0);
+            }
 
-        if(datos[i].HMGE !== 0){
-            GEperf = datos[i].CMGE / datos[i].HMGE;
-            array.push(GEperf);
-        }else{
-            array.push(0);
-        }
+            if(datos[i].HMGE !== 0){
+                GEperf = datos[i].CMGE / datos[i].HMGE;
+                array.push(GEperf);
+            }else{
+                array.push(0);
+            }
 
-        if(datos[i].HMGB !== 0){
-            GBperf = datos[i].CMGB / datos[i].HMGB;
-            array.push(GBperf);
-        }else{
-            array.push(0);
-        }
+            if(datos[i].HMGB !== 0){
+                GBperf = datos[i].CMGB / datos[i].HMGB;
+                array.push(GBperf);
+            }else{
+                array.push(0);
+            }
 
-        if(datos[i].HMBW !== 0){
-            BWperf = datos[i].CMBW / datos[i].HMBW;
-            array.push(BWperf);
-        }else{
-            array.push(0);
-        }
-        console.log(array);
-        rows.push(array);
+            if(datos[i].HMBW !== 0){
+                BWperf = datos[i].CMBW / datos[i].HMBW;
+                array.push(BWperf);
+            }else{
+                array.push(0);
+            }
+            console.log(array);
+            rows.push(array);
         }
         data.addRows(rows);
 
@@ -277,4 +273,8 @@ $(document).ready(function(){
 
 window.LoadedCharts = function(){
     controller.reportData();
+}
+
+window.validReportRequest = function(){
+    controller.validReportRequest();
 }

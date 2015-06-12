@@ -151,8 +151,18 @@ var controller = {
     setUserConfig: function (datos) {
         model.setVisualConfig(datos);
         controller.initmap();
-        views.renderLeftMenu(model.visualConfig.linksmenu);
-        views.renderRightMenu(model.visualConfig.linksmenu);
+        var leftmenus = [];
+        var rightmenus = [];
+        var linksmenu = model.visualConfig.linksmenu;
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'left') {
+                leftmenus.push(linksmenu[i]);
+            }else if (linksmenu[i].position === 'right') {
+                rightmenus.push(linksmenu[i]);
+            }
+        }
+        views.renderLeftMenu(leftmenus);
+        views.renderRightMenu(rightmenus);
         views.renderInfoTip(model.visualConfig.infotip);
     },
     setVessels: function (datos) {
@@ -184,7 +194,7 @@ var controller = {
 var views = {
     mapa: null,
     markerCluster: null,
-    markers: [],
+    vesselMarkers: [],
     platformMarkers: [],
     docksMarkers: [],
     anchorageAreaMarkers: [],
@@ -199,7 +209,7 @@ var views = {
         if (this.markerCluster !== null) {
             this.markerCluster.clearMarkers();
         }
-        this.markers = [];
+        this.vesselMarkers = [];
         this.markerCluster = null;
         var infowindow = null;
         infowindow = new google.maps.InfoWindow({
@@ -220,7 +230,7 @@ var views = {
                 html: content,
                 id: vessels[i].vesselID
             });
-            this.markers[i] = marcador;
+            this.vesselMarkers[i] = marcador;
             google.maps.event.addListener(marcador, 'mouseover', function () {
                 infowindow.setContent(this.html);
                 infowindow.open(views.mapa, this);
@@ -234,7 +244,7 @@ var views = {
         }
         var clusterOptions = {gridSize: 60, maxZoom: 12};
         this.markerCluster =
-                new MarkerClusterer(views.mapa, views.markers, clusterOptions);
+                new MarkerClusterer(views.mapa, views.vesselMarkers, clusterOptions);
     },
     renderPlatforms: function (datosplatforms) {
         var platforms = datosplatforms.platform;
@@ -364,30 +374,16 @@ var views = {
             });
         }
     },
-    renderLeftMenu: function (linksmenu) {
-        var leftmenus = [];
-
-        for (var i = 0, len = linksmenu.length; i < len; i++) {
-            if (linksmenu[i].position === 'left') {
-                leftmenus.push(linksmenu[i]);
-            }
-        }
+    renderLeftMenu: function (leftmenus) {
         var datos = {
             linksmenu: leftmenus
         };
-
         var source = $("#navbar-menu-left").html();
         var template = Handlebars.compile(source);
         var html = template(datos);
         $('#navbar__left').html(html);
     },
-    renderRightMenu: function (linksmenu) {
-        var rightmenus = [];
-        for (var i = 0, len = linksmenu.length; i < len; i++) {
-            if (linksmenu[i].position === 'right') {
-                rightmenus.push(linksmenu[i]);
-            }
-        }
+    renderRightMenu: function (rightmenus) {
         var datos = {
             linksmenu: rightmenus
         };

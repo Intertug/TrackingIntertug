@@ -60,7 +60,6 @@ var views = {
                 return "";
             }
         });
-
         Handlebars.registerHelper("isOverSpeedTop", function (vesselspeed) {
             var limiteDeVelocidad = 9;
             if (parseFloat(vesselspeed) > limiteDeVelocidad) {
@@ -68,17 +67,14 @@ var views = {
             }
             return "";
         });
-
         Handlebars.registerHelper("ShowDivRow", function (options) {
             if (views.showDivRow) {
                 return options.fn(this);
             }
         });
-
         Handlebars.registerHelper("ChangeBool", function () {
             views.showDivRow = !views.showDivRow;
         });
-
         Handlebars.registerHelper("roundNumber", function (number) {
             return Math.round(number * 1000) / 1000;
         });

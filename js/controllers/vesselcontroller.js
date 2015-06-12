@@ -189,7 +189,6 @@ var controller = {
         views.renderPointPanel(model.point);
     },
     setGPSData: function(datos){
-        console.log("hola");
         //model.setGPSData(datos);
         views.renderPoints(datos.coordenates, model.vessel.id);
         console.log(datos.coordenates);
@@ -213,23 +212,12 @@ var controller = {
         model.setVessel(datos);
         views.renderRmInfo(datos);
         views.renderAlertsInfo(datos);
-    }/*,
-    showVesselInfo: function (datos) {
-        model.setVesselData(datos);
-        var posicion = {
-            lat: datos.vessels.position.lat,
-            long: datos.vessels.position.long
-        };
-        views.renderVesselPanel(model.vessel, model.vesselData);
-        views.zoomOnVessel(posicion);
-    }*/
-
+    }
 };
 
 var views = {
     mapa: null,
-    mc: null,
-    markers: [],
+    MarkerCluster: null,
     platformMarkers: [],
     docksMarkers: [],
     anchorageAreaMarkers: [],

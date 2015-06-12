@@ -32,12 +32,10 @@ var request = {
 
 var model = {
     vessels: {},
-    options: {},
     vessel: {},
     visualConfig: {},
     setModel: function (datos) {
         this.vessels = datos.vessels;
-        this.options = datos.options;
         return true;
     },
     setVessel: function (datos) {
@@ -58,7 +56,6 @@ var model = {
 var controller = {
     initmap: function () {
         var centro = new google.maps.LatLng(9.024365, -72.913396);
-        // var centro = model.options.centro;
         var opciones = {
             zoom: 4,
             center: centro,
@@ -75,7 +72,6 @@ var controller = {
             scaleControlOptions:
                     {position: google.maps.ControlPosition.BOTTOM_CENTER}
         };
-        //var opciones = model.options.opciones;
         views.renderMap(opciones);
     },
     userconfig: function () {
@@ -86,10 +82,9 @@ var controller = {
         if (boolean) {
             views.renderMarkers(model.vessels);
             views.renderRmLi(model.vessels);
+        }else{
+            controller.setMarkers(datos);
         }
-    },
-    setRmList: function () {
-        views.renderRmLi(model.vessels);
     },
     setUserConfig: function (datos) {
         model.setVisualConfig(datos);
@@ -112,8 +107,7 @@ var controller = {
     getVesselsPosition: function () {
         request.getVessels(controller.setMarkers);
     },
-    getVesselInfo: function () {
-        console.log("AQUI");
+    jQueryEvents: function () {
         $('#rm-list').on('click', 'li', function(event){
             event.preventDefault();
             console.log($( this ).text());
@@ -123,13 +117,21 @@ var controller = {
                     controller.setVesselInfo(vessels[i]);
                 }
             }
-        });            
+        });
+    }
+    getVesselInfo: function(id){
+        var vessels = model.vessels.vessel;
+        for (var i = 0, len = vessels.length; i < len; i++) {
+            if (vessels[i].id == id) {
+                controller.setVesselInfo(vessels[i]);
+            }
+        }
     }
 };
 
 var views = {
     mapa: null,
-    mc: null,
+    MarkerCluster: null,
     markers: [],
     templateForVesselPanel: $('#vessel-info').html(),
     templateForRmLi: $('#rms-dropdown-li').html(),
@@ -179,11 +181,11 @@ var views = {
     },
     renderMarkers: function (datosvessels) {
         var vessels = datosvessels.vessel;
-        if (this.mc !== null) {
-            this.mc.clearMarkers();
+        if (this.MarkerCluster !== null) {
+            this.MarkerCluster.clearMarkers();
         }
         this.markers = [];
-        this.mc = null;
+        this.MarkerCluster = null;
         var infowindow = null;
         infowindow = new google.maps.InfoWindow({
             content: ""
@@ -216,7 +218,7 @@ var views = {
             });
         }
         var clusterOptions = {gridSize: 60, maxZoom: 12};
-        this.mc =
+        this.MarkerCluster =
                 new MarkerClusterer(this.mapa, this.markers, clusterOptions);
     },
     renderVesselPanel: function (vessel) {
@@ -239,7 +241,7 @@ var views = {
 $(document).ready(function(){
     controller.initmap();
     controller.userconfig();
-    controller.getVesselInfo();
+    controller.jQueryEvents();
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
 });
