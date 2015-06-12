@@ -15,12 +15,6 @@ gulp.task('js', function(){
 	.pipe(gulp.dest('public/js'));
 });
 
-gulp.task('css', function () {
-  gulp.src('css/**/*.css')
-    .pipe(minifyCSS({ keepSpecialComments: '*', keepBreaks: '*'}))
-    .pipe(gulp.dest('public/css'));
-});
-
 gulp.task('images', function () {
   var imgSrc = 'imgs/**/*',
       imgDst = 'public/imgs';
@@ -40,17 +34,7 @@ gulp.task('html', function () {
   .pipe(gulp.dest(htmlDst));
 });
 
-gulp.task('fonts', function () {
-  gulp.src('fonts/**')
-    .pipe(gulp.dest('public/fonts'));
-});
-
-gulp.task('data', function () {
-   gulp.src('jsons/*.json')
-    .pipe(gulp.dest('public/jsons'));
-});
-
-gulp.task('default', [ 'js', 'css', 'images', 'html', 'fonts', 'data' ]);
+gulp.task('default', [ 'js', 'images', 'html' ]);
 
 function errorHandler (error) {
   console.log(error.toString());
