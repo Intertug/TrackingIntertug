@@ -1,8 +1,11 @@
 {
     "vessels": {
+		//vesselId
         "id": "23",
+		//vesselName
         "vesselname": "VALI",
         "image": "vali.jpg",
+		//
         "callsign": {
             "value": "989834",
             "label": "Callsign"

@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "563cd0cab7096dfc0353a9ef",
+        "__v": 0
+    },
+    {
+        "_id": "563cd1349059e3ea8a5a48f6",
+        "vesselId": 3,
+        "vesselName": "baru",
+        "image": "baru.jpg",
+        "callsign": "HKDM8",
+        "IMO": "9396397",
+        "flag": "colombia.jpg",
+        "fleetId": 1,
+        "fleetName": "colombia",
+        "dataSheet": "http://www.intertug.com/Eng/pdfs/itg-rmbaru.pdf",
+        "yearBuild": 2007,
+        "lastReport": "*",
+        "labels": {
+            "lblFleetName": "Colombia",
+            "lblIMO": "OMI",
+            "lblCallsign": "Callsign",
+            "lblVesselName": "Barú"
+        }
+    }
+]

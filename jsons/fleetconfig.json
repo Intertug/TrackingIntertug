@@ -72,8 +72,8 @@
                 "id": "2",
                 "platformname": {
                     "value": "CX15",
-                    "label": "Plataforma"
                 },
+                    "label": "Plataforma"
                 "position": {
                     "lat": {
                         "value": "-3.60750",

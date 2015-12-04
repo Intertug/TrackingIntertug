@@ -8,13 +8,35 @@ var request = {
     getVessels: function (callback) {
         getVesselsPosition(callback);
     },
+
+    userconfig: function (callback) {
+        try {
+            $.getJSON("http://nautilus.intertug.com:8080/api/visualconfiguration/0")
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
 };
 
 var model = {
     vessels: {},
     serverDate: {},
+    visualConfig: {},
     setVessels: function (vessels) {
         this.vessels = vessels;
+    },
+    setVisualConfig: function (datos) {
+        this.visualConfig = {
+            linksmenu: datos.linksmenu
+        };
+        return true;
     },
     setServerDate: function (serverDate) {
         this.serverDate = serverDate;
@@ -35,10 +57,19 @@ var controller = {
         var fecha = new Date(año, mes, dia, hora, minutos, segundos);
         return fecha;
     },
+    userconfig: function () {
+        request.userconfig(this.setUserConfig);
+    },
     setVesselsInfo: function (datos) {
         model.setVessels(datos.vessels);
         model.setServerDate(datos.vessels.actualdate);
         views.renderHandlebar(model.vessels);
+    },
+
+    setUserConfig: function (datos) {
+        model.setVisualConfig(datos);
+        views.renderLeftMenu(model.visualConfig.linksmenu);
+        views.renderRightMenu(model.visualConfig.linksmenu);
     },
     getVessels: function () {
         request.getVessels(controller.setVesselsInfo);
@@ -79,6 +110,38 @@ var views = {
             return Math.round(number * 1000) / 1000;
         });
     },
+    renderLeftMenu: function (linksmenu) {
+        var leftmenus = [];
+
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'left') {
+                leftmenus.push(linksmenu[i]);
+            }
+        }
+        var datos = {
+            linksmenu: leftmenus
+        };
+
+        var source = $("#navbar-menu-left").html();
+        var template = Handlebars.compile(source);
+        var html = template(datos);
+        $('#navbar__left').html(html);
+    },
+    renderRightMenu: function (linksmenu) {
+        var rightmenus = [];
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'right') {
+                rightmenus.push(linksmenu[i]);
+            }
+        }
+        var datos = {
+            linksmenu: rightmenus
+        };
+        var source = $("#navbar-menu-right").html();
+        var plantilla = Handlebars.compile(source);
+        var html = plantilla(datos);
+        $('#navbar__right').html(html);
+    },
     renderHandlebar: function (vessels) {
         var vessels = vessels;
         views.showDivRow = false;
@@ -88,7 +151,8 @@ var views = {
     }
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
+    controller.userconfig();
     views.registerHelpers();
     controller.getVessels();
     setInterval(controller.getVessels, 60000);

@@ -8,14 +8,16 @@ var Handlebars = require('handlebars');
 var request = {
     fleetconfig: function (callback) {
         try {
-            $.get("../jsons/fleetconfig.json",
-                    {SessionID: "", GetData: ""})
-                    .done(function (data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+            $.get("../jsons/fleetconfig.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
@@ -23,14 +25,16 @@ var request = {
     },
     userconfig: function (callback) {
         try {
-            $.get("../jsons/userconfig.json",
-                    {SessionID: "", GetData: ""})
-                    .done(function (data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+            $.get("../jsons/userconfig.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
@@ -38,14 +42,16 @@ var request = {
     },
     vesseldata: function (callback) {
         try {
-            $.get("../jsons/vesseldata.json",
-                    {SessionID: "", GetData: ""})
-                    .done(function (data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+            $.get("../jsons/vesseldata.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
@@ -53,15 +59,17 @@ var request = {
     },
     vesseldataid: function (callback, id) {
         try {
-            $.get("../jsons/vesseldataid.json",
-                    {SessionID: "", GetData: ""})
-                    .done(function (data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
+            $.get("../jsons/vesseldataid.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
 
-                        callback(datos);
-                    });
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
@@ -119,14 +127,18 @@ var controller = {
             mapTypeControl: true,
             streetViewControl: false,
             scaleControl: true,
-            mapTypeControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_TOP},
-            zoomControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
-            panControlOptions:
-                    {position: google.maps.ControlPosition.LEFT_CENTER},
-            scaleControlOptions:
-                    {position: google.maps.ControlPosition.BOTTOM_CENTER}
+            mapTypeControlOptions: {
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            panControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            scaleControlOptions: {
+                position: google.maps.ControlPosition.BOTTOM_CENTER
+            }
         };
         views.renderMap(opciones);
     },
@@ -157,7 +169,7 @@ var controller = {
         for (var i = 0, len = linksmenu.length; i < len; i++) {
             if (linksmenu[i].position === 'left') {
                 leftmenus.push(linksmenu[i]);
-            }else if (linksmenu[i].position === 'right') {
+            } else if (linksmenu[i].position === 'right') {
                 rightmenus.push(linksmenu[i]);
             }
         }
@@ -171,12 +183,12 @@ var controller = {
         views.renderRmsList(model.vessels);
     },
     jQueryEvents: function (id) {
-        $('#rm-list').on('click', 'li', function(event){
+        $('#rm-list').on('click', 'li', function (event) {
             event.preventDefault();
             request.vesseldataid(controller.showVesselInfo, id);
-        });  
+        });
     },
-    clickOnVessel: function(id){
+    clickOnVessel: function (id) {
         request.vesseldataid(controller.showVesselInfo, id);
     },
     showVesselInfo: function (datos) {
@@ -216,10 +228,7 @@ var views = {
             content: ""
         });
         for (var i = 0, len = vessels.length; i < len; i++) {
-            var content = "<h6>" + vessels[i].vesselName + " </h6>"
-                    + "<b> Velocidad </b>: " + vessels[i].speed.value + " Nudos<br>"
-                    + "<b> Fecha </b>: " + vessels[i].gpsdate.value
-                    + "<br><br>";
+            var content = "<h6>" + vessels[i].vesselName + " </h6>" + "<b> Velocidad </b>: " + vessels[i].speed.value + " Nudos<br>" + "<b> Fecha </b>: " + vessels[i].gpsdate.value + "<br><br>";
             var position = new google.maps.LatLng(vessels[i].position.lat, vessels[i].position.long);
             var marcador = new google.maps.Marker({
                 position: position,
@@ -242,9 +251,12 @@ var views = {
                 controller.clickOnVessel(this.id);
             });
         }
-        var clusterOptions = {gridSize: 60, maxZoom: 12};
+        var clusterOptions = {
+            gridSize: 60,
+            maxZoom: 12
+        };
         this.markerCluster =
-                new MarkerClusterer(views.mapa, views.vesselMarkers, clusterOptions);
+            new MarkerClusterer(views.mapa, views.vesselMarkers, clusterOptions);
     },
     renderPlatforms: function (datosplatforms) {
         var platforms = datosplatforms.platform;
@@ -253,9 +265,9 @@ var views = {
             content: ""
         });
         for (var i = 0; i < platforms.length; i++) {
-            var content = "<h6>" + platforms[i].platformname.value + " </h6>";
+            var content = "<h6>" + platforms[i].platformname.name + " </h6>";
             var position = new google.maps.LatLng(platforms[i].position.lat.value,
-                    platforms[i].position.long.value);
+                platforms[i].position.long.value);
             var platform = new google.maps.Marker({
                 position: position,
                 icon: '../imgs/' + platforms[i].icon,
@@ -284,7 +296,7 @@ var views = {
         for (var i = 0; i < docks.length; i++) {
             var content = "<h6>" + docks[i].dockname + " </h6>";
             var position = new google.maps.LatLng(docks[i].position.lat.value,
-                    docks[i].position.long.value);
+                docks[i].position.long.value);
             var marcador = new google.maps.Marker({
                 position: position,
                 icon: '../imgs/' + docks[i].icon,
@@ -348,7 +360,7 @@ var views = {
             var mooringArea = {};
             for (var j = 0, len2 = moorings[i].vertices.length; j < len2; j++) {
                 arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j].position.lat.value,
-                        moorings[i].vertices[j].position.long.value));
+                    moorings[i].vertices[j].position.long.value));
             }
             mooringArea = new google.maps.Polygon({
                 paths: arraycoordenadas,
@@ -434,7 +446,7 @@ var views = {
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);
     },
-    renderRegionData: function(regionData){
+    renderRegionData: function (regionData) {
         var data = {
             entities: regionData.entities
         };
@@ -445,7 +457,7 @@ var views = {
     }
 };
 
-$(document).ready(function(){
+$(document).ready(function () {
     controller.userconfig();
     controller.fleetconfig();
     controller.vesseldata();

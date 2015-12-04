@@ -1,0 +1,33 @@
+{
+    "_id": "5638e2804bf4a4cba692932e",
+    "pageId": 0,
+    "logo": "intertug_blanco.jpg",
+    "fleets": {
+        "labels": {
+            "mexico": "México",
+            "colombia": "Colombia",
+            "peru": "Perú"
+        },
+        "links": {
+            "mexico": "mexico.html",
+            "colombia": "colombia.html",
+            "peru": "peru.html"
+        }
+    },
+    "sio": {
+        "labels": {
+            "iris": "Iris Web"
+        },
+        "links": {
+            "iris": "iris.intertug.com:85"
+        }
+    },
+    "menu": {
+        "links": {
+            "alerts": "alerts.html"
+        },
+        "labels": {
+            "alerts": "Alertas"
+        }
+    }
+}

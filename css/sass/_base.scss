@@ -5,15 +5,19 @@
 $navbar-height: 50px;
 $sidebar-width: 350px;
 $breakpoint: 850px;
-$yellow-intertug: #ffca08;
+$yellow-intertug: #FFFF86;
 $blue-intertug: #181E86;
 
 body{
 	font-size: 16px;
+    background-color: white;
 }
 
 .navbar{
-	background-color: $yellow-intertug;
+    background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet); /* For Fx 3.6 to 15 */
+    background: linear-gradient(to right, white , white ,white ,#FFFF86, #FFFF86,#FFFF86 ,#FFFF86, #FFFF86 , #FFFF86,#FFFF86); /* Standard syntax (must be last) */
 }
 
 	.navbar-brand{
@@ -25,7 +29,7 @@ body{
 	}
 
 .sidebar{
-	background-color: $yellow-intertug;
+	background: linear-gradient(white,white, #FBE38D ,#FFFF86,#FFFF86,#FFFF86 , #FFFF86,#FFFF86,#FFFF86);
 	position: fixed;
 	top: 50px;
 	bottom: 0px;

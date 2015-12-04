@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>Intertug Tracking</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link rel="stylesheet" href="../css/global.css">
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEuaoh_rW9edjj3Ona1XpY2yOk090mJ5o&amp;sensor=true">
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+                    <span class="sr-only">Toogle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a id="master-navbar-brand" class="navbar-brand" href="inicio.html">
+                    <img id="navbar-logo" class="navbar-logo" alt="Intertug" src="../imgs/logoblanco.jpg">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse navbar__collapsible" id="navbar-menu">
+                <ul id="navbar__left" class="nav navbar-nav navbar__left">
+                    <script id="navbar-menu-left" type="text/x-handlebars-template">
+                        {{#linksmenu}} {{#if links}}
+                        <li class="dropdown navbar__left__dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{label}} <span class="caret"></span>
+                        </a>
+                            <ul class="dropdown-menu" role="menu">
+                                {{#links}}
+                                <li role="presentation"><a href="{{value}}">{{label}}</a></li>
+                                {{/links}}
+                            </ul>
+                        </li>
+                        {{/if}} {{#unless links}}
+                        <li role="presentation"><a href="alerts.html">Alertas</a></li>
+                        <!--<li role="presentation"><a href="control.html">Control</a></li>-->
+                        {{/unless}} {{/linksmenu}}
+                    </script>
+                    </li>
+                    <li role="presentation" class="navbar__left__li"><a href="alerts.html">Alertas</a></li>
+                </ul>
+                <ul id="navbar__right" class="nav navbar-nav navbar-right navbar__right">
+                    <script id="navbar-menu-right" type="text/x-handlebars-template">
+                        {{#linksmenu}} {{#if links}}
+                        <li class="dropdown navbar__right__dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{label}} <span class="caret"></span>
+                        </a>
+                            <ul class="dropdown-menu" role="menu">
+                                {{#links}}
+                                <li role="presentation"><a href="{{value}}">{{label}}</a></li>
+                                {{/links}}
+                            </ul>
+                        </li>
+                        {{/if}} {{#unless links}}
+                        <li role="presentation"><a href="{{value}}">Alertas</a></li>
+                        {{/unless}} {{/linksmenu}}
+                    </script>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Fin Navbar -->
+    <section class="sidebar">
+        <div class="alert alert-info alert-dismissable sidebar__infotip" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div id="infotip-html">
+                <p>Despliegue la lista y haga clic en cualquier remolcador para ver su información en este panel </p>
+            </div>
+        </div>
+        <div id="rms-dropdown" class="sidebar__rm-dropdown">
+            <div class="dropdown">
+                <button class="btn btn-default btn-lg btn-block dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Remolcadores
+                    <span class="caret"></span>
+                </button>
+                <ul id="rm-list" class="dropdown-menu dropdown-menu-right scrollable-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation">
+                        <a role="menuitem" tabindex="-1">Cargando remolcadores</a>
+                    </li>
+                    <script id="rms-dropdown-li" type="text/x-handlebars-template">
+                        {{#vessel}}
+                        <li id="{{id}}" role="presentation">
+                            <a role="menuitem" tabindex="-1" href="#">{{vesselname}}</a>
+                        </li>
+                        {{/vessel}}
+                    </script>
+                </ul>
+            </div>
+        </div>
+        <div id="handlebar-html" class="sidebar__rm-panel">
+            <script id="vessel-info" type="text/x-handlebars-template">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <a href="#" onclick="controller.getVesselInfo({{id}});" style="color:white;" class="pull-right">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                            <span class="sr-only">Refresh</span>
+                        </a>
+                        <h3 class="panel-title">{{vesselname}} <small style="color:white">Callsign: 251DSC2</small></h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Table with vessel info -->
+                        <div class="table-responsive">
+                            <table class="table table-striped table-condensed">
+                                <tbody>
+                                    <tr>
+                                        <td>Velocidad</td>
+                                        <td>{{speed}}</td>
+                                        <td>{{gpsdate}}</td>
+                                    </tr>
+                                    {{#if rpm}}
+                                    <tr>
+                                        <td>RPM</td>
+                                        <td>{{rpm}}</td>
+                                        <td>{{rpmdate}}</td>
+                                    </tr>
+                                    {{/if}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="text-align: center" class="panel-footer">
+                        <div class="btn-group-sm" role="group" aria-label="...">
+                            <a href="vessel.html" type="button" class="btn btn-primary">Recorrido</a>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    Reportes
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="reports.html">Consumo Combustible</a></li>
+                                    <li><a href="#">Distancias recorridas</a></li>
+                                </ul>
+                            </div>
+                            <a href="control.html" type="button" class="btn btn-primary">Control</a>
+                        </div>
+                    </div>
+                </div>
+            </script>
+        </div>
+    </section>
+
+
+    <!--	JavaScripts   -->
+    <script src="../public/js/globalcontroller.js"></script>
+    <!-- Fin JavaScripts -->
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+{
+    "_id": "561d317fb0bb3f5460cfe09b",
+    "mapType": "TERRAIN",
+    "zoom": 9,
+    "center": [
+        -3.920865,
+        -80.507695
+    ],
+    "fleetId": 2,
+    "platforms": [
+        {
+            "icon": "platform.png",
+            "center": [
+                -359541666666,
+                -80.73716666666667
+            ],
+            "name": "CX11",
+            "id": 1
+        },
+        {
+            "icon": "platform.png",
+            "center": [
+                -3.6075,
+                -8073667
+            ],
+            "name": "CX15",
+            "id": 2
+        },
+        {
+            "icon": "platform.png",
+            "center": [
+                -3.42,
+                -80.58362
+            ],
+            "name": "Z1-8-A",
+            "id": 3
+        }
+    ],
+    "docks": [
+        {
+            "icon": "dock.png",
+            "center": [
+                -3.633691,
+                -80.587355
+            ],
+            "name": "Muelle la Cruz",
+            "id": 1
+        }
+    ],
+    "anchorages": [
+        {
+            "radius": 1852,
+            "center": [
+                -3.617833,
+                -80.751183
+            ],
+            "name": "Zona de Fondeo Remolcadores - Lado Sur CX15",
+            "id": 1
+        },
+        {
+            "radius": 1852,
+            "center": [
+                -3.435783,
+                -80.590333
+            ],
+            "name": "Zona de Fondeo Remolcadores - Lado Sur Albacora",
+            "id": 2
+        }
+    ],
+    "moorings": [
+        {
+            "vertices": [
+                [
+                    -3.414516,
+                    -80.588213
+                ],
+                [
+                    -3.41361,
+                    -80.585864
+                ],
+                [
+                    -3.415247,
+                    -80.585188
+                ],
+                [
+                    -3.415872,
+                    -80.587411
+                ]
+            ],
+            "name": "Amarraderos Albacora Norte",
+            "id": 1
+        },
+        {
+            "vertices": [
+                [
+                    -3.418054,
+                    -80.590462
+                ],
+                [
+                    -3.415512,
+                    -80.589995
+                ],
+                [
+                    -3.414516,
+                    -80.588213
+                ],
+                [
+                    -3.415872,
+                    -80.587411
+                ]
+            ],
+            "name": "Amarraderos Albacora Sur",
+            "id": 2
+        },
+        {
+            "vertices": [
+                [
+                    -3.591131,
+                    -80.747214
+                ],
+                [
+                    -3.588697,
+                    -80.745703
+                ],
+                [
+                    -3.588037,
+                    -80.747269
+                ],
+                [
+                    -3.590471,
+                    -80.748502
+                ]
+            ],
+            "name": "Amarradero N° 1 para Barcaza",
+            "id": 3
+        },
+        {
+            "vertices": [
+                [
+                    -3.586989,
+                    -80.751051
+                ],
+                [
+                    -3.584799,
+                    -80.749836
+                ],
+                [
+                    -3.584022,
+                    -80.75134
+                ],
+                [
+                    -3.586302,
+                    -80.752419
+                ]
+            ],
+            "name": "Amarradero N° 1 para Buque Tanque",
+            "id": 4
+        }
+    ]
+}

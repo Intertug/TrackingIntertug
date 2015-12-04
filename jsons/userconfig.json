@@ -20,6 +20,7 @@
             "label": "Alertas",
             "position": "left"
         },
+
         {
             "links": [
                 {
@@ -58,15 +59,5 @@
             "label": "Remolcadores"
         }
     },
-    "mapZoom": "9",
-    "mapCenter": {
-        "lat": "-3.024365",
-        "long": "-80.913396"
-    },
-    "infotip": {
-        "value": "Haz clic en cualquier remolcador para ver su información en este panel",
-        "label": "Info tip:"
-    },
     "companylogo": "logointertug.jpg"
 }
-
