@@ -8,9 +8,12 @@ var Handlebars = require('handlebars');
 
 
 var request = {
-	userconfig: function(callback){
-		try {
-            $.get("../jsons/userconfig.json", {SessionID: "", GetData: ""})
+    userconfig: function (callback) {
+        try {
+            $.get("../jsons/userconfig.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
                 .done(function (data) {
                     var datos = data;
                     //var datos = data.childNodes[0].childNodes[0].nodeValue;
@@ -18,13 +21,16 @@ var request = {
                     callback(datos);
                 });
         } catch (err) {
-	        console.log(err);
-	        throw err;
+            console.log(err);
+            throw err;
         }
-	},
-    getReport: function(rm,dateone,datetwo, callback){
+    },
+    getReport: function (rm, dateone, datetwo, callback) {
         try {
-            $.get("../jsons/reportData.json",{SessionID: "", GetData: ""})
+            $.get("../jsons/reportData.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
                 .done(function (data) {
                     var datos = data;
                     //var datos = data.childNodes[0].childNodes[0].nodeValue;
@@ -41,32 +47,32 @@ var request = {
 var model = {
     visualConfig: {},
     reportData: {},
-    setReportData: function(datos){
-        try{
+    setReportData: function (datos) {
+        try {
             model.reportData = {
                 report: datos.reportData,
                 labels: datos
             };
             return true;
-        }catch(e){
+        } catch (e) {
             return false;
         }
     },
-	setVisualConfig: function (datos) {
+    setVisualConfig: function (datos) {
         this.visualConfig = {
             linksmenu: datos.linksmenu,
             linksbotones: datos.linksbotones,
             infotip: datos.infotip,
             mapCenter: datos.mapCenter,
             mapZoom: parseInt(datos.mapZoom),
-        } ;
+        };
         return true;
     },
 };
 
 
 var controller = {
-	userconfig: function () {
+    userconfig: function () {
         request.userconfig(this.setUserConfig);
     },
     setUserConfig: function (datos) {
@@ -75,13 +81,13 @@ var controller = {
         views.renderRightMenu(model.visualConfig.linksmenu);
         views.renderInfoTip(model.visualConfig.infotip);
     },
-    reportData: function(){
+    reportData: function () {
         /*var today = new Date();
         var month = today.getMonth()+1;
         var year = today.getFullYear();*/
         request.getReport(23, null, null, controller.drawCharts);
     },
-    validReportRequest: function(){
+    validReportRequest: function () {
         var dateone, datetwo, rm;
         var valid = true;
         var today = new Date();
@@ -91,42 +97,42 @@ var controller = {
         console.log(rm);
         console.log(dateone);
         console.log(datetwo);
-        if(rm == null || rm == 0){
+        if (rm == null || rm == 0) {
             alert("Debes escoger un remolcador");
             return false;
         }
         dateoneDate = new Date(dateone);
-        if(dateone == "" || dateoneDate > today){
+        if (dateone == "" || dateoneDate > today) {
             alert("La fecha de inicio no puede estar vacía o ser mayor al día de hoy.");
             return false;
         }
         datetwoDate = new Date(datetwo);
-        if(datetwo == "" || datetwoDate > today){
+        if (datetwo == "" || datetwoDate > today) {
             alert("La fecha de fin no puede estar vacía o ser mayor al día de hoy.");
             return false;
         }
-        if(dateoneDate > datetwoDate){
+        if (dateoneDate > datetwoDate) {
             alert("La fecha de inicio no puede ser mayor a la fecha final");
             return false;
         }
         return true;
     },
-    requestReport: function(){
+    requestReport: function () {
         rm = document.getElementById("rm").selectedIndex;
         dateone = document.getElementById("dateone").value;
         datetwo = document.getElementById("datetwo").value;
-        request.getReport(rm,dateone, datetwo, controller.generateReport);
+        request.getReport(rm, dateone, datetwo, controller.generateReport);
     },
-    drawCharts: function(datos){
+    drawCharts: function (datos) {
         var bool = model.setReportData(datos);
-        if(bool === true){
+        if (bool === true) {
             views.drawCharts(datos);
             views.renderTable(datos);
-        }else{
+        } else {
             controller.drawCharts(datos);
         }
     },
-    exportTable: function(){
+    exportTable: function () {
         $(document).ready(function () {
             $("#exportTable").click(function () {
                 $("#pane__table").battatech_excelexport({
@@ -139,7 +145,7 @@ var controller = {
 };
 
 var views = {
-	renderLeftMenu: function (linksmenu) {
+    renderLeftMenu: function (linksmenu) {
         var leftmenus = [];
 
         for (var i = 0, len = linksmenu.length; i < len; i++) {
@@ -180,7 +186,7 @@ var views = {
         var html = plantilla(datos);
         $('#infotip-html').html(html);
     },
-    drawCharts: function(report){
+    drawCharts: function (report) {
         var datos = report.reportData;
         var data = new google.visualization.DataTable();
         data.addColumn('number', 'Día');
@@ -190,42 +196,42 @@ var views = {
         data.addColumn('number', 'Generador Babor');
         data.addColumn('number', 'Bowthruster');
         var rows = [];
-        for(var i=0, len=datos.length; i<len; i++){
+        for (var i = 0, len = datos.length; i < len; i++) {
             var array = [];
             var day = datos[i].day.split("-");
             array.push(parseInt(day[2]));
-            if(datos[i].HMPB !== 0){
+            if (datos[i].HMPB !== 0) {
                 PBperf = datos[i].CMPB / datos[i].HMPB;
                 array.push(PBperf);
-            }else{
+            } else {
                 array.push(0);
             }
 
-            if(datos[i].HMPE !== 0){
+            if (datos[i].HMPE !== 0) {
                 PEperf = datos[i].CMPE / datos[i].HMPE;
                 array.push(PEperf);
-            }else{
+            } else {
                 array.push(0);
             }
 
-            if(datos[i].HMGE !== 0){
+            if (datos[i].HMGE !== 0) {
                 GEperf = datos[i].CMGE / datos[i].HMGE;
                 array.push(GEperf);
-            }else{
+            } else {
                 array.push(0);
             }
 
-            if(datos[i].HMGB !== 0){
+            if (datos[i].HMGB !== 0) {
                 GBperf = datos[i].CMGB / datos[i].HMGB;
                 array.push(GBperf);
-            }else{
+            } else {
                 array.push(0);
             }
 
-            if(datos[i].HMBW !== 0){
+            if (datos[i].HMBW !== 0) {
                 BWperf = datos[i].CMBW / datos[i].HMBW;
                 array.push(BWperf);
-            }else{
+            } else {
                 array.push(0);
             }
             console.log(array);
@@ -234,26 +240,29 @@ var views = {
         data.addRows(rows);
 
         var options = {
-        title: "Vali",
-        hAxis: {
-          title: 'Day'
-        },
-        vAxis: {
-          title: 'Performance (Galones/hora)'
-        },
-        //colors: ['#a52714', '#097138'],
-        crosshair: {
-          color: '#000',
-          trigger: 'selection'
-        }
+            title: "Vali",
+            hAxis: {
+                title: 'Day'
+            },
+            vAxis: {
+                title: 'Performance (Galones/hora)'
+            },
+            //colors: ['#a52714', '#097138'],
+            crosshair: {
+                color: '#000',
+                trigger: 'selection'
+            }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
 
         chart.draw(data, options);
-        chart.setSelection([{row: 38, column: 1}]);
+        chart.setSelection([{
+            row: 38,
+            column: 1
+        }]);
     },
-    renderTable: function(report){
+    renderTable: function (report) {
         var datos = {
             report: report.reportData,
             labels: report.labels
@@ -266,20 +275,20 @@ var views = {
     }
 };
 
-$(document).ready(function(){
-	controller.userconfig();
+$(document).ready(function () {
+    controller.userconfig();
     controller.exportTable();
-	console.log("Éxito!!");
+    model.fleetid = window.location.search.split('?')[1].split('=')[1];
+    console.log("Éxito!!");
 });
 
-window.LoadedCharts = function(){
+window.LoadedCharts = function () {
     controller.reportData();
 }
 
-window.validReportRequest = function(){
+window.validReportRequest = function () {
     controller.validReportRequest();
 }
-
 },{"../shared/bootstrap.js":2,"../shared/excelexport.js":3,"../shared/markerclusterer.js":4,"handlebars":26,"jquery":38}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)

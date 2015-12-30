@@ -103,7 +103,7 @@
                     <tbody>
                         {{#alerts}}
                         <tr>
-                            <th>{{id.value}}</th>
+                            <th>{{id}}</th>
                             <th>{{message.value}}</th>
                             <th>{{datetime.value}}</th>
                         </tr>
@@ -116,31 +116,31 @@
         <div id="point-html" class="sidebar__rmpanel">
             <script id="point-panel" type="text/x-handlebars-template">
                 {{#point}}
-                <h3 class="rmpanel__title">{{datetime.label}}: {{datetime.value}}</h3>
-                <p data-color="{{operationalState.color}}" class="rmpanel__opstate">
+                <h3 class="rmpanel__title">{{datetime}}</h3>
+<!--                <p data-color="{{color}}" class="rmpanel__opstate">
                     {{operationalState.label}}: {{operationalState.value}}
-                </p>
-                <p class="rmpanel__date">{{date.value}}</p>
+                </p>-->
+                <p class="rmpanel__date">{{datetime}}</p>
                 <table class="table table-striped table-bordered rmpanel__table">
                     <tbody>
                         <tr>
                             <th>
                                 <span class="glyphicon glyphicon-signal">
-                                </span> {{speed.label}}
+                                </span> Velocidad
                             </th>
-                            <th>{{speed.value}}</th>
+                            <th>{{speed}}</th>
                         </tr>
                         <tr>
                             <th>
                                 <span class="glyphicon glyphicon-tint">
-                                </span> {{consumption.label}}
+                                </span> Consumo
                             </th>
                             <th>{{consumption.value}}</th>
                         </tr>
                         </tr>
                         <th>
                             <span class="glyphicon glyphicon-dashboard">
-                                </span> {{rpm.label}}
+                                </span> RPM
                         </th>
                         <th>{{rpm.value}}</th>
                         </tr>

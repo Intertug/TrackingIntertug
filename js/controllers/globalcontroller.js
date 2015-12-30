@@ -7,12 +7,15 @@ var getVesselsPosition = require('../shared/getvesselsposition.js');
 //var getVisualConfiguration = require('../shared/getvisualconfiguration.js');
 var getVessel = require('../shared/getvessel.js');
 
+var vesselIdSelected = 0;
+
 var request = {
     getVessels: function (callback) {
         getVesselsPosition(callback);
     },
     getVesselInfo: function (callback, id) {
         getVessel(callback, id);
+        console.log(id);
     },
 
     userconfig: function (callback) {
@@ -141,6 +144,8 @@ var controller = {
             var vessels = model.vessels.vessel;
             for (var i = 0, len = vessels.length; i < len; i++) {
                 if (vessels[i].id == this.id) {
+                    console.log(this.id);
+                    //                    $("#recorrido").attr("vesselidselected", this.id);
                     controller.setVesselInfo(vessels[i]);
                 }
             }
@@ -151,6 +156,7 @@ var controller = {
         for (var i = 0, len = vessels.length; i < len; i++) {
             if (vessels[i].id == id) {
                 controller.setVesselInfo(vessels[i]);
+
             }
         }
     }
@@ -256,6 +262,12 @@ var views = {
     }
 };
 
+//function go() {
+//    $("#recorrido").click(function () {
+//        window.location = "public/vessel.html?vesselid=" + this.attr("vesselidselected");
+//    });
+//};
+
 
 $(document).ready(function () {
     controller.mapconfig();
@@ -263,4 +275,5 @@ $(document).ready(function () {
     controller.jQueryEvents();
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
+    go();
 });
