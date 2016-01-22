@@ -1,9 +1,9 @@
 var $ = require('jquery');
-module.exports = function getVesselsPosition(callback) {
+module.exports = function getVesselsPosition(callback, fleetid) {
     try {
         $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition", {
                 SessionID: "",
-                GetData: ""
+                GetData: "fleetid=2"
             })
             .done(function (data) {
                 var datos = data.childNodes[0].childNodes[0].nodeValue;

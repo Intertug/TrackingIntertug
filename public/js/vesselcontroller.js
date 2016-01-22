@@ -4,15 +4,15 @@ window.jQuery = $;
 var bootstrap = require('../shared/bootstrap.js');
 var MarkerClusterer = require('../shared/markerclusterer.js');
 var Handlebars = require('handlebars');
-var getVesselsGpsData = require('../shared/getvesselsgpsdata.js');
+//var getVesselsGpsData = require('../shared/getvesselsgpsdata.js');
 var getVessel = require('../shared/getvessel.js');
 
 
 var request = {
-    getVessels: function(callback) {
+    getVessels: function (callback) {
         getVesselsGpsData(callback);
     },
-    getVesselInfo: function(callback, id) {
+    getVesselInfo: function (callback, id) {
         getVessel(callback, id);
     },
     //    fleetconfig: function (callback) {
@@ -32,74 +32,86 @@ var request = {
     //            throw err;
     //        }
     //    },
-    userconfig: function(callback) {
+    userconfig: function (callback) {
         try {
             $.getJSON("http://nautilus.intertug.com:8080/api/visualconfiguration/0")
-                    .done(function(data) {
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+                .done(function (data) {
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
         }
     },
-    mapconfig: function(callback) {
+    mapconfig: function (callback) {
         try {
-            $.getJSON("http://nautilus.intertug.com:8080/api/mapconfiguration/0")
-                    .done(function(data) {
-                        var datos = data;
-                        callback(datos);
-                    });
+            $.getJSON("http://nautilus.intertug.com:8080/api/mapconfiguration/")
+                .done(function (data) {
+                    var datos = data;
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
         }
     },
-    vesselconfigid: function(callback, id) {
+
+//    alarms: function (callback, id) {
+//        try {
+//            $.getJSON("http://nautilus.intertug.com:8080/api/alarmsLog/" + id)
+//                .done(function (data) {
+//                    var datos = data;
+//                    callback(datos);
+//                });
+//        } catch (err) {
+//            console.log(err);
+//            throw err;
+//        }
+//    },
+    vesselconfigid: function (callback, id) {
         try {
             $.get("http://nautilus.intertug.com:8080/api/vesselconfiguration/" + id)
-                    .done(function(data) {
-                        var datos = data;
-                        //  var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //  datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+                .done(function (data) {
+                    var datos = data;
+                    //  var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //  datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
         }
     },
-    vesselgpsdata: function(callback, id) {
+    vesselgpsdata: function (callback, id) {
         try {
             $.get("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselGpsData?SessionID=&GetData=vesselid=" + id)
-                    .done(function(data) {
-                        var datos = data;
-                        var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        datos = JSON.parse(datos);
-                        console.log(datos);
-                        callback(datos);
-                    });
+                .done(function (data) {
+                    var datos = data;
+                    var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
         }
     },
-    gpspoint: function(callback, date, id) {
+    gpspoint: function (callback, date, id) {
         try {
             $.get("../jsons/gpspoint.json", {
-                SessionID: "",
-                GetData: ""
-            })
-                    .done(function(data) {
-                        //console.log(id);
-                        var datos = data;
-                        //var datos = data.childNodes[0].childNodes[0].nodeValue;
-                        //datos = JSON.parse(datos);
-                        callback(datos);
-                    });
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    //console.log(id);
+                    var datos = data;
+                    //var datos = data.childNodes[0].childNodes[0].nodeValue;
+                    //datos = JSON.parse(datos);
+                    callback(datos);
+                });
         } catch (err) {
             console.log(err);
             throw err;
@@ -110,6 +122,7 @@ var request = {
 var model = {
     vesselid: -1,
     vessel: {},
+    alarms: {},
     //vessels: {},
     //vesselsData: {},
     coordenates: [],
@@ -122,7 +135,7 @@ var model = {
     mapconfig: {},
     vesselData: {},
     point: {},
-    setFleet: function(datos) {
+    setFleet: function (datos) {
         this.ccomInfo = {
             ccomName: datos.ccomName,
             ccomID: datos.ccomID,
@@ -134,13 +147,13 @@ var model = {
     /** setVessels: function (datos) {
      this.vessels = datos.vessels;
      },**/
-    setVisualConfig: function(datos) {
+    setVisualConfig: function (datos) {
         this.visualConfig = {
             linksmenu: datos.linksmenu
         };
         return true;
     },
-    setVessel: function(datos) {
+    setVessel: function (datos) {
         this.vessel = {
             vesselId: datos.vesselId,
             vesselName: datos.vesselName,
@@ -155,51 +168,163 @@ var model = {
             lastReport: datos.lastReport,
             labels: {
                 lblIMO: datos.labels.lblIMO,
-                lblCallsign: datos.labels.lblCallsign
+                lblCallsign: datos.labels.lblCallsign,
+                lblVesselName: datos.labels.lblVesselName
             }
         };
     },
-    setMapConfig: function(datos) {
+//    setAlarms: function (datos) {
+//        this.alarms = {
+//            vesselid: datos.vesselid,
+//            count: datos.count,
+//            alarms: {
+//                id: datos.alarms.id,
+//                message: datos.alarms.message,
+//                date: datos.alarms.date
+//            }
+//        };
+//    },
+
+    setMapConfig: function (datos) {
         this.mapconfig = {
             mapType: datos.mapType,
             zoom: datos.zoom,
             center: datos.center,
-            cluster: datos.cluster
-        }
+            cluster: datos.cluster,
+            platforms: datos.platforms,
+            docks: datos.docks,
+            anchorages: datos.anchorages,
+            moorings: datos.moorings
+        };
     },
-    setVesselData: function(datos) {
+    setVesselData: function (datos) {
         this.vesselData = datos;
     },
-    setGPSData: function(datos) {
+    setGPSData: function (datos) {
         this.coordinates = datos.coordinates;
     },
-    setPointData: function(datos) {
+    setPointData: function (datos) {
         this.point = datos.point;
     }
 };
 
 var mapa = new google.maps.Map(
-        document.getElementById("map-canvas"), {
-    zoom: model.visualConfig.mapZoom,
-    //center: new google.maps.LatLng(model.mapconfig.center[0], model.mapconfig.center[1]),
-    mapTypeId: google.maps.MapTypeId.TERRAIN,
-    mapTypeControl: true,
-    streetViewControl: false,
-    scaleControl: true,
-    mapTypeControlOptions: {
-        position: google.maps.ControlPosition.LEFT_TOP
-    },
-    zoomControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
-    },
-    panControlOptions: {
-        position: google.maps.ControlPosition.LEFT_CENTER
-    },
-    scaleControlOptions: {
-        position: google.maps.ControlPosition.BOTTOM_CENTER
+    document.getElementById("map-canvas"), {
+        zoom: model.visualConfig.mapZoom,
+        //center: new google.maps.LatLng(model.mapconfig.center[0], model.mapconfig.center[1]),
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        mapTypeControl: true,
+        streetViewControl: false,
+        scaleControl: true,
+        mapTypeControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        },
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        panControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+        },
+        scaleControlOptions: {
+            position: google.maps.ControlPosition.BOTTOM_CENTER
+        }
     }
-}
 );
+
+
+var controller = {
+    initmap: function () {
+//        var centro = new google.maps.LatLng(model.mapconfig.center[0], model.mapconfig.center[1]);
+        //var centro = new google.maps.LatLng(9.024365, -72.913396);
+        //        var centro = new google.maps.LatLng(
+        //            model.visualConfig.mapCenter.lat,
+        //            model.visualConfig.mapCenter.long
+        //        );
+        var opciones = {
+            zoom: model.visualConfig.mapZoom,
+//            center: centro,
+            mapTypeId: google.maps.MapTypeId.TERRAIN,
+            mapTypeControl: true,
+            streetViewControl: false,
+            scaleControl: true,
+            mapTypeControlOptions: {
+                position: google.maps.ControlPosition.LEFT_TOP
+            },
+            zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            panControlOptions: {
+                position: google.maps.ControlPosition.LEFT_CENTER
+            },
+            scaleControlOptions: {
+                position: google.maps.ControlPosition.BOTTOM_CENTER
+            }
+        };
+        views.renderMap(opciones);
+    },
+    //    fleetconfig: function () {
+    //        request.fleetconfig(this.setFleet);
+    //    },
+    userconfig: function () {
+        request.userconfig(this.setUserConfig);
+    },
+    mapconfig: function () {
+        request.mapconfig(this.setMapConfig);
+    },
+//    alarms: function () {
+//        request.alarms(this.setAlarms, model.vesselid);
+//    },
+
+    vesselconfigid: function () {
+        request.vesselconfigid(this.setVessel, model.vesselid);
+    },
+    vesselgpsdata: function () {
+        request.vesselgpsdata(this.setGPSData, model.vesselid);
+    },
+
+    gpspoint: function (date, id) {
+        request.gpspoint(this.setPointData, date = null, id = null);
+    },
+    vesseldata: function () {
+     request.vesseldata(controller.setVessels);
+     },
+    setPointData: function (datos) {
+        model.setPointData(datos);
+        views.renderPointPanel(model.point);
+    },
+    setMapConfig: function (datos) {
+        model.setMapConfig(datos);
+        controller.initmap();
+//        views.renderPlatforms(model.mapconfig.platforms);
+//        views.renderDocks(model.mapconfig.docks);
+    },
+//    setAlarms: function (datos) {
+//        model.setAlarms(datos);
+//        views.renderAlertsInfo(model.vessel.id, model.alarms);
+//    },
+    setGPSData: function (datos) {
+        model.setGPSData(datos);
+        views.renderPoints(datos.coordinates, model.vessel.id);
+        views.renderPointPanel(datos.coordinates[datos.coordinates.length - 1]);
+    },
+    setFleet: function (datos) {
+        var boolean = model.setFleet(datos);
+        views.renderPlatforms(model.platforms);
+        views.renderDocks(model.docks);
+        views.renderAnchorageAreas(model.anchorageAreas);
+        views.renderMooringAreas(model.mooringAreas);
+    },
+    setUserConfig: function (datos) {
+        model.setVisualConfig(datos);
+        views.renderLeftMenu(model.visualConfig.linksmenu);
+        views.renderRightMenu(model.visualConfig.linksmenu);
+    },
+    setVessel: function (datos) {
+        model.setVessel(datos);
+        views.renderRmInfo(model.vessel);
+//        views.renderAlertsInfo(model.vessel);
+    }
+};
 
 var views = {
     MarkerCluster: null,
@@ -210,13 +335,13 @@ var views = {
     templateRmList: $('#rms-dropdown-li').html(),
     templateVesselPanel: $('#vessel-info').html(),
     templatePointPanel: $('#point-panel').html(),
-    renderMap: function(opciones) {
+    renderMap: function (opciones) {
         mapa = new google.maps.Map(
-                document.getElementById("map-canvas"),
-                opciones
-                );
+            document.getElementById("map-canvas"),
+            opciones
+        );
     },
-    renderPoints: function(datosvessels, vesselid) {
+    renderPoints: function (datosvessels, vesselid) {
 
         var vessels = datosvessels;
         var infowindow = null;
@@ -226,10 +351,10 @@ var views = {
         var coordenates = [];
         for (var i = 0, len = vessels.length; i < len; i++) {
             coordenates[i] = new google.maps.LatLng(
-                    vessels[i].position.lat,
-                    vessels[i].position.lon
+                vessels[i].position.lat,
+                vessels[i].position.lon
 
-                    );
+            );
 
             var content = "<b> Velocidad </b>: " + vessels[i].speed + " Nudos<br>" + "<b> Fecha </b>: " + vessels[i].datetime;
             var color = '#31BB3C';
@@ -258,18 +383,18 @@ var views = {
                 map: mapa
             });
             google.maps.event.addListener(marcador, 'mouseover',
-                    function() {
-                        infowindow.setContent(this.html);
-                        infowindow.open(mapa, this);
-                    });
+                function () {
+                    infowindow.setContent(this.html);
+                    infowindow.open(mapa, this);
+                });
             google.maps.event.addListener(marcador, 'mouseout',
-                    function() {
-                        infowindow.close();
-                    });
+                function () {
+                    infowindow.close();
+                });
             google.maps.event.addListener(marcador, 'click',
-                    function() {
-                        controller.gpspoint(this.date, this.id);
-                    });
+                function () {
+                    controller.gpspoint(this.date, this.id);
+                });
 
         }
 
@@ -282,9 +407,9 @@ var views = {
             path: coordenates,
             map: mapa,
             icons: [{
-                    icon: flecha,
-                    offset: '50%',
-                    repeat: "20px"
+                icon: flecha,
+                offset: '50%',
+                repeat: "20px"
                 }],
             geodesic: true,
             strokeColor: '#31BB3C', //'#11FB34',
@@ -292,7 +417,7 @@ var views = {
             strokeWeight: 1
         });
     },
-    renderLeftMenu: function(linksmenu) {
+    renderLeftMenu: function (linksmenu) {
         var leftmenus = [];
 
         for (var i = 0, len = linksmenu.length; i < len; i++) {
@@ -309,7 +434,7 @@ var views = {
         var html = template(datos);
         $('#navbar__left').html(html);
     },
-    renderRightMenu: function(linksmenu) {
+    renderRightMenu: function (linksmenu) {
         var rightmenus = [];
         for (var i = 0, len = linksmenu.length; i < len; i++) {
             if (linksmenu[i].position === 'right') {
@@ -324,98 +449,104 @@ var views = {
         var html = plantilla(datos);
         $('#navbar__right').html(html);
     },
-    renderPlatforms: function(datosplatforms) {
-        var platforms = datosplatforms.platform;
-        var infowindow = null;
-        infowindow = new google.maps.InfoWindow({
-            content: ""
-        });
-        for (var i = 0; i < platforms.length; i++) {
-            var content = "<h6>" + platforms[i].platformname.value + " </h6>";
-            var position = new google.maps.LatLng(platforms[i].position.lat.value,
-                    platforms[i].position.long.value);
-            var platform = new google.maps.Marker({
-                position: position,
-                icon: '../imgs/' + platforms[i].icon,
-                draggable: false,
-                title: platforms[i].platformname.value,
-                zIndex: 1,
-                html: content,
-                map: mapa
-            });
-            this.platformMarkers[i] = platform;
-            google.maps.event.addListener(platform, 'mouseover', function() {
-                infowindow.setContent(this.html);
-                infowindow.open(mapa, this);
-            });
-            google.maps.event.addListener(platform, 'mouseout', function() {
-                infowindow.close();
-            });
-        }
-    },
-    renderDocks: function(datosdocks) {
-        var docks = datosdocks.dock;
-        var infowindow = null;
-        infowindow = new google.maps.InfoWindow({
-            content: ""
-        });
-        for (var i = 0; i < docks.length; i++) {
-            var content = "<h6>" + docks[i].dockname + " </h6>";
-            var position = new google.maps.LatLng(docks[i].position.lat.value,
-                    docks[i].position.long.value);
-            var marcador = new google.maps.Marker({
-                position: position,
-                icon: '../imgs/' + docks[i].icon,
-                draggable: false,
-                title: docks[i].dockname,
-                zIndex: 1,
-                html: content,
-                map: mapa
-            });
-            views.docksMarkers[i] = marcador;
-            google.maps.event.addListener(marcador, 'mouseover', function() {
-                infowindow.setContent(this.html);
-                infowindow.open(mapa, this);
-            });
-            google.maps.event.addListener(marcador, 'mouseout', function() {
-                infowindow.close();
-            });
-        }
-    },
-    renderAnchorageAreas: function(datosAnchorageAreas) {
-        var anchorageareas = datosAnchorageAreas.anchoragearea;
-        var infowindow = null;
-        infowindow = new google.maps.InfoWindow({
-            content: ""
-        });
-        for (var i = 0; i < anchorageareas.length; i++) {
-            var coordenada = new google.maps.LatLng(anchorageareas[i].position.lat.value, anchorageareas[i].position.long.value);
-            var circleOptions = {
-                strokeColor: anchorageareas[i].fillcolor.value,
-                strokeOpacity: anchorageareas[i].opacity.value,
-                strokeWeight: 1,
-                fillColor: anchorageareas[i].fillcolor.value,
-                fillOpacity: anchorageareas[i].opacity.value,
-                map: mapa,
-                center: coordenada,
-                html: anchorageareas[i].anchorageareaname,
-                radius: parseInt(anchorageareas[i].radius.value)
-
-            };
-            var circle = new google.maps.Circle(circleOptions);
-            views.anchorageAreaMarkers[i] = circle;
-            google.maps.event.addListener(circle, 'click', function(event) {
-                var point = this.center;
-                infowindow.setContent(this.html);
-                if (event) {
-                    point = event.latLng;
-                }
-                infowindow.setPosition(point);
-                infowindow.open(mapa, this);
-            });
-        }
-    },
-    renderLeftMenu: function(linksmenu) {
+//    renderPlatforms: function (datosplatforms) {
+//        var platform = datosplatforms;
+//        console.log(platform);
+//        var infowindow = null;
+//        infowindow = new google.maps.InfoWindow({
+//            content: ""
+//        });
+//        for (var i = 0; i < platform.length; i++) {
+//            var content = "<h6>" + platform[i].name + " </h6>";
+//            var position = new google.maps.LatLng(platform[i].center[0],
+//                platform[i].center[1]);
+//
+//            var platformM = new google.maps.Marker({
+//                center: position,
+//                icon: '../imgs/' + platform[i].icon,
+//                draggable: false,
+//                title: platform[i].name,
+//                zIndex: 1,
+//                html: content,
+//                map: views.mapa
+//            });
+//            console.log(platform[i].name);
+//            console.log(platform[i].center[0],
+//                platform[i].center[1]);
+//            this.platformMarkers[i] = platformM;
+//            google.maps.event.addListener(platformM, 'mouseover', function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(views.mapa, this);
+//            });
+//            google.maps.event.addListener(platformM, 'mouseout', function () {
+//                infowindow.close();
+//            });
+//        }
+//    },
+//    renderDocks: function (datosdocks) {
+//        var docks = datosdocks;
+//        var infowindow = null;
+//        infowindow = new google.maps.InfoWindow({
+//            content: ""
+//        });
+//        for (var i = 0; i < docks.length; i++) {
+//            var content = "<h6>" + docks[i].name + " </h6>";
+//            var position = new google.maps.LatLng(docks[i].center[0],
+//                docks[i].center[1]);
+//            var marcador = new google.maps.Marker({
+//                center: position,
+//                icon: '../imgs/' + docks[i].icon,
+//                draggable: false,
+//                title: docks[i].name,
+//                zIndex: 1,
+//                html: content,
+//                map: views.mapa
+//            });
+//            console.log(docks[i].name);
+//            views.docksMarkers[i] = marcador;
+//            google.maps.event.addListener(marcador, 'mouseover', function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(views.mapa, this);
+//            });
+//            google.maps.event.addListener(marcador, 'mouseout', function () {
+//                infowindow.close();
+//            });
+//        }
+//    },
+//    renderAnchorageAreas: function (datosAnchorageAreas) {
+//        var anchorageareas = datosAnchorageAreas.anchoragearea;
+//        var infowindow = null;
+//        infowindow = new google.maps.InfoWindow({
+//            content: ""
+//        });
+//        for (var i = 0; i < anchorageareas.length; i++) {
+//            var coordenada = new google.maps.LatLng(anchorageareas[i].position.lat.value, anchorageareas[i].position.long.value);
+//            var circleOptions = {
+//                strokeColor: anchorageareas[i].fillcolor.value,
+//                strokeOpacity: anchorageareas[i].opacity.value,
+//                strokeWeight: 1,
+//                fillColor: anchorageareas[i].fillcolor.value,
+//                fillOpacity: anchorageareas[i].opacity.value,
+//                map: mapa,
+//                center: coordenada,
+//                html: anchorageareas[i].anchorageareaname,
+//                radius: parseInt(anchorageareas[i].radius.value)
+//
+//            };
+//            var circle = new google.maps.Circle(circleOptions);
+//            views.anchorageAreaMarkers[i] = circle;
+//            google.maps.event.addListener(circle, 'click', function (event) {
+//                var point = this.center;
+//                infowindow.setContent(this.html);
+//                if (event) {
+//                    point = event.latLng;
+//                }
+//                infowindow.setPosition(point);
+//                infowindow.open(mapa, this);
+//            });
+//        }
+//    },
+    renderLeftMenu: function (linksmenu) {
         var leftmenus = [];
 
         for (var i = 0, len = linksmenu.length; i < len; i++) {
@@ -432,85 +563,83 @@ var views = {
         var html = template(datos);
         $('#navbar__left').html(html);
     },
-            renderRightMenu: function(linksmenu) {
-                var rightmenus = [];
-                for (var i = 0, len = linksmenu.length; i < len; i++) {
-                    if (linksmenu[i].position === 'right') {
-                        rightmenus.push(linksmenu[i]);
-                    }
+    renderRightMenu: function (linksmenu) {
+        var rightmenus = [];
+        for (var i = 0, len = linksmenu.length; i < len; i++) {
+            if (linksmenu[i].position === 'right') {
+                rightmenus.push(linksmenu[i]);
+            }
+        }
+        var datos = {
+            linksmenu: rightmenus
+        };
+        var source = $("#navbar-menu-right").html();
+        var plantilla = Handlebars.compile(source);
+        var html = plantilla(datos);
+        $('#navbar__right').html(html);
+    },
+    renderMooringAreas: function (datosMooringAreas) {
+        var moorings = datosMooringAreas.mooringarea;
+        var infowindow = null;
+        infowindow = new google.maps.InfoWindow({
+            content: ""
+        });
+        for (var i = 0, len = moorings.length; i < len; i++) {
+            var arraycoordenadas = [];
+            var mooringArea = {};
+            for (var j = 0, len2 = moorings[i].vertices.length; j < len2; j++) {
+                arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j].position.lat.value,
+                    moorings[i].vertices[j].position.long.value));
+            }
+            mooringArea = new google.maps.Polygon({
+                paths: arraycoordenadas,
+                strokeColor: moorings[i].fillColor,
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                zIndex: 5,
+                fillColor: moorings[i].fillColor,
+                fillOpacity: moorings[i].opacity,
+                html: moorings[i].mooringareaname,
+                map: mapa
+            });
+            mooringArea.setMap(mapa);
+            views.mooringAreaMarkers[i] = mooringArea;
+            google.maps.event.addListener(views.mooringAreaMarkers[i], 'click', function (event) {
+                var point = this.getPath().getAt(0);
+                infowindow.setContent(this.html);
+                if (event) {
+                    point = event.latLng;
                 }
-                var datos = {
-                    linksmenu: rightmenus
-                };
-                var source = $("#navbar-menu-right").html();
-                var plantilla = Handlebars.compile(source);
-                var html = plantilla(datos);
-                $('#navbar__right').html(html);
-            },
-            renderMooringAreas: function(datosMooringAreas) {
-                var moorings = datosMooringAreas.mooringarea;
-                var infowindow = null;
-                infowindow = new google.maps.InfoWindow({
-                    content: ""
-                });
-                for (var i = 0, len = moorings.length; i < len; i++) {
-                    var arraycoordenadas = [];
-                    var mooringArea = {};
-                    for (var j = 0, len2 = moorings[i].vertices.length; j < len2; j++) {
-                        arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j].position.lat.value,
-                                moorings[i].vertices[j].position.long.value));
-                    }
-                    mooringArea = new google.maps.Polygon({
-                        paths: arraycoordenadas,
-                        strokeColor: moorings[i].fillColor,
-                        strokeOpacity: 0.8,
-                        strokeWeight: 2,
-                        zIndex: 5,
-                        fillColor: moorings[i].fillColor,
-                        fillOpacity: moorings[i].opacity,
-                        html: moorings[i].mooringareaname,
-                        map: mapa
-                    });
-                    mooringArea.setMap(mapa);
-                    views.mooringAreaMarkers[i] = mooringArea;
-                    google.maps.event.addListener(views.mooringAreaMarkers[i], 'click', function(event) {
-                        var point = this.getPath().getAt(0);
-                        infowindow.setContent(this.html);
-                        if (event) {
-                            point = event.latLng;
-                        }
-                        infowindow.setPosition(point);
-                        infowindow.open(mapa);
-                    });
-                }
-            },
-    renderRmInfo: function(datos) {
+                infowindow.setPosition(point);
+                infowindow.open(mapa);
+            });
+        }
+    },
+    renderRmInfo: function (datos) {
         var datos = datos;
         var source = $("#rm-info").html();
         var plantilla = Handlebars.compile(source);
         var html = plantilla(datos);
         $('#rm-html').html(html);
     },
-    
-    //    renderAlertsInfo: function (datos) {
-    //        var datos = {
-    //            alerts: datos.vessel.alerts,
-    //            labels: datos.vessel.alerts[0]
-    //        };
-    //        console.log(datos.labels);
-    //        var source = $("#html-alerts").html();
-    //        var plantilla = Handlebars.compile(source);
-    //        var html = plantilla(datos);
-    //        $('#alerts-html').html(html);
-    //    },
-    
-    zoomOnVessel: function(posicion) {
+
+//    renderAlertsInfo: function (datos) {
+//        var datos = {
+//            alerts: datos.alarms
+//        };
+//        //            labels: datos.vessel.alerts[0]
+//        var source = $("#html-alerts").html();
+//        var plantilla = Handlebars.compile(source);
+//        var html = plantilla(datos);
+//        $('#alerts-html').html(html);
+//    },
+
+    zoomOnVessel: function (posicion) {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         mapa.setCenter(pos);
         mapa.setZoom(11);
     },
-    renderPointPanel: function(point) {
-        console.log(point);
+    renderPointPanel: function (point) {
         var data = {
             point: point
         };
@@ -521,102 +650,20 @@ var views = {
     }
 };
 
-var controller = {
-    initmap: function() {
-        var centro = new google.maps.LatLng(model.mapconfig.center[0], model.mapconfig.center[1]);
-        //var centro = new google.maps.LatLng(9.024365, -72.913396);
-        //        var centro = new google.maps.LatLng(
-        //            model.visualConfig.mapCenter.lat,
-        //            model.visualConfig.mapCenter.long
-        //        );
-        var opciones = {
-            zoom: model.visualConfig.mapZoom,
-            center: centro,
-            mapTypeId: google.maps.MapTypeId.TERRAIN,
-            mapTypeControl: true,
-            streetViewControl: false,
-            scaleControl: true,
-            mapTypeControlOptions: {
-                position: google.maps.ControlPosition.LEFT_TOP
-            },
-            zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
-            },
-            panControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
-            },
-            scaleControlOptions: {
-                position: google.maps.ControlPosition.BOTTOM_CENTER
-            }
-        };
-        views.renderMap(opciones);
-    },
-    //    fleetconfig: function () {
-    //        request.fleetconfig(this.setFleet);
-    //    },
-    userconfig: function() {
-        request.userconfig(this.setUserConfig);
-    },
-    mapconfig: function() {
-        request.mapconfig(this.setMapConfig);
-    },
-    vesselconfigid: function() {
-        request.vesselconfigid(this.setVessel, model.vesselid);
-    },
-    vesselgpsdata: function() {
-        request.vesselgpsdata(this.setGPSData, model.vesselid);
-    },
-    gpspoint: function(date, id) {
-        request.gpspoint(this.setPointData, date = null, id = null);
-    },
-    /*vesseldata: function () {
-     request.vesseldata(controller.setVessels);
-     },*/
-    setPointData: function(datos) {
-        model.setPointData(datos);
-        views.renderPointPanel(model.point);
-    },
-    setMapConfig: function(datos) {
-        model.setMapConfig(datos);
-        controller.initmap();
-    },
-    setGPSData: function(datos) {
-        model.setGPSData(datos);
-        views.renderPoints(datos.coordinates, model.vessel.id);
-        views.renderPointPanel(datos.coordinates[datos.coordinates.length - 1]);
-    },
-    setFleet: function(datos) {
-        var boolean = model.setFleet(datos);
-        views.renderPlatforms(model.platforms);
-        views.renderDocks(model.docks);
-        views.renderAnchorageAreas(model.anchorageAreas);
-        views.renderMooringAreas(model.mooringAreas);
-    },
-    setUserConfig: function(datos) {
-        model.setVisualConfig(datos);
-        views.renderLeftMenu(model.visualConfig.linksmenu);
-        views.renderRightMenu(model.visualConfig.linksmenu);
-    },
-    setVessel: function(datos) {
-        model.setVessel(datos);
-        views.renderRmInfo(model.vessel);
-        //        views.renderAlertsInfo(model.vessel);
-    }
-};
 
 
-
-$(document).ready(function() {
+$(document).ready(function () {
     controller.mapconfig();
     controller.userconfig();
     model.vesselid = window.location.search.split('?')[1].split('=')[1];
+//    controller.alarms(model.vesselid);
     //    controller.fleetconfig();
     controller.vesselconfigid();
     controller.vesselgpsdata(model.vesselid);
     //controller.vesseldata();
     //var intervalVesselsMap = setInterval(controller.vesseldata, 60000)
 });
-},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselsgpsdata.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jquery":39}],2:[function(require,module,exports){
+},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/markerclusterer.js":4,"handlebars":26,"jquery":38}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -2956,30 +3003,7 @@ module.exports = function getVessel(callback, id) {
         throw err;
     }
 }
-},{"jquery":39}],4:[function(require,module,exports){
-var $ = require('jquery');
-module.exports = function getVesselGpsData(callback) {
-    try {
-        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselGpsData",
-                {SessionID: "", GetData: ""})
-                .done(function (data) {
-                    var datos = data.childNodes[0].childNodes[0].nodeValue;
-                    datos = JSON.parse(datos);
-                    datos.vessels.actualdate = datos._dte;
-                    var vessels = datos.vessels;
-                    var data = {
-                        vessels: vessels,
-                        options: datos
-                    };
-                    callback(data);
-                    return data;
-                });
-    } catch (err) {
-        console.log(err);
-        throw err;
-    }
-}
-},{"jquery":39}],5:[function(require,module,exports){
+},{"jquery":38}],4:[function(require,module,exports){
 // ==ClosureCompiler==
 // @compilation_level ADVANCED_OPTIMIZATIONS
 // @externs_url http://closure-compiler.googlecode.com/svn/trunk/contrib/externs/maps/google_maps_api_v3_3.js
@@ -4292,9 +4316,9 @@ Object.keys = Object.keys || function(o) {
 };
 
 module.exports = MarkerClusterer;
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 
-},{}],7:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4522,7 +4546,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require("ngpmcQ"))
-},{"ngpmcQ":8}],8:[function(require,module,exports){
+},{"ngpmcQ":7}],7:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -4587,7 +4611,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -4651,7 +4675,7 @@ inst['default'] = inst;
 
 exports['default'] = inst;
 module.exports = exports['default'];
-},{"./handlebars.runtime":10,"./handlebars/compiler/ast":12,"./handlebars/compiler/base":13,"./handlebars/compiler/compiler":15,"./handlebars/compiler/javascript-compiler":17,"./handlebars/compiler/visitor":20,"./handlebars/no-conflict":23}],10:[function(require,module,exports){
+},{"./handlebars.runtime":9,"./handlebars/compiler/ast":11,"./handlebars/compiler/base":12,"./handlebars/compiler/compiler":14,"./handlebars/compiler/javascript-compiler":16,"./handlebars/compiler/visitor":19,"./handlebars/no-conflict":22}],9:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -4712,7 +4736,7 @@ inst['default'] = inst;
 
 exports['default'] = inst;
 module.exports = exports['default'];
-},{"./handlebars/base":11,"./handlebars/exception":22,"./handlebars/no-conflict":23,"./handlebars/runtime":24,"./handlebars/safe-string":25,"./handlebars/utils":26}],11:[function(require,module,exports){
+},{"./handlebars/base":10,"./handlebars/exception":21,"./handlebars/no-conflict":22,"./handlebars/runtime":23,"./handlebars/safe-string":24,"./handlebars/utils":25}],10:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -4986,7 +5010,7 @@ function createFrame(object) {
 }
 
 /* [args, ]options */
-},{"./exception":22,"./utils":26}],12:[function(require,module,exports){
+},{"./exception":21,"./utils":25}],11:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5139,7 +5163,7 @@ var AST = {
 // must modify the object to operate properly.
 exports['default'] = AST;
 module.exports = exports['default'];
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -5186,7 +5210,7 @@ function parse(input, options) {
   var strip = new _WhitespaceControl2['default']();
   return strip.accept(_parser2['default'].parse(input));
 }
-},{"../utils":26,"./ast":12,"./helpers":16,"./parser":18,"./whitespace-control":21}],14:[function(require,module,exports){
+},{"../utils":25,"./ast":11,"./helpers":15,"./parser":17,"./whitespace-control":20}],13:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -5351,7 +5375,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 /* NOP */
-},{"../utils":26,"source-map":28}],15:[function(require,module,exports){
+},{"../utils":25,"source-map":27}],14:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -5879,7 +5903,7 @@ function transformLiteralToPath(sexpr) {
     sexpr.path = new _AST2['default'].PathExpression(false, 0, [literal.original + ''], literal.original + '', literal.loc);
   }
 }
-},{"../exception":22,"../utils":26,"./ast":12}],16:[function(require,module,exports){
+},{"../exception":21,"../utils":25,"./ast":11}],15:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -6011,7 +6035,7 @@ function prepareBlock(openBlock, program, inverseAndProgram, close, inverted, lo
 
   return new this.BlockStatement(openBlock.path, openBlock.params, openBlock.hash, program, inverse, openBlock.strip, inverseStrip, close && close.strip, this.locInfo(locInfo));
 }
-},{"../exception":22}],17:[function(require,module,exports){
+},{"../exception":21}],16:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -7074,7 +7098,7 @@ function strictLookup(requireTerminal, compiler, parts, type) {
 
 exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
-},{"../base":11,"../exception":22,"../utils":26,"./code-gen":14}],18:[function(require,module,exports){
+},{"../base":10,"../exception":21,"../utils":25,"./code-gen":13}],17:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -7753,7 +7777,7 @@ var handlebars = (function () {
     return new Parser();
 })();exports["default"] = handlebars;
 module.exports = exports["default"];
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -7919,7 +7943,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
   return pair.key + '=' + this.accept(pair.value);
 };
 /*eslint-enable new-cap */
-},{"./visitor":20}],20:[function(require,module,exports){
+},{"./visitor":19}],19:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -8052,7 +8076,7 @@ Visitor.prototype = {
 exports['default'] = Visitor;
 module.exports = exports['default'];
 /* content */ /* comment */ /* path */ /* string */ /* number */ /* bool */ /* literal */ /* literal */
-},{"../exception":22,"./ast":12}],21:[function(require,module,exports){
+},{"../exception":21,"./ast":11}],20:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -8265,7 +8289,7 @@ function omitLeft(body, i, multiple) {
 
 exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
-},{"./visitor":20}],22:[function(require,module,exports){
+},{"./visitor":19}],21:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8304,7 +8328,7 @@ Exception.prototype = new Error();
 
 exports['default'] = Exception;
 module.exports = exports['default'];
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -8325,7 +8349,7 @@ exports['default'] = function (Handlebars) {
 
 module.exports = exports['default'];
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -8558,7 +8582,7 @@ function initData(context, data) {
   }
   return data;
 }
-},{"./base":11,"./exception":22,"./utils":26}],25:[function(require,module,exports){
+},{"./base":10,"./exception":21,"./utils":25}],24:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8573,7 +8597,7 @@ SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
 
 exports['default'] = SafeString;
 module.exports = exports['default'];
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8688,7 +8712,7 @@ function blockParams(params, ids) {
 function appendContextPath(contextPath, id) {
   return (contextPath ? contextPath + '.' : '') + id;
 }
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -8715,7 +8739,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":9,"../dist/cjs/handlebars/compiler/printer":19,"fs":6}],28:[function(require,module,exports){
+},{"../dist/cjs/handlebars":8,"../dist/cjs/handlebars/compiler/printer":18,"fs":5}],27:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -8725,7 +8749,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":34,"./source-map/source-map-generator":35,"./source-map/source-node":36}],29:[function(require,module,exports){
+},{"./source-map/source-map-consumer":33,"./source-map/source-map-generator":34,"./source-map/source-node":35}],28:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -8824,7 +8848,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":37,"amdefine":38}],30:[function(require,module,exports){
+},{"./util":36,"amdefine":37}],29:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -8968,7 +8992,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":31,"amdefine":38}],31:[function(require,module,exports){
+},{"./base64":30,"amdefine":37}],30:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -9012,7 +9036,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":38}],32:[function(require,module,exports){
+},{"amdefine":37}],31:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -9094,7 +9118,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":38}],33:[function(require,module,exports){
+},{"amdefine":37}],32:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -9182,7 +9206,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":37,"amdefine":38}],34:[function(require,module,exports){
+},{"./util":36,"amdefine":37}],33:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -9759,7 +9783,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":29,"./base64-vlq":30,"./binary-search":32,"./util":37,"amdefine":38}],35:[function(require,module,exports){
+},{"./array-set":28,"./base64-vlq":29,"./binary-search":31,"./util":36,"amdefine":37}],34:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10161,7 +10185,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":29,"./base64-vlq":30,"./mapping-list":33,"./util":37,"amdefine":38}],36:[function(require,module,exports){
+},{"./array-set":28,"./base64-vlq":29,"./mapping-list":32,"./util":36,"amdefine":37}],35:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10577,7 +10601,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":35,"./util":37,"amdefine":38}],37:[function(require,module,exports){
+},{"./source-map-generator":34,"./util":36,"amdefine":37}],36:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -10898,7 +10922,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":38}],38:[function(require,module,exports){
+},{"amdefine":37}],37:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -11203,7 +11227,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require("ngpmcQ"),"/..\\..\\node_modules\\handlebars\\node_modules\\source-map\\node_modules\\amdefine\\amdefine.js")
-},{"ngpmcQ":8,"path":7}],39:[function(require,module,exports){
+},{"ngpmcQ":7,"path":6}],38:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v1.11.3
  * http://jquery.com/

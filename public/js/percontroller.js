@@ -4,7 +4,7 @@ window.jQuery = $;
 var bootstrap = require('../shared/bootstrap.js');
 var MarkerClusterer = require('../shared/markerclusterer.js');
 var Handlebars = require('handlebars');
-var getVesselsPosition = require('../shared/getvesselsposition.js');
+var getVesselsPosition = require('../shared/getvesselspositionPer.js');
 var getVessel = require('../shared/getvessel.js');
 
 var request = {
@@ -157,7 +157,6 @@ var model = {
             anchorages: datos.anchorages,
             moorings: datos.moorings
         };
-        console.log(datos.center);
         return true;
 
     }
@@ -222,11 +221,10 @@ var controller = {
         //        views.renderDocks(model.docks);
         //        views.renderMoorings(model.moorings);
         //        console.log(model.platforms);
-        views.renderPlatforms(model.mapconfig.platforms);
+//        views.renderPlatforms(model.mapconfig.platforms);
         views.renderDocks(model.mapconfig.docks);
-        //        views.renderAnchorageAreas(model.mapconfig.anchorageAreas);
+         views.renderAnchorageAreas(model.mapconfig.anchorages);
         views.renderMooringAreas(model.mapconfig.moorings);
-
 
     },
 
@@ -367,55 +365,66 @@ var views = {
         this.MarkerCluster =
             new MarkerClusterer(this.mapa, this.markers, clusterOptions);
     },
-    renderPlatforms: function (datosplatforms) {
-        var platform = datosplatforms;
-        console.log(platform);
-        var infowindow = null;
-        infowindow = new google.maps.InfoWindow({
-            content: ""
-        });
-        for (var i = 0; i < platform.length; i++) {
-            var content = "<h6>" + platform[i].name + " </h6>";
-            var position = new google.maps.LatLng(platform[i].center[0],
-                platform[i].center[1]);
-            var platformM = new google.maps.Marker({
-                center: position,
-                icon: '../imgs/' + platform[i].icon,
-                draggable: false,
-                title: platform[i].name,
-                zIndex: 1,
-                html: content,
-                map: views.mapa
-            });
-            this.platformMarkers[i] = platformM;
-            google.maps.event.addListener(platformM, 'mouseover', function () {
-                infowindow.setContent(this.html);
-                infowindow.open(views.mapa, this);
-            });
-            google.maps.event.addListener(platformM, 'mouseout', function () {
-                infowindow.close();
-            });
-        }
-    },
+//    renderPlatforms: function (datosplatforms) {
+//        var platform = datosplatforms;
+////        console.log(platform);
+//        var infowindow = null;
+//        infowindow = new google.maps.InfoWindow({
+//            content: ""
+//        });
+//        for (var i = 0; i < platform.length; i++) {
+//            var content = "<h6>" + platform[i].name + " </h6>";
+//            var position = new google.maps.LatLng(platform[i].center[0],
+//                platform[i].center[1]);
+//
+//            var platformM = new google.maps.Marker({
+//                center: position,
+//                icon: '../imgs/' + platform[i].icon,
+//                draggable: false,
+//                title: platform[i].name,
+//                zIndex: 1,
+//                html: content,
+//                map: views.mapa
+//            });
+////            console.log(platform[i].name);
+////            console.log(platform[i].center[0],
+////                platform[i].center[1]);
+////            console.log(platform[i].icon);
+//            console.log(views.mapa);
+//            this.platformMarkers[i] = platformM;
+//            google.maps.event.addListener(platformM, 'mouseover', function () {
+//                infowindow.setContent(this.html);
+//                infowindow.open(views.mapa, this);
+//            });
+//            google.maps.event.addListener(platformM, 'mouseout', function () {
+//                infowindow.close();
+//            });
+//        }
+//    },
     renderDocks: function (datosdocks) {
         var docks = datosdocks;
         var infowindow = null;
         infowindow = new google.maps.InfoWindow({
             content: ""
         });
+        
         for (var i = 0; i < docks.length; i++) {
             var content = "<h6>" + docks[i].name + " </h6>";
-            var position = new google.maps.LatLng(docks[i].center[0],
-                docks[i].center[1]);
+            var position = new google.maps.LatLng(docks[i].center[0], docks[i].center[1]);
+            
             var marcador = new google.maps.Marker({
                 center: position,
                 icon: '../imgs/' + docks[i].icon,
                 draggable: false,
                 title: docks[i].name,
-                zIndex: 1,
+                zIndex: 10,
                 html: content,
-                map: views.mapa
+                map: views.mapa,
             });
+//            console.log(views.mapa);
+//            console.log(docks[i].center[0], docks[i].center[1]);
+//            console.log(docks[i].icon);
+            
             views.docksMarkers[i] = marcador;
             google.maps.event.addListener(marcador, 'mouseover', function () {
                 infowindow.setContent(this.html);
@@ -425,40 +434,43 @@ var views = {
                 infowindow.close();
             });
         }
+       
     },
-    //    renderAnchorageAreas: function (datosAnchorageAreas) {
-    //        var anchorageareas = datosAnchorageAreas;
-    //        var infowindow = null;
-    //        infowindow = new google.maps.InfoWindow({
-    //            content: ""
-    //        });
-    //        for (var i = 0; i < anchorageareas.length; i++) {
-    //            var coordenada = new google.maps.LatLng(anchorageareas[i].center[0], anchorageareas[i].center[1]);
-    //            var circleOptions = {
-    ////                strokeColor: anchorageareas[i].fillcolor.value,
-    ////                strokeOpacity: anchorageareas[i].opacity.value,
-    //                strokeWeight: 1,
-    ////                fillColor: anchorageareas[i].fillcolor.value,
-    ////                fillOpacity: anchorageareas[i].opacity.value,
-    //                map: views.mapa,
-    //                center: coordenada,
-    //                html: anchorageareas[i].name,
-    ////                radius: parseInt(anchorageareas[i].radius.value)
-    //
-    //            };
-    //            var circle = new google.maps.Circle(circleOptions);
-    //            views.anchorageAreaMarkers[i] = circle;
-    //            google.maps.event.addListener(circle, 'click', function (event) {
-    //                var point = this.center;
-    //                infowindow.setContent(this.html);
-    //                if (event) {
-    //                    point = event.latLng;
-    //                }
-    //                infowindow.setPosition(point);
-    //                infowindow.open(views.mapa, this);
-    //            });
-    //        }
-    //    },
+        renderAnchorageAreas: function (datosAnchorageAreas) {
+            var anchorageareas = datosAnchorageAreas;
+            var infowindow = null;
+            infowindow = new google.maps.InfoWindow({
+                content: ""
+            });
+    
+            for (var i = 0; i < anchorageareas.length; i++) {
+                var coordenada = new google.maps.LatLng(anchorageareas[i].center[0], anchorageareas[i].center[1]);
+                var circleOptions = {
+                    strokeColor: '#220230',
+                    strokeOpacity: '0.4',
+                    strokeWeight: 1,
+                    fillColor: '#220230',
+                    fillOpacity: '0.4',
+                    map: views.mapa,
+                    center: coordenada,
+                    html: anchorageareas[i].name,
+                    radius: parseInt(anchorageareas[i].radius)
+    
+                };
+                var circle = new google.maps.Circle(circleOptions);
+                views.anchorageAreaMarkers[i] = circle;
+                google.maps.event.addListener(circle, 'click', function (event) {
+                    var point = this.center;
+                    infowindow.setContent(this.html);
+                    if (event) {
+                        point = event.latLng;
+                    }
+                    infowindow.setPosition(point);
+                    infowindow.open(views.mapa, this);
+                });
+            }
+        },
+    
     renderMooringAreas: function (datosMooringAreas) {
         var moorings = datosMooringAreas;
         var infowindow = null;
@@ -469,17 +481,18 @@ var views = {
             var arraycoordenadas = [];
             var mooringArea = {};
             for (var j = 0, len2 = moorings[i].vertices.length; j < len2; j++) {
-                arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j],
-                    moorings[i].vertices[j]));
+                arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j][0],
+                    moorings[i].vertices[j][1]));
             }
+            
             mooringArea = new google.maps.Polygon({
                 paths: arraycoordenadas,
-                //                strokeColor: moorings[i].fillColor,
-                strokeOpacity: 0.8,
-                strokeWeight: 2,
-                zIndex: 5,
-                //                fillColor: moorings[i].fillColor,
-                //                fillOpacity: moorings[i].opacity,
+                strokeColor: '#220230',
+                strokeOpacity: '0.4',
+                strokeWeight: '2',
+                zIndex: '5',
+                fillColor: '##220230',
+                fillOpacity: '0.4',
                 html: moorings[i].name,
                 map: views.mapa
             });
@@ -506,15 +519,15 @@ var views = {
         var html = plantilla(vessel);
         $('#rm-list').html(html);
     },
-    //    renderRegionData: function (regionData) {
-    //        var data = {
-    //            entities: regionData.entities
-    //        };
-    //        var template = $('#region-data').html();
-    //        var plantilla = Handlebars.compile(template);
-    //        var html = plantilla(data);
-    //        $('#region-html').html(html);
-    //    },
+//        renderRegionData: function (regionData) {
+//            var data = {
+//                entities: regionData.entities
+//            };
+//            var template = $('#region-data').html();
+//            var plantilla = Handlebars.compile(template);
+//            var html = plantilla(data);
+//            $('#region-html').html(html);
+//        },
     zoomOnVessel: function (posicion) {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
@@ -527,12 +540,11 @@ $(document).ready(function () {
     controller.mapconfig();
     controller.userconfig();
     controller.fleetconfig();
-    model.fleetid = window.location.search.split('?')[1].split('=')[1];
     controller.jQueryEvents();
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
 });
-},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselsposition.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jQuery":39}],2:[function(require,module,exports){
+},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselspositionPer.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jQuery":39}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -2876,9 +2888,9 @@ module.exports = function getVessel(callback, id) {
 var $ = require('jquery');
 module.exports = function getVesselsPosition(callback, fleetid) {
     try {
-        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition?SessionID=&GetData=vesselid=" + fleetid, {
+        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition", {
                 SessionID: "",
-                GetData: ""
+                GetData: "fleetid=2"
             })
             .done(function (data) {
                 var datos = data.childNodes[0].childNodes[0].nodeValue;

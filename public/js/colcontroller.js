@@ -4,7 +4,7 @@ window.jQuery = $;
 var bootstrap = require('../shared/bootstrap.js');
 var MarkerClusterer = require('../shared/markerclusterer.js');
 var Handlebars = require('handlebars');
-var getVesselsPosition = require('../shared/getvesselsposition.js');
+var getVesselsPosition = require('../shared/getvesselspositionCol.js');
 var getVessel = require('../shared/getvessel.js');
 
 var request = {
@@ -43,7 +43,6 @@ var request = {
         try {
             $.get("../jsons/fleetcol.json")
                 .done(function (data) {
-                    console.log(data);
                     var datos = data;
                     callback(datos);
 
@@ -314,7 +313,7 @@ $(document).ready(function () {
     controller.getVesselsPosition();
     setInterval(controller.getVesselsPosition, 60000);
 });
-},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselsposition.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jQuery":39}],2:[function(require,module,exports){
+},{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselspositionCol.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jQuery":39}],2:[function(require,module,exports){
 /*!
  * Bootstrap v3.3.1 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -2658,9 +2657,9 @@ module.exports = function getVessel(callback, id) {
 var $ = require('jquery');
 module.exports = function getVesselsPosition(callback, fleetid) {
     try {
-        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition?SessionID=&GetData=vesselid=" + fleetid, {
+        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition", {
                 SessionID: "",
-                GetData: ""
+                GetData: "fleetid=1"
             })
             .done(function (data) {
                 var datos = data.childNodes[0].childNodes[0].nodeValue;

@@ -3,7 +3,7 @@ window.jQuery = $;
 var bootstrap = require('../shared/bootstrap.js');
 var MarkerClusterer = require('../shared/markerclusterer.js');
 var Handlebars = require('handlebars');
-var getVesselsPosition = require('../shared/getvesselsposition.js');
+var getVesselsPosition = require('../shared/getvesselspositionCol.js');
 var getVessel = require('../shared/getvessel.js');
 
 var request = {
@@ -42,7 +42,6 @@ var request = {
         try {
             $.get("../jsons/fleetcol.json")
                 .done(function (data) {
-                    console.log(data);
                     var datos = data;
                     callback(datos);
 

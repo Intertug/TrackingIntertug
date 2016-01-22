@@ -8,7 +8,7 @@ var getVesselsPosition = require('../shared/getvesselsposition.js');
 //var getVisualConfiguration = require('../shared/getvisualconfiguration.js');
 var getVessel = require('../shared/getvessel.js');
 
-var vesselIdSelected = 0;
+
 
 var request = {
     getVessels: function (callback) {
@@ -16,7 +16,7 @@ var request = {
     },
     getVesselInfo: function (callback, id) {
         getVessel(callback, id);
-        console.log(id);
+       
     },
 
     userconfig: function (callback) {
@@ -124,6 +124,7 @@ var controller = {
         model.setMapConfig(datos);
         controller.initmap();
     },
+
     setVesselInfo: function (datos) {
         var posicion = {};
         for (var i = 0, len = views.markers.length; i < len; i++) {
@@ -146,13 +147,14 @@ var controller = {
             for (var i = 0, len = vessels.length; i < len; i++) {
                 if (vessels[i].id == this.id) {
                     console.log(this.id);
-                    //                    $("#recorrido").attr("vesselidselected", this.id);
                     controller.setVesselInfo(vessels[i]);
                 }
             }
         });
     },
+    
     getVesselInfo: function (id) {
+        console.log(model.vessels.vessel);
         var vessels = model.vessels.vessel;
         for (var i = 0, len = vessels.length; i < len; i++) {
             if (vessels[i].id == id) {
@@ -161,6 +163,7 @@ var controller = {
             }
         }
     }
+
 };
 
 var views = {
@@ -263,20 +266,14 @@ var views = {
     }
 };
 
-//function go() {
-//    $("#recorrido").click(function () {
-//        window.location = "public/vessel.html?vesselid=" + this.attr("vesselidselected");
-//    });
-//};
-
 
 $(document).ready(function () {
     controller.mapconfig();
     controller.userconfig();
     controller.jQueryEvents();
     controller.getVesselsPosition();
+    
     setInterval(controller.getVesselsPosition, 60000);
-    go();
 });
 },{"../shared/bootstrap.js":2,"../shared/getvessel.js":3,"../shared/getvesselsposition.js":4,"../shared/markerclusterer.js":5,"handlebars":27,"jQuery":39}],2:[function(require,module,exports){
 /*!
@@ -2620,9 +2617,9 @@ module.exports = function getVessel(callback, id) {
 }
 },{"jquery":40}],4:[function(require,module,exports){
 var $ = require('jquery');
-module.exports = function getVesselsPosition(callback, fleetid) {
+module.exports = function getVesselsPosition(callback) {
     try {
-        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition?SessionID=&GetData=vesselid=" + fleetid, {
+        $.post("http://190.242.119.122:82/sioservices/daqonboardservice.asmx/GetVesselsPosition", {
                 SessionID: "",
                 GetData: ""
             })

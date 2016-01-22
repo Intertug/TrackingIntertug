@@ -75,7 +75,7 @@
         <header id="rm-html" class="sidebar__card">
             <script id="rm-info" type="text/x-handlebars-template">
 
-                <h3 class="sidebar__card__title">{{ vesselName }}</h3>
+                <h3 class="sidebar__card__title">{{ labels.lblVesselName}}</h3>
                 <p class="sidebar__card__description">
                     <b>{{labels.lblCallsign}}</b>: {{ callsign }}
                     <b>{{ labels.lblIMO }}</b>: {{ IMO }}
@@ -94,9 +94,9 @@
                     <thead>
                         {{#labels}}
                         <tr>
-                            <th>{{id.label}}</th>
-                            <th>{{message.label}}</th>
-                            <th>{{datetime.label}}</th>
+                            <th>{{id}}</th>
+                            <th>{{message}}</th>
+                            <th>{{datetime}}</th>
                         </tr>
                         {{/labels}}
                     </thead>
@@ -104,8 +104,8 @@
                         {{#alerts}}
                         <tr>
                             <th>{{id}}</th>
-                            <th>{{message.value}}</th>
-                            <th>{{datetime.value}}</th>
+                            <th>{{message}}</th>
+                            <th>{{datetime}}</th>
                         </tr>
                         {{/alerts}}
                     </tbody>
@@ -117,7 +117,7 @@
             <script id="point-panel" type="text/x-handlebars-template">
                 {{#point}}
                 <h3 class="rmpanel__title">{{datetime}}</h3>
-<!--                <p data-color="{{color}}" class="rmpanel__opstate">
+                <!--                <p data-color="{{color}}" class="rmpanel__opstate">
                     {{operationalState.label}}: {{operationalState.value}}
                 </p>-->
                 <p class="rmpanel__date">{{datetime}}</p>
@@ -172,7 +172,7 @@
                 <div class="list-group">
                     <a class="list-group-item">
                         <h4 class="list-group-item-heading">
-                        <div class="circle circle--purple">
+                        <div class="circle circle--green">
                             Punto
                         </div>
                     </h4>

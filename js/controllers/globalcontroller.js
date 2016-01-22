@@ -7,7 +7,7 @@ var getVesselsPosition = require('../shared/getvesselsposition.js');
 //var getVisualConfiguration = require('../shared/getvisualconfiguration.js');
 var getVessel = require('../shared/getvessel.js');
 
-var vesselIdSelected = 0;
+
 
 var request = {
     getVessels: function (callback) {
@@ -15,7 +15,7 @@ var request = {
     },
     getVesselInfo: function (callback, id) {
         getVessel(callback, id);
-        console.log(id);
+       
     },
 
     userconfig: function (callback) {
@@ -123,6 +123,7 @@ var controller = {
         model.setMapConfig(datos);
         controller.initmap();
     },
+
     setVesselInfo: function (datos) {
         var posicion = {};
         for (var i = 0, len = views.markers.length; i < len; i++) {
@@ -145,13 +146,14 @@ var controller = {
             for (var i = 0, len = vessels.length; i < len; i++) {
                 if (vessels[i].id == this.id) {
                     console.log(this.id);
-                    //                    $("#recorrido").attr("vesselidselected", this.id);
                     controller.setVesselInfo(vessels[i]);
                 }
             }
         });
     },
+    
     getVesselInfo: function (id) {
+        console.log(model.vessels.vessel);
         var vessels = model.vessels.vessel;
         for (var i = 0, len = vessels.length; i < len; i++) {
             if (vessels[i].id == id) {
@@ -160,6 +162,7 @@ var controller = {
             }
         }
     }
+
 };
 
 var views = {
@@ -262,18 +265,12 @@ var views = {
     }
 };
 
-//function go() {
-//    $("#recorrido").click(function () {
-//        window.location = "public/vessel.html?vesselid=" + this.attr("vesselidselected");
-//    });
-//};
-
 
 $(document).ready(function () {
     controller.mapconfig();
     controller.userconfig();
     controller.jQueryEvents();
     controller.getVesselsPosition();
+    
     setInterval(controller.getVesselsPosition, 60000);
-    go();
 });
