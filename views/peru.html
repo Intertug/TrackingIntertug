@@ -120,7 +120,7 @@
                             <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
                             <span class="sr-only">Refresh</span>
                         </a>
-                        <h3 class="panel-title">{{vesselname}} {{id}}<small style="color:white">Callsign: 251DSC2</small></h3>
+                        <h3 class="panel-title">{{vesselname}}<small style="color:white">Callsign: 251DSC2</small></h3>
                     </div>
                     <div class="panel-body">
                         <!-- Table with vessel info -->
@@ -169,6 +169,23 @@
         </div>
     </section>
 
+    <section class="sidebar-right">
+    <input type="checkbox" id="sidebar-collapsible"/><label for="sidebar-collapsible" class="labels-title"></label>
+    <div class="sidebar-right__labels">
+        <div id="region-html" class="sidebar-right__labels__entities">
+            <script id="region-data" type="text/x-handlebars-template">
+            <div class="list-group">
+              {{#entities}}
+              <a class="list-group-item">
+                <h4 class="list-group-item-heading">{{entity.value}}</h4>
+                <p class="list-group-item-text">{{tel.value}}</p>
+              </a>
+              {{/entities}} 
+            </div>     
+            </script>
+        </div>
+    </div>
+</section>
     <!--	JavaScripts   -->
     <script src="../public/js/percontroller.js"></script>
     <!-- Fin JavaScripts -->

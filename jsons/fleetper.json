@@ -46,5 +46,86 @@
                 }
             }
         ]
-    }
+    },
+    "platforms": {
+        "platform": [
+            {
+                "id": "1",
+                "platformname": {
+                    "value": "CX11",
+                    "label": "Plataforma"
+                },
+                "position": {
+                    "lat": {
+                        "value": "-3.59541666666",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.737166666",
+                        "label": "Longitud"
+                    },
+                    "label": "Posicion"
+                },
+                "icon": "offshore_platform.png"
+            },
+            {
+                "id": "2",
+                "platformname": {
+                    "value": "CX15",
+                    "label": "Plataforma"
+                },
+                "position": {
+                    "lat": {
+                        "value": "-3.60750",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.73667",
+                        "label": "Longitud"
+                    },
+                    "label": "Posicion"
+                },
+                "icon": "offshore_platform.png"
+            },
+            {
+                "id": "3",
+                "platformname": {
+                    "value": "Z1-8-A",
+                    "label": "Plataforma"
+                },
+                "position": {
+                    "lat": {
+                        "value": "3.42000",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.58362",
+                        "label": "Longitud"
+                    },
+                    "label": "Posicion"
+                },
+                "icon": "offshore_platform.png"
+            }
+        ]
+    },
+    "docks": {
+        "dock": [
+            {
+                "id": "1",
+                "dockname": "Muelle La Cruz",
+                "position": {
+                    "lat": {
+                        "value": "-3.633691",
+                        "label": "Latitud"
+                    },
+                    "long": {
+                        "value": "-80.587355",
+                        "label": "Longitud"
+                    },
+                    "label": "Posicion"
+                },
+                "icon": "port.png"
+            }
+        ]
+    },
 }

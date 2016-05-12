@@ -46,3 +46,10 @@ Temporary Items
 /nbproject
 /node_modules
 prepros.cfg
+/imgs
+/css/bootstrap
+/css/sass
+/js
+/views
+*.docx
+*.txt

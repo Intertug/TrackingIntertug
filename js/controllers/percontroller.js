@@ -14,6 +14,22 @@ var request = {
         getVessel(callback, id);
     },
 
+    fleetconfig: function (callback) {
+        try {
+            $.get("../jsons/fleetconfig.json", {
+                    SessionID: "",
+                    GetData: ""
+                })
+                .done(function (data) {
+                    var datos = data;
+                    callback(datos);
+                });
+        } catch (err) {
+            console.log(err);
+            throw err;
+        }
+    },
+
     userconfig: function (callback) {
         try {
             $.getJSON("http://nautilus.intertug.com:8080/api/visualconfiguration/0")
@@ -122,9 +138,8 @@ var model = {
         this.ccomInfo = {
             ccomName: datos.ccomName,
             ccomID: datos.ccomID,
-            ccomDescription: datos.ccomDescription
-
-            //            regionData: datos.regionData
+            ccomDescription: datos.ccomDescription,
+            regionData: datos.regionData
         };
         return true;
     },
@@ -142,17 +157,13 @@ var model = {
         return true;
     },
     setMapConfig: function (datos) {
-        //        this.anchorageAreas = datos.anchorages;
-        //        this.docks = datos.docks;
-        //        this.platforms = datos.platforms;
-        //        this.moorings = datos.moorings;
         this.mapconfig = {
             mapType: datos.mapType,
             zoom: datos.zoom,
             center: datos.center,
             cluster: datos.cluster,
-            platforms: datos.platforms,
-            docks: datos.docks,
+            //            platforms: datos.platforms,
+            //            docks: datos.docks,
             anchorages: datos.anchorages,
             moorings: datos.moorings
         };
@@ -187,6 +198,7 @@ var controller = {
         };
         views.renderMap(opciones);
     },
+
     userconfig: function () {
         request.userconfig(this.setUserConfig);
     },
@@ -220,9 +232,9 @@ var controller = {
         //        views.renderDocks(model.docks);
         //        views.renderMoorings(model.moorings);
         //        console.log(model.platforms);
-//        views.renderPlatforms(model.mapconfig.platforms);
-        views.renderDocks(model.mapconfig.docks);
-         views.renderAnchorageAreas(model.mapconfig.anchorages);
+        //        views.renderPlatforms(model.mapconfig.platforms);
+        //        views.renderDocks(model.mapconfig.docks);
+        views.renderAnchorageAreas(model.mapconfig.anchorages);
         views.renderMooringAreas(model.mapconfig.moorings);
 
     },
@@ -230,6 +242,9 @@ var controller = {
     setFleet: function (datos) {
         var boolean = model.setFleet(datos);
         views.renderFleetInfo(model.ccomInfo);
+        views.renderRegionData(model.ccomInfo.regionData);
+        views.renderPlatforms(model.platforms);
+        views.renderDocks(model.docks);
         //        views.renderRegionData(model.ccomInfo.regionData);
     },
     setVesselInfo: function (datos) {
@@ -364,112 +379,115 @@ var views = {
         this.MarkerCluster =
             new MarkerClusterer(this.mapa, this.markers, clusterOptions);
     },
-//    renderPlatforms: function (datosplatforms) {
-//        var platform = datosplatforms;
-////        console.log(platform);
-//        var infowindow = null;
-//        infowindow = new google.maps.InfoWindow({
-//            content: ""
-//        });
-//        for (var i = 0; i < platform.length; i++) {
-//            var content = "<h6>" + platform[i].name + " </h6>";
-//            var position = new google.maps.LatLng(platform[i].center[0],
-//                platform[i].center[1]);
-//
-//            var platformM = new google.maps.Marker({
-//                center: position,
-//                icon: '../imgs/' + platform[i].icon,
-//                draggable: false,
-//                title: platform[i].name,
-//                zIndex: 1,
-//                html: content,
-//                map: views.mapa
-//            });
-////            console.log(platform[i].name);
-////            console.log(platform[i].center[0],
-////                platform[i].center[1]);
-////            console.log(platform[i].icon);
-//            console.log(views.mapa);
-//            this.platformMarkers[i] = platformM;
-//            google.maps.event.addListener(platformM, 'mouseover', function () {
-//                infowindow.setContent(this.html);
-//                infowindow.open(views.mapa, this);
-//            });
-//            google.maps.event.addListener(platformM, 'mouseout', function () {
-//                infowindow.close();
-//            });
-//        }
-//    },
-    renderDocks: function (datosdocks) {
-        var docks = datosdocks;
+
+    //    renderPlatforms: function (datosplatforms) {
+    //        var platform = datosplatforms;
+    ////        console.log(platform);
+    //        var infowindow = null;
+    //        infowindow = new google.maps.InfoWindow({
+    //            content: ""
+    //        });
+    //        for (var i = 0; i < platform.length; i++) {
+    //            var content = "<h6>" + platform[i].name + " </h6>";
+    //            var position = new google.maps.LatLng(platform[i].center[0],
+    //                platform[i].center[1]);
+    //
+    //            var platformM = new google.maps.Marker({
+    //                center: position,
+    //                icon: '../imgs/' + platform[i].icon,
+    //                draggable: false,
+    //                title: platform[i].name,
+    //                zIndex: 1,
+    //                html: content,
+    //                map: views.mapa
+    //            });
+    ////            console.log(platform[i].name);
+    ////            console.log(platform[i].center[0],
+    ////                platform[i].center[1]);
+    ////            console.log(platform[i].icon);
+    //            console.log(views.mapa);
+    //            this.platformMarkers[i] = platformM;
+    //            google.maps.event.addListener(platformM, 'mouseover', function () {
+    //                infowindow.setContent(this.html);
+    //                infowindow.open(views.mapa, this);
+    //            });
+    //            google.maps.event.addListener(platformM, 'mouseout', function () {
+    //                infowindow.close();
+    //            });
+    //        }
+    //    },
+
+    //    renderDocks: function (datosdocks) {
+    //        var docks = datosdocks;
+    //        var infowindow = null;
+    //        infowindow = new google.maps.InfoWindow({
+    //            content: ""
+    //        });
+    //
+    //        for (var i = 0; i < docks.length; i++) {
+    //            var content = "<h6>" + docks[i].name + " </h6>";
+    //            var position = new google.maps.LatLng(docks[i].center[0], docks[i].center[1]);
+    //
+    //            var marcador = new google.maps.Marker({
+    //                center: position,
+    //                icon: '../imgs/' + docks[i].icon,
+    //                draggable: false,
+    //                title: docks[i].name,
+    //                zIndex: 10,
+    //                html: content,
+    //                map: views.mapa,
+    //            });
+    //            //            console.log(views.mapa);
+    //            //            console.log(docks[i].center[0], docks[i].center[1]);
+    //            //            console.log(docks[i].icon);
+    //
+    //            views.docksMarkers[i] = marcador;
+    //            google.maps.event.addListener(marcador, 'mouseover', function () {
+    //                infowindow.setContent(this.html);
+    //                infowindow.open(views.mapa, this);
+    //            });
+    //            google.maps.event.addListener(marcador, 'mouseout', function () {
+    //                infowindow.close();
+    //            });
+    //        }
+    //
+    //    },
+
+    renderAnchorageAreas: function (datosAnchorageAreas) {
+        var anchorageareas = datosAnchorageAreas;
         var infowindow = null;
         infowindow = new google.maps.InfoWindow({
             content: ""
         });
-        
-        for (var i = 0; i < docks.length; i++) {
-            var content = "<h6>" + docks[i].name + " </h6>";
-            var position = new google.maps.LatLng(docks[i].center[0], docks[i].center[1]);
-            
-            var marcador = new google.maps.Marker({
-                center: position,
-                icon: '../imgs/' + docks[i].icon,
-                draggable: false,
-                title: docks[i].name,
-                zIndex: 10,
-                html: content,
+
+        for (var i = 0; i < anchorageareas.length; i++) {
+            var coordenada = new google.maps.LatLng(anchorageareas[i].center[0], anchorageareas[i].center[1]);
+            var circleOptions = {
+                strokeColor: '#220230',
+                strokeOpacity: '0.4',
+                strokeWeight: 1,
+                fillColor: '#220230',
+                fillOpacity: '0.4',
                 map: views.mapa,
-            });
-//            console.log(views.mapa);
-//            console.log(docks[i].center[0], docks[i].center[1]);
-//            console.log(docks[i].icon);
-            
-            views.docksMarkers[i] = marcador;
-            google.maps.event.addListener(marcador, 'mouseover', function () {
+                center: coordenada,
+                html: anchorageareas[i].name,
+                radius: parseInt(anchorageareas[i].radius)
+
+            };
+            var circle = new google.maps.Circle(circleOptions);
+            views.anchorageAreaMarkers[i] = circle;
+            google.maps.event.addListener(circle, 'click', function (event) {
+                var point = this.center;
                 infowindow.setContent(this.html);
+                if (event) {
+                    point = event.latLng;
+                }
+                infowindow.setPosition(point);
                 infowindow.open(views.mapa, this);
             });
-            google.maps.event.addListener(marcador, 'mouseout', function () {
-                infowindow.close();
-            });
         }
-       
     },
-        renderAnchorageAreas: function (datosAnchorageAreas) {
-            var anchorageareas = datosAnchorageAreas;
-            var infowindow = null;
-            infowindow = new google.maps.InfoWindow({
-                content: ""
-            });
-    
-            for (var i = 0; i < anchorageareas.length; i++) {
-                var coordenada = new google.maps.LatLng(anchorageareas[i].center[0], anchorageareas[i].center[1]);
-                var circleOptions = {
-                    strokeColor: '#220230',
-                    strokeOpacity: '0.4',
-                    strokeWeight: 1,
-                    fillColor: '#220230',
-                    fillOpacity: '0.4',
-                    map: views.mapa,
-                    center: coordenada,
-                    html: anchorageareas[i].name,
-                    radius: parseInt(anchorageareas[i].radius)
-    
-                };
-                var circle = new google.maps.Circle(circleOptions);
-                views.anchorageAreaMarkers[i] = circle;
-                google.maps.event.addListener(circle, 'click', function (event) {
-                    var point = this.center;
-                    infowindow.setContent(this.html);
-                    if (event) {
-                        point = event.latLng;
-                    }
-                    infowindow.setPosition(point);
-                    infowindow.open(views.mapa, this);
-                });
-            }
-        },
-    
+
     renderMooringAreas: function (datosMooringAreas) {
         var moorings = datosMooringAreas;
         var infowindow = null;
@@ -483,7 +501,7 @@ var views = {
                 arraycoordenadas.push(new google.maps.LatLng(moorings[i].vertices[j][0],
                     moorings[i].vertices[j][1]));
             }
-            
+
             mooringArea = new google.maps.Polygon({
                 paths: arraycoordenadas,
                 strokeColor: '#220230',
@@ -518,19 +536,28 @@ var views = {
         var html = plantilla(vessel);
         $('#rm-list').html(html);
     },
-//        renderRegionData: function (regionData) {
-//            var data = {
-//                entities: regionData.entities
-//            };
-//            var template = $('#region-data').html();
-//            var plantilla = Handlebars.compile(template);
-//            var html = plantilla(data);
-//            $('#region-html').html(html);
-//        },
+    //        renderRegionData: function (regionData) {
+    //            var data = {
+    //                entities: regionData.entities
+    //            };
+    //            var template = $('#region-data').html();
+    //            var plantilla = Handlebars.compile(template);
+    //            var html = plantilla(data);
+    //            $('#region-html').html(html);
+    //        },
     zoomOnVessel: function (posicion) {
         var pos = new google.maps.LatLng(posicion.lat, posicion.long);
         this.mapa.setCenter(pos);
         this.mapa.setZoom(11);
+    },
+    renderRegionData: function (regionData) {
+        var data = {
+            entities: regionData.entities
+        };
+        var template = $('#region-data').html();
+        var plantilla = Handlebars.compile(template);
+        var html = plantilla(data);
+        $('#region-html').html(html);
     }
 };
 
